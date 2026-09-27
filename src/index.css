@@ -28,6 +28,10 @@ html, body, #root {
   -webkit-font-smoothing: antialiased;
 }
 
+button:focus-visible {
+  outline: 1px solid var(--accent);
+}
+
 /* ── RESPONSIVE ROOT OVERRIDES ── */
 @media (max-width: 700px) {
   html, body, #root {

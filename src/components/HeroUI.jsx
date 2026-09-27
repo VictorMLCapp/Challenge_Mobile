@@ -16,14 +16,8 @@ export default function HeroUI({ onViewSpecs, onViewReport, onHome }) {
 
       <header className={styles.header}>
         <button className={styles.logo} onClick={onHome}>
-          <img src={fordLogo} alt="Ford Logo" className={styles.logoImg} />
+          <img src={fordLogo} alt="Ford" className={styles.logoImg} />
         </button>
-        <nav className={styles.nav}>
-          <a href="#" className={styles.navLink}>Modelos</a>
-          <a href="#" className={styles.navLink}>Configurar</a>
-          <a href="#" className={styles.navLink}>Dealer</a>
-          <button className={styles.ctaSmall}>Solicitar Proposta</button>
-        </nav>
       </header>
 
       <div className={styles.leftPanel}>
