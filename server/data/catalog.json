@@ -1,0 +1,4220 @@
+{
+  "versao": 1,
+  "veiculos": [
+    {
+      "id": "ford-ranger-26my-xlt-3-0l-v6-at-26my",
+      "marca": "Ford",
+      "modelo": "Ranger",
+      "versao": "XLT 3.0L V6 AT 26MY",
+      "linha": "RANGER 26MY",
+      "fonte": "FIAP-Ford - Data sheet_Desafio_01_v02.xlsx",
+      "specs": {
+        "Peso em ordem de marchas": {
+          "valor": 2283,
+          "unidade": "kg",
+          "categoria": "Engine & Transmission"
+        },
+        "Cilindrada": {
+          "valor": 3,
+          "unidade": "L",
+          "categoria": "Engine & Transmission"
+        },
+        "Potência": {
+          "valor": 250,
+          "unidade": "cv",
+          "categoria": "Engine & Transmission"
+        },
+        "Torque": {
+          "valor": 600,
+          "unidade": "Nm",
+          "categoria": "Engine & Transmission"
+        },
+        "Economia de Combustível": {
+          "valor": 9.55,
+          "unidade": "km/l",
+          "categoria": "Engine & Transmission"
+        },
+        "Transmissão Automática": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "Motor Flex vs Gasolina": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "Tecnologia turbo": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "Quantidade de marchas": {
+          "valor": 10,
+          "unidade": "marchas",
+          "categoria": "Engine & Transmission"
+        },
+        "FHEV": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "PHEV": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "BEV": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "Motor Diesel": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "Paddle Shift": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "E-Shifter (Manopla eletrônica)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "Tecnologia BiTurbo": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "Motor Elétrico": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "E-Autonomy": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "Liga leve": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Wheels"
+        },
+        "Polegadas": {
+          "valor": 17,
+          "unidade": "pol",
+          "categoria": "Wheels"
+        },
+        "Pneus ATR (50/50)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Wheels"
+        },
+        "Pneus RunFlat": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Wheels"
+        },
+        "Pneus ATR Plus (60/40)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Wheels"
+        },
+        "Pneus Auto-vedantes": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Wheels"
+        },
+        "Full Size Spare tires (same as vehicle base)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Wheels"
+        },
+        "Estepe temporário": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Wheels"
+        },
+        "Loja de Aplicativos": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Digital assistant (Assistente Digital Inteligente)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Destravamento/Travamento das portas": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Ignição Rota (com agendamento ou não)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Localização do Veículo": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Vehicle Health and Alerts (+Veh Status)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Send POI to Navigation": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Geofencing / Guard Mode": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Vehicle Recovery": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Usage Based Insurance – UBI": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Wi-Fi Hotspot": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Status de carregamento (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Configuração de carregamento (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Trip & Charge Log (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Station Finder (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Trends (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Rankings (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Atualizaçãos OTA": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Agile Vehicle Data Collection": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Online Traffic (Sync 4)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Local Hazard information": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Zone Lighting": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "IP Pass-through": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Low Charge Alert (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Charge Station Space Availability Alert (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Locate and Pay (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Smart Charging (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Plug and Charge (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Planejador de Viagem (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Bluetooth": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Camera traseira": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Camera 180 graus": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Navegador GPS": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Navegador GPS (Atualizavel)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Radio Mechless (Sem USB, Sem Bluetooth)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Reconhecimento por voz e/ou Comando de Voz": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Alto-falantes/ Tweeters (unidade)": {
+          "valor": 6,
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Head Up Display (HUD)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Tela no painel de instrumentos (monocromática) por polegada": {
+          "valor": "Não",
+          "unidade": "pol",
+          "categoria": "Ice Line Up"
+        },
+        "Sistema de som Premium/Marca": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Head Up Display (HUD) - (realidade aumentada)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Espelhamento de tela touch screen (Android Auto / Car Play) por cabo": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Muitimedia polegadas": {
+          "valor": 10,
+          "unidade": "pol",
+          "categoria": "Ice Line Up"
+        },
+        "Assistência de Emergência": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Carregamento Wireless": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Subwoofer + Amplificador": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Câmera 360 graus": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Conexão Wireless Android Auto & Car Play": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Tela no painel de instrumentos colorida por polegada": {
+          "valor": 8,
+          "unidade": "pol",
+          "categoria": "Ice Line Up"
+        },
+        "Alto-falantes premium/ Tweeters (unidade)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "USB (unidade)": {
+          "valor": 4,
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "USB Passageiro (unidade)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Ar Condicionado com saída p/ 2ª fileira ou mais de bancos": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Air conditioning"
+        },
+        "Ar Condicionado Automático e Digital": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Air conditioning"
+        },
+        "Ar condicionado de duas zonas": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Air conditioning"
+        },
+        "Sistema Anti Capotamento (Rollover Stability Control)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Freio Automático (Carro Parado)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Aviso de pressão baixa dos pneus (DDS)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Sensor de Pressão dos pneus (TPMS)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Controle de descida": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Controle Adaptativo de carga": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Controle de reboque": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Trail Control": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Controle de freio do Trailer": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Vetorização de Torque": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Freio automatico após impacto": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Assistência de direção defensiva": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "ABS Off Road": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Airbag (cada)": {
+          "valor": 7,
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Piloto Automático": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Limitador de Velocidade": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Piloto Automático Adaptativo": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Sistema de Permanência na Faixa (alerta e assistência)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Sensor de Estacionamento Traseiro": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Sensor de Estacionamento Dianteiro": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Sensor de Chuva": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Espelho retrovisor eletrocrômico": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Acendimento automático dos faróis (sensor crepuscular)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Partida Remota (Chave)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Detector de Fadiga": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Sistema de Estacionamento Automático - (Acelera e freia)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Sistema de Estacionamento Automático - 2.0 (Supervisionado)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Sistema de Estacionamento Automático - Remoto": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Freio de mão eletrônico": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Retrovisor elétrico": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Sistema de monitoramento de ponto-cego (BLIS)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Reconhecimento de sinais de trânsito": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Abertura do porta-malas sem as mãos": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Modo de condução (Ajuste da rigidez volante)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Drive Mode (Ajuste da rigidez volante, ignição e marcha)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "AEB (Autonomous Emergency Brake)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Espelho retrovisor com rebatimento elétrico": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Piloto Automático Adaptativo + Stop & GO + Reconhecimento de Placas (Ajuste Velocidade)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Alerta de Permanência em Faixa": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Alerta de Colisão Frontal": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Sistema de centralização de faixa": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Piloto Automático Adaptativo + Stop & GO": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Sistema de monitoramento de ponto-cego (BLIS) + Alerta de trafego cruzado": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Reverse AEB": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Sistema Keyless Entry com Botão de Partida (PEPS)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Espelho retrovisor interior digital": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Aceleração Remota": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Alarme Volumétrico (inclui perimétrico)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Alarme Perimétrico": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Global Opening (Vidros, Travas e/ou Sunroof)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Trava Elétrica das portas": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Vidro elétrico Traseiro": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Sistema de um toque para cima/baixo + Anti-esmagamento (valor por por porta)": {
+          "valor": 4,
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Abertura de porta traseira 270 (Van)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Thatcham Alarm (Bateria adicional)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Global Closing (Vidros, Travas e/ou Sunroof)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Tampa do Porta-malas automatico": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Vidro Elétrico vidro caçamba (pickups)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Abertura do vidro do porta-malas": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Bancos revestidos em couro": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Trim"
+        },
+        "Bancos revestidos parcialmente (50% Vinil / 50% Tecido)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Trim"
+        },
+        "Manopla do câmbio com acabamento em Couro": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Trim"
+        },
+        "Volante revestido em couro/vynil": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Trim"
+        },
+        "Volante revestido parcialmente em couro": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Trim"
+        },
+        "Painel Soft Touch": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Trim"
+        },
+        "Bancos revestidos 100% Vinil": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Trim"
+        },
+        "Alcantara / Outros (Adicional ao Couro/Vinil)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Trim"
+        },
+        "Teto Solar Elétrico": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "SunRoof"
+        },
+        "Teto Solar Panorâmico": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "SunRoof"
+        },
+        "Teto de Vidro": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "SunRoof"
+        },
+        "Banco Traseiro Bipartido (60/40)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Banco Traseiro aquecido": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Bancos traseiros rebatíveis (100%)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Acento traseiro rebatimento pra Frente": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Banco Traseiro Flip & Fold com compartimento": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Banco com Memória": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Bancos Aquecimento (Frontal)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Bancos refrigerado (Frontal)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "3ª fileira de Bancos": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Rebatimento Automatico do Encosto do banco traseiro": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Terceiro Assento dianteiro": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Massagem bancos dianteiros": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Bancos reclináveis 180°": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Banco posições Elétrico (cada posição)": {
+          "valor": 8,
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Banco posições Manual": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Bancos Recaro": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Faróis Full LED": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Faróis de Xenon": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Faróis direcionais": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Faróis auxiliares em curvas": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Farol com Projetor": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "LED Day time running lights (DTRL) + Signature Lights": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Farol alto automático": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Faróis de Neblina Dianteiro": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Luz de Neblina Traseiro": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Lanternas em LED - parcial": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Lanternas em Full LED": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Seta no retrovisor": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Lâmpada Farol de Neblina LED": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Farois Matrix Led": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Iluminação 360°": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Ajuste de altura de faróis automático": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Ajuste de Altura de faróis": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Iluminação na caçamba (interno) + Chicote Elétrico": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Tração 4x4 (high/low)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Diferencial traseiro blocante": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Diferencial traseiro com deslizamento limitado": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Santo Antônio tubular (Pickups)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Santo Antônio (estilizado c/ box rail)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Estribo Lateral Plataforma (Pickups)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Estribo Lateral tubular metálico (Pickups)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Bloqueio de diferencial dianteiro (FWD)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Protetor de Caçamba": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Box rails (na parte superior da caçamba)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Capota Maritima (Pickups)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Terrain Management System (i.e: Modes Auto, Sand, Snow, Mud, Rock)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Capota Rigida": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Tração Traseira": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Tração integral (AWD)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Suspensão Off road FOX Live Valve Eixo Frontal/Traseiro": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "4x4 Lock (Adicional ao AWD) - 4WD": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Protetor de Caçamba Spray-in": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Suspensão Melhorada": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Santo Antônio Deslizante (Swing in Place)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Peito de aço": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Suspensão a Ar (Active Level)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Anos de garantia": {
+          "valor": 5,
+          "unidade": "anos",
+          "categoria": "Others"
+        },
+        "Anos de garantia da bateria (HEV or BEV)": {
+          "valor": "Não",
+          "unidade": "anos",
+          "categoria": "Others"
+        },
+        "Tomada 110V (cada)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Apoio de braço dianteiro (integrado no banco)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Apoio de braço traseiro": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Cabine Dupla (pickups)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Cabine simples (pickups)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Cabine simples sem caçamba (Chassis) (pickups)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Alargadores de Paralamas": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Ajuste dos Pedais elétrico": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Degrau acesso caçamba": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Assistente da Tampa da Caçamba": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Travamento elétrico da caçamba": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Capota Marítima Elétrica": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Faixa Adesiva (ex: capo, lateral, etc)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Freios Brembo (Por Eixo)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Sistema de escapamento com Válvula ativa": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Pro Power 2.000W": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Escada de acesso à caçamba": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Superfície para trabalho na tampa na caçamba": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Monitor de vida util do óleo": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Bagageiro de teto (barras longitudinais)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Compartimento para caçamba": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Tampa Traseira Multifuncional (c/ abertura lateral)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Engate de Reboque 3.500 kg": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Volantes aquecidos": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Tacógrafo Digital": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Bagageiro de teto (barras transversais)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Bússola e inclinômetros longitudinal e transversal": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Console dianteiro central com apoio de braço": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Disco de freio traseiro": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Espelho Retrovisor Externo Cromado": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Ganchos para Reboque (cada)": {
+          "valor": 1,
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Grade do radiador com acabamento Premium (Black Piano, Cromo, Cor veiculo)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Maçanetas externas cromadas": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Molduras Laterais na Cor do Veículo (Friso)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Molduras Laterais na Cor Preta (Friso)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Moldura cromada/Black Piano das janelas": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Para Barro (Par)": {
+          "valor": 2,
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Para-choque Traseiro Cromado": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Para-choque na Cor do Veículo": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Protetor de cárter": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Protetor inferior do tanque de combustível": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Aerofólio (Spoiler)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Tapete de porta-malas": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Tapete de Borracha": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Tapete Carpete": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Iluminação Ambiente One Color (Ambient Light)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Iluminação Ambiente Multi-Color (Ambient Light)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Retrovisores com luz de aproximação": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Preparação para reboque (Chicote)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Teto pintado em duas cores": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Sistema de gerencimento de carga dos porta malas/caçamba (Divisão de Espaços)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Tomada 12V (cada)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Estribo lateral elétrico (por lado)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        }
+      }
+    },
+    {
+      "id": "ford-ranger-26my-limited-3-0l-v6-26my",
+      "marca": "Ford",
+      "modelo": "Ranger",
+      "versao": "Limited 3.0L V6 26MY",
+      "linha": "RANGER 26MY",
+      "fonte": "FIAP-Ford - Data sheet_Desafio_01_v02.xlsx",
+      "specs": {
+        "Peso em ordem de marchas": {
+          "valor": 2357,
+          "unidade": "kg",
+          "categoria": "Engine & Transmission"
+        },
+        "Cilindrada": {
+          "valor": 3,
+          "unidade": "L",
+          "categoria": "Engine & Transmission"
+        },
+        "Potência": {
+          "valor": 250,
+          "unidade": "cv",
+          "categoria": "Engine & Transmission"
+        },
+        "Torque": {
+          "valor": 600,
+          "unidade": "Nm",
+          "categoria": "Engine & Transmission"
+        },
+        "Economia de Combustível": {
+          "valor": 9.55,
+          "unidade": "km/l",
+          "categoria": "Engine & Transmission"
+        },
+        "Transmissão Automática": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "Motor Flex vs Gasolina": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "Tecnologia turbo": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "Quantidade de marchas": {
+          "valor": 10,
+          "unidade": "marchas",
+          "categoria": "Engine & Transmission"
+        },
+        "FHEV": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "PHEV": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "BEV": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "Motor Diesel": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "Paddle Shift": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "E-Shifter (Manopla eletrônica)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "Tecnologia BiTurbo": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "Motor Elétrico": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "E-Autonomy": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "Liga leve": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Wheels"
+        },
+        "Polegadas": {
+          "valor": 18,
+          "unidade": "pol",
+          "categoria": "Wheels"
+        },
+        "Pneus ATR (50/50)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Wheels"
+        },
+        "Pneus RunFlat": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Wheels"
+        },
+        "Pneus ATR Plus (60/40)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Wheels"
+        },
+        "Pneus Auto-vedantes": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Wheels"
+        },
+        "Full Size Spare tires (same as vehicle base)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Wheels"
+        },
+        "Estepe temporário": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Wheels"
+        },
+        "Loja de Aplicativos": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Digital assistant (Assistente Digital Inteligente)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Destravamento/Travamento das portas": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Ignição Rota (com agendamento ou não)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Localização do Veículo": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Vehicle Health and Alerts (+Veh Status)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Send POI to Navigation": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Geofencing / Guard Mode": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Vehicle Recovery": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Usage Based Insurance – UBI": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Wi-Fi Hotspot": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Status de carregamento (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Configuração de carregamento (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Trip & Charge Log (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Station Finder (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Trends (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Rankings (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Atualizaçãos OTA": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Agile Vehicle Data Collection": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Online Traffic (Sync 4)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Local Hazard information": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Zone Lighting": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "IP Pass-through": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Low Charge Alert (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Charge Station Space Availability Alert (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Locate and Pay (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Smart Charging (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Plug and Charge (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Planejador de Viagem (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Bluetooth": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Camera traseira": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Camera 180 graus": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Navegador GPS": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Navegador GPS (Atualizavel)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Radio Mechless (Sem USB, Sem Bluetooth)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Reconhecimento por voz e/ou Comando de Voz": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Alto-falantes/ Tweeters (unidade)": {
+          "valor": 6,
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Head Up Display (HUD)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Tela no painel de instrumentos (monocromática) por polegada": {
+          "valor": "Não",
+          "unidade": "pol",
+          "categoria": "Ice Line Up"
+        },
+        "Sistema de som Premium/Marca": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Head Up Display (HUD) - (realidade aumentada)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Espelhamento de tela touch screen (Android Auto / Car Play) por cabo": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Muitimedia polegadas": {
+          "valor": 12,
+          "unidade": "pol",
+          "categoria": "Ice Line Up"
+        },
+        "Assistência de Emergência": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Carregamento Wireless": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Subwoofer + Amplificador": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Câmera 360 graus": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Conexão Wireless Android Auto & Car Play": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Tela no painel de instrumentos colorida por polegada": {
+          "valor": 8,
+          "unidade": "pol",
+          "categoria": "Ice Line Up"
+        },
+        "Alto-falantes premium/ Tweeters (unidade)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "USB (unidade)": {
+          "valor": 4,
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "USB Passageiro (unidade)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Ar Condicionado com saída p/ 2ª fileira ou mais de bancos": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Air conditioning"
+        },
+        "Ar Condicionado Automático e Digital": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Air conditioning"
+        },
+        "Ar condicionado de duas zonas": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Air conditioning"
+        },
+        "Sistema Anti Capotamento (Rollover Stability Control)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Freio Automático (Carro Parado)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Aviso de pressão baixa dos pneus (DDS)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Sensor de Pressão dos pneus (TPMS)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Controle de descida": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Controle Adaptativo de carga": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Controle de reboque": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Trail Control": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Controle de freio do Trailer": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Vetorização de Torque": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Freio automatico após impacto": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Assistência de direção defensiva": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "ABS Off Road": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Airbag (cada)": {
+          "valor": 7,
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Piloto Automático": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Limitador de Velocidade": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Piloto Automático Adaptativo": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Sistema de Permanência na Faixa (alerta e assistência)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Sensor de Estacionamento Traseiro": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Sensor de Estacionamento Dianteiro": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Sensor de Chuva": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Espelho retrovisor eletrocrômico": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Acendimento automático dos faróis (sensor crepuscular)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Partida Remota (Chave)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Detector de Fadiga": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Sistema de Estacionamento Automático - (Acelera e freia)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Sistema de Estacionamento Automático - 2.0 (Supervisionado)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Sistema de Estacionamento Automático - Remoto": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Freio de mão eletrônico": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Retrovisor elétrico": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Sistema de monitoramento de ponto-cego (BLIS)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Reconhecimento de sinais de trânsito": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Abertura do porta-malas sem as mãos": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Modo de condução (Ajuste da rigidez volante)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Drive Mode (Ajuste da rigidez volante, ignição e marcha)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "AEB (Autonomous Emergency Brake)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Espelho retrovisor com rebatimento elétrico": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Piloto Automático Adaptativo + Stop & GO + Reconhecimento de Placas (Ajuste Velocidade)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Alerta de Permanência em Faixa": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Alerta de Colisão Frontal": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Sistema de centralização de faixa": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Piloto Automático Adaptativo + Stop & GO": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Sistema de monitoramento de ponto-cego (BLIS) + Alerta de trafego cruzado": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Reverse AEB": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Sistema Keyless Entry com Botão de Partida (PEPS)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Espelho retrovisor interior digital": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Aceleração Remota": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Alarme Volumétrico (inclui perimétrico)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Alarme Perimétrico": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Global Opening (Vidros, Travas e/ou Sunroof)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Trava Elétrica das portas": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Vidro elétrico Traseiro": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Sistema de um toque para cima/baixo + Anti-esmagamento (valor por por porta)": {
+          "valor": 4,
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Abertura de porta traseira 270 (Van)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Thatcham Alarm (Bateria adicional)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Global Closing (Vidros, Travas e/ou Sunroof)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Tampa do Porta-malas automatico": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Vidro Elétrico vidro caçamba (pickups)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Abertura do vidro do porta-malas": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Bancos revestidos em couro": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Trim"
+        },
+        "Bancos revestidos parcialmente (50% Vinil / 50% Tecido)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Trim"
+        },
+        "Manopla do câmbio com acabamento em Couro": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Trim"
+        },
+        "Volante revestido em couro/vynil": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Trim"
+        },
+        "Volante revestido parcialmente em couro": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Trim"
+        },
+        "Painel Soft Touch": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Trim"
+        },
+        "Bancos revestidos 100% Vinil": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Trim"
+        },
+        "Alcantara / Outros (Adicional ao Couro/Vinil)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Trim"
+        },
+        "Teto Solar Elétrico": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "SunRoof"
+        },
+        "Teto Solar Panorâmico": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "SunRoof"
+        },
+        "Teto de Vidro": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "SunRoof"
+        },
+        "Banco Traseiro Bipartido (60/40)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Banco Traseiro aquecido": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Bancos traseiros rebatíveis (100%)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Acento traseiro rebatimento pra Frente": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Banco Traseiro Flip & Fold com compartimento": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Banco com Memória": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Bancos Aquecimento (Frontal)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Bancos refrigerado (Frontal)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "3ª fileira de Bancos": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Rebatimento Automatico do Encosto do banco traseiro": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Terceiro Assento dianteiro": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Massagem bancos dianteiros": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Bancos reclináveis 180°": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Banco posições Elétrico (cada posição)": {
+          "valor": 8,
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Banco posições Manual": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Bancos Recaro": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Faróis Full LED": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Faróis de Xenon": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Faróis direcionais": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Faróis auxiliares em curvas": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Farol com Projetor": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "LED Day time running lights (DTRL) + Signature Lights": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Farol alto automático": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Faróis de Neblina Dianteiro": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Luz de Neblina Traseiro": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Lanternas em LED - parcial": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Lanternas em Full LED": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Seta no retrovisor": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Lâmpada Farol de Neblina LED": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Farois Matrix Led": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Iluminação 360°": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Ajuste de altura de faróis automático": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Ajuste de Altura de faróis": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Iluminação na caçamba (interno) + Chicote Elétrico": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Tração 4x4 (high/low)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Diferencial traseiro blocante": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Diferencial traseiro com deslizamento limitado": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Santo Antônio tubular (Pickups)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Santo Antônio (estilizado c/ box rail)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Estribo Lateral Plataforma (Pickups)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Estribo Lateral tubular metálico (Pickups)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Bloqueio de diferencial dianteiro (FWD)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Protetor de Caçamba": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Box rails (na parte superior da caçamba)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Capota Maritima (Pickups)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Terrain Management System (i.e: Modes Auto, Sand, Snow, Mud, Rock)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Capota Rigida": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Tração Traseira": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Tração integral (AWD)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Suspensão Off road FOX Live Valve Eixo Frontal/Traseiro": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "4x4 Lock (Adicional ao AWD) - 4WD": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Protetor de Caçamba Spray-in": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Suspensão Melhorada": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Santo Antônio Deslizante (Swing in Place)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Peito de aço": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Suspensão a Ar (Active Level)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Anos de garantia": {
+          "valor": 5,
+          "unidade": "anos",
+          "categoria": "Others"
+        },
+        "Anos de garantia da bateria (HEV or BEV)": {
+          "valor": "Não",
+          "unidade": "anos",
+          "categoria": "Others"
+        },
+        "Tomada 110V (cada)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Apoio de braço dianteiro (integrado no banco)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Apoio de braço traseiro": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Cabine Dupla (pickups)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Cabine simples (pickups)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Cabine simples sem caçamba (Chassis) (pickups)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Alargadores de Paralamas": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Ajuste dos Pedais elétrico": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Degrau acesso caçamba": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Assistente da Tampa da Caçamba": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Travamento elétrico da caçamba": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Capota Marítima Elétrica": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Faixa Adesiva (ex: capo, lateral, etc)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Freios Brembo (Por Eixo)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Sistema de escapamento com Válvula ativa": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Pro Power 2.000W": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Escada de acesso à caçamba": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Superfície para trabalho na tampa na caçamba": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Monitor de vida util do óleo": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Bagageiro de teto (barras longitudinais)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Compartimento para caçamba": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Tampa Traseira Multifuncional (c/ abertura lateral)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Engate de Reboque 3.500 kg": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Volantes aquecidos": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Tacógrafo Digital": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Bagageiro de teto (barras transversais)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Bússola e inclinômetros longitudinal e transversal": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Console dianteiro central com apoio de braço": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Disco de freio traseiro": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Espelho Retrovisor Externo Cromado": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Ganchos para Reboque (cada)": {
+          "valor": 2,
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Grade do radiador com acabamento Premium (Black Piano, Cromo, Cor veiculo)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Maçanetas externas cromadas": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Molduras Laterais na Cor do Veículo (Friso)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Molduras Laterais na Cor Preta (Friso)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Moldura cromada/Black Piano das janelas": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Para Barro (Par)": {
+          "valor": 2,
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Para-choque Traseiro Cromado": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Para-choque na Cor do Veículo": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Protetor de cárter": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Protetor inferior do tanque de combustível": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Aerofólio (Spoiler)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Tapete de porta-malas": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Tapete de Borracha": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Tapete Carpete": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Iluminação Ambiente One Color (Ambient Light)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Iluminação Ambiente Multi-Color (Ambient Light)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Retrovisores com luz de aproximação": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Preparação para reboque (Chicote)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Teto pintado em duas cores": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Sistema de gerencimento de carga dos porta malas/caçamba (Divisão de Espaços)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Tomada 12V (cada)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Estribo lateral elétrico (por lado)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        }
+      }
+    },
+    {
+      "id": "ford-ranger-26my-limited-plus-3-0l-v6-26my",
+      "marca": "Ford",
+      "modelo": "Ranger",
+      "versao": "Limited + 3.0L V6 26MY",
+      "linha": "RANGER 26MY",
+      "fonte": "FIAP-Ford - Data sheet_Desafio_01_v02.xlsx",
+      "specs": {
+        "Peso em ordem de marchas": {
+          "valor": 2357,
+          "unidade": "kg",
+          "categoria": "Engine & Transmission"
+        },
+        "Cilindrada": {
+          "valor": 3,
+          "unidade": "L",
+          "categoria": "Engine & Transmission"
+        },
+        "Potência": {
+          "valor": 250,
+          "unidade": "cv",
+          "categoria": "Engine & Transmission"
+        },
+        "Torque": {
+          "valor": 600,
+          "unidade": "Nm",
+          "categoria": "Engine & Transmission"
+        },
+        "Economia de Combustível": {
+          "valor": 9.55,
+          "unidade": "km/l",
+          "categoria": "Engine & Transmission"
+        },
+        "Transmissão Automática": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "Motor Flex vs Gasolina": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "Tecnologia turbo": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "Quantidade de marchas": {
+          "valor": 10,
+          "unidade": "marchas",
+          "categoria": "Engine & Transmission"
+        },
+        "FHEV": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "PHEV": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "BEV": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "Motor Diesel": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "Paddle Shift": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "E-Shifter (Manopla eletrônica)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "Tecnologia BiTurbo": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "Motor Elétrico": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "E-Autonomy": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "Liga leve": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Wheels"
+        },
+        "Polegadas": {
+          "valor": 20,
+          "unidade": "pol",
+          "categoria": "Wheels"
+        },
+        "Pneus ATR (50/50)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Wheels"
+        },
+        "Pneus RunFlat": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Wheels"
+        },
+        "Pneus ATR Plus (60/40)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Wheels"
+        },
+        "Pneus Auto-vedantes": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Wheels"
+        },
+        "Full Size Spare tires (same as vehicle base)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Wheels"
+        },
+        "Estepe temporário": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Wheels"
+        },
+        "Loja de Aplicativos": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Digital assistant (Assistente Digital Inteligente)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Destravamento/Travamento das portas": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Ignição Rota (com agendamento ou não)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Localização do Veículo": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Vehicle Health and Alerts (+Veh Status)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Send POI to Navigation": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Geofencing / Guard Mode": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Vehicle Recovery": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Usage Based Insurance – UBI": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Wi-Fi Hotspot": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Status de carregamento (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Configuração de carregamento (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Trip & Charge Log (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Station Finder (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Trends (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Rankings (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Atualizaçãos OTA": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Agile Vehicle Data Collection": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Online Traffic (Sync 4)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Local Hazard information": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Zone Lighting": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "IP Pass-through": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Low Charge Alert (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Charge Station Space Availability Alert (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Locate and Pay (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Smart Charging (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Plug and Charge (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Planejador de Viagem (EV)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Connectivity"
+        },
+        "Bluetooth": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Camera traseira": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Camera 180 graus": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Navegador GPS": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Navegador GPS (Atualizavel)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Radio Mechless (Sem USB, Sem Bluetooth)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Reconhecimento por voz e/ou Comando de Voz": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Alto-falantes/ Tweeters (unidade)": {
+          "valor": 6,
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Head Up Display (HUD)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Tela no painel de instrumentos (monocromática) por polegada": {
+          "valor": "Não",
+          "unidade": "pol",
+          "categoria": "Ice Line Up"
+        },
+        "Sistema de som Premium/Marca": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Head Up Display (HUD) - (realidade aumentada)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Espelhamento de tela touch screen (Android Auto / Car Play) por cabo": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Muitimedia polegadas": {
+          "valor": 12,
+          "unidade": "pol",
+          "categoria": "Ice Line Up"
+        },
+        "Assistência de Emergência": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Carregamento Wireless": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Subwoofer + Amplificador": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Câmera 360 graus": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Conexão Wireless Android Auto & Car Play": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Tela no painel de instrumentos colorida por polegada": {
+          "valor": 12.4,
+          "unidade": "pol",
+          "categoria": "Ice Line Up"
+        },
+        "Alto-falantes premium/ Tweeters (unidade)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "USB (unidade)": {
+          "valor": 4,
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "USB Passageiro (unidade)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Ice Line Up"
+        },
+        "Ar Condicionado com saída p/ 2ª fileira ou mais de bancos": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Air conditioning"
+        },
+        "Ar Condicionado Automático e Digital": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Air conditioning"
+        },
+        "Ar condicionado de duas zonas": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Air conditioning"
+        },
+        "Sistema Anti Capotamento (Rollover Stability Control)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Freio Automático (Carro Parado)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Aviso de pressão baixa dos pneus (DDS)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Sensor de Pressão dos pneus (TPMS)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Controle de descida": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Controle Adaptativo de carga": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Controle de reboque": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Trail Control": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Controle de freio do Trailer": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Vetorização de Torque": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Freio automatico após impacto": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Assistência de direção defensiva": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "ABS Off Road": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Airbag (cada)": {
+          "valor": 7,
+          "unidade": null,
+          "categoria": "Safety"
+        },
+        "Piloto Automático": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Limitador de Velocidade": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Piloto Automático Adaptativo": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Sistema de Permanência na Faixa (alerta e assistência)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Sensor de Estacionamento Traseiro": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Sensor de Estacionamento Dianteiro": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Sensor de Chuva": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Espelho retrovisor eletrocrômico": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Acendimento automático dos faróis (sensor crepuscular)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Partida Remota (Chave)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Detector de Fadiga": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Sistema de Estacionamento Automático - (Acelera e freia)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Sistema de Estacionamento Automático - 2.0 (Supervisionado)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Sistema de Estacionamento Automático - Remoto": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Freio de mão eletrônico": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Retrovisor elétrico": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Sistema de monitoramento de ponto-cego (BLIS)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Reconhecimento de sinais de trânsito": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Abertura do porta-malas sem as mãos": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Modo de condução (Ajuste da rigidez volante)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Drive Mode (Ajuste da rigidez volante, ignição e marcha)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "AEB (Autonomous Emergency Brake)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Espelho retrovisor com rebatimento elétrico": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Piloto Automático Adaptativo + Stop & GO + Reconhecimento de Placas (Ajuste Velocidade)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Alerta de Permanência em Faixa": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Alerta de Colisão Frontal": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Sistema de centralização de faixa": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Piloto Automático Adaptativo + Stop & GO": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Sistema de monitoramento de ponto-cego (BLIS) + Alerta de trafego cruzado": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Reverse AEB": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Sistema Keyless Entry com Botão de Partida (PEPS)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Espelho retrovisor interior digital": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Aceleração Remota": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "High tech"
+        },
+        "Alarme Volumétrico (inclui perimétrico)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Alarme Perimétrico": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Global Opening (Vidros, Travas e/ou Sunroof)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Trava Elétrica das portas": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Vidro elétrico Traseiro": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Sistema de um toque para cima/baixo + Anti-esmagamento (valor por por porta)": {
+          "valor": 4,
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Abertura de porta traseira 270 (Van)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Thatcham Alarm (Bateria adicional)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Global Closing (Vidros, Travas e/ou Sunroof)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Tampa do Porta-malas automatico": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Vidro Elétrico vidro caçamba (pickups)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Abertura do vidro do porta-malas": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Global Closing"
+        },
+        "Bancos revestidos em couro": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Trim"
+        },
+        "Bancos revestidos parcialmente (50% Vinil / 50% Tecido)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Trim"
+        },
+        "Manopla do câmbio com acabamento em Couro": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Trim"
+        },
+        "Volante revestido em couro/vynil": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Trim"
+        },
+        "Volante revestido parcialmente em couro": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Trim"
+        },
+        "Painel Soft Touch": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Trim"
+        },
+        "Bancos revestidos 100% Vinil": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Trim"
+        },
+        "Alcantara / Outros (Adicional ao Couro/Vinil)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Trim"
+        },
+        "Teto Solar Elétrico": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "SunRoof"
+        },
+        "Teto Solar Panorâmico": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "SunRoof"
+        },
+        "Teto de Vidro": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "SunRoof"
+        },
+        "Banco Traseiro Bipartido (60/40)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Banco Traseiro aquecido": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Bancos traseiros rebatíveis (100%)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Acento traseiro rebatimento pra Frente": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Banco Traseiro Flip & Fold com compartimento": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Banco com Memória": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Bancos Aquecimento (Frontal)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Bancos refrigerado (Frontal)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "3ª fileira de Bancos": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Rebatimento Automatico do Encosto do banco traseiro": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Terceiro Assento dianteiro": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Massagem bancos dianteiros": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Bancos reclináveis 180°": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Banco posições Elétrico (cada posição)": {
+          "valor": 8,
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Banco posições Manual": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Bancos Recaro": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Seats"
+        },
+        "Faróis Full LED": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Faróis de Xenon": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Faróis direcionais": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Faróis auxiliares em curvas": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Farol com Projetor": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "LED Day time running lights (DTRL) + Signature Lights": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Farol alto automático": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Faróis de Neblina Dianteiro": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Luz de Neblina Traseiro": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Lanternas em LED - parcial": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Lanternas em Full LED": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Seta no retrovisor": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Lâmpada Farol de Neblina LED": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Farois Matrix Led": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Iluminação 360°": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Ajuste de altura de faróis automático": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Ajuste de Altura de faróis": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Iluminação na caçamba (interno) + Chicote Elétrico": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Lights"
+        },
+        "Tração 4x4 (high/low)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Diferencial traseiro blocante": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Diferencial traseiro com deslizamento limitado": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Santo Antônio tubular (Pickups)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Santo Antônio (estilizado c/ box rail)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Estribo Lateral Plataforma (Pickups)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Estribo Lateral tubular metálico (Pickups)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Bloqueio de diferencial dianteiro (FWD)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Protetor de Caçamba": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Box rails (na parte superior da caçamba)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Capota Maritima (Pickups)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Terrain Management System (i.e: Modes Auto, Sand, Snow, Mud, Rock)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Capota Rigida": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Tração Traseira": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Tração integral (AWD)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Suspensão Off road FOX Live Valve Eixo Frontal/Traseiro": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "4x4 Lock (Adicional ao AWD) - 4WD": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Protetor de Caçamba Spray-in": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Suspensão Melhorada": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Santo Antônio Deslizante (Swing in Place)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Peito de aço": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Suspensão a Ar (Active Level)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "4X4"
+        },
+        "Anos de garantia": {
+          "valor": 5,
+          "unidade": "anos",
+          "categoria": "Others"
+        },
+        "Anos de garantia da bateria (HEV or BEV)": {
+          "valor": "Não",
+          "unidade": "anos",
+          "categoria": "Others"
+        },
+        "Tomada 110V (cada)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Apoio de braço dianteiro (integrado no banco)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Apoio de braço traseiro": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Cabine Dupla (pickups)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Cabine simples (pickups)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Cabine simples sem caçamba (Chassis) (pickups)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Alargadores de Paralamas": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Ajuste dos Pedais elétrico": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Degrau acesso caçamba": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Assistente da Tampa da Caçamba": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Travamento elétrico da caçamba": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Capota Marítima Elétrica": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Faixa Adesiva (ex: capo, lateral, etc)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Freios Brembo (Por Eixo)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Sistema de escapamento com Válvula ativa": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Pro Power 2.000W": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Escada de acesso à caçamba": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Superfície para trabalho na tampa na caçamba": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Monitor de vida util do óleo": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Bagageiro de teto (barras longitudinais)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Compartimento para caçamba": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Tampa Traseira Multifuncional (c/ abertura lateral)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Engate de Reboque 3.500 kg": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Volantes aquecidos": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Tacógrafo Digital": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Bagageiro de teto (barras transversais)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Bússola e inclinômetros longitudinal e transversal": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Console dianteiro central com apoio de braço": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Disco de freio traseiro": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Espelho Retrovisor Externo Cromado": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Ganchos para Reboque (cada)": {
+          "valor": 2,
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Grade do radiador com acabamento Premium (Black Piano, Cromo, Cor veiculo)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Maçanetas externas cromadas": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Molduras Laterais na Cor do Veículo (Friso)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Molduras Laterais na Cor Preta (Friso)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Moldura cromada/Black Piano das janelas": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Para Barro (Par)": {
+          "valor": 2,
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Para-choque Traseiro Cromado": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Para-choque na Cor do Veículo": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Protetor de cárter": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Protetor inferior do tanque de combustível": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Aerofólio (Spoiler)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Tapete de porta-malas": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Tapete de Borracha": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Tapete Carpete": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Iluminação Ambiente One Color (Ambient Light)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Iluminação Ambiente Multi-Color (Ambient Light)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Retrovisores com luz de aproximação": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Preparação para reboque (Chicote)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Teto pintado em duas cores": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Sistema de gerencimento de carga dos porta malas/caçamba (Divisão de Espaços)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Tomada 12V (cada)": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Others"
+        },
+        "Estribo lateral elétrico (por lado)": {
+          "valor": "Não",
+          "unidade": null,
+          "categoria": "Others"
+        }
+      }
+    },
+    {
+      "id": "ford-ranger-raptor-3-0-v6",
+      "marca": "Ford",
+      "modelo": "Ranger",
+      "versao": "Raptor 3.0 V6",
+      "linha": "RANGER RAPTOR",
+      "fonte": "src/data/ranger.json (ficha exibida no app)",
+      "specs": {
+        "Motor": {
+          "valor": "3.0 V6 Bi-turbo",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "Combustível": {
+          "valor": "Diesel",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "Cilindrada": {
+          "valor": 3,
+          "unidade": "L",
+          "categoria": "Engine & Transmission"
+        },
+        "Potência": {
+          "valor": 397,
+          "unidade": "cv",
+          "categoria": "Engine & Transmission"
+        },
+        "Rotação de potência máxima": {
+          "valor": 3500,
+          "unidade": "rpm",
+          "categoria": "Engine & Transmission"
+        },
+        "Torque": {
+          "valor": 583,
+          "unidade": "Nm",
+          "categoria": "Engine & Transmission"
+        },
+        "Faixa de torque máximo": {
+          "valor": "1750-3000",
+          "unidade": "rpm",
+          "categoria": "Engine & Transmission"
+        },
+        "Tecnologia BiTurbo": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "Quantidade de marchas": {
+          "valor": 10,
+          "unidade": "marchas",
+          "categoria": "Engine & Transmission"
+        },
+        "Transmissão Automática": {
+          "valor": "Sim",
+          "unidade": null,
+          "categoria": "Engine & Transmission"
+        },
+        "0-100 km/h": {
+          "valor": 5.4,
+          "unidade": "s",
+          "categoria": "Performance"
+        },
+        "Capacidade de carga": {
+          "valor": 620,
+          "unidade": "kg",
+          "categoria": "Dimensões"
+        },
+        "Câmbio": {
+          "valor": "10 marchas automático SelectShift",
+          "unidade": null,
+          "categoria": "Motor & Performance"
+        },
+        "Velocidade Máx.": {
+          "valor": "180 km/h",
+          "unidade": null,
+          "categoria": "Motor & Performance"
+        },
+        "Tração": {
+          "valor": "4x4 inteligente com baixa",
+          "unidade": null,
+          "categoria": "Tração & Suspensão"
+        },
+        "Suspensão Dianteira": {
+          "valor": "Fox Racing Shox 2.5\" bypass",
+          "unidade": null,
+          "categoria": "Tração & Suspensão"
+        },
+        "Suspensão Traseira": {
+          "valor": "Multilink com Fox Racing Shox",
+          "unidade": null,
+          "categoria": "Tração & Suspensão"
+        },
+        "Course Dianteiro": {
+          "valor": "296 mm",
+          "unidade": null,
+          "categoria": "Tração & Suspensão"
+        },
+        "Course Traseiro": {
+          "valor": "297 mm",
+          "unidade": null,
+          "categoria": "Tração & Suspensão"
+        },
+        "Ângulo de Ataque": {
+          "valor": "33,1°",
+          "unidade": null,
+          "categoria": "Tração & Suspensão"
+        },
+        "Comprimento": {
+          "valor": "5.362 mm",
+          "unidade": null,
+          "categoria": "Dimensões"
+        },
+        "Largura": {
+          "valor": "2.028 mm",
+          "unidade": null,
+          "categoria": "Dimensões"
+        },
+        "Altura": {
+          "valor": "1.873 mm",
+          "unidade": null,
+          "categoria": "Dimensões"
+        },
+        "Entre-eixos": {
+          "valor": "3.270 mm",
+          "unidade": null,
+          "categoria": "Dimensões"
+        },
+        "Pneus": {
+          "valor": "285/70 R17 BFGoodrich",
+          "unidade": null,
+          "categoria": "Dimensões"
+        }
+      }
+    },
+    {
+      "id": "toyota-hilux-gr-s",
+      "marca": "Toyota",
+      "modelo": "Hilux",
+      "versao": "GR-S",
+      "linha": null,
+      "fonte": "src/data/ranger.json (dados de demonstração do app)",
+      "specs": {
+        "Potência": {
+          "valor": 224,
+          "unidade": "cv",
+          "categoria": "Engine & Transmission"
+        },
+        "Torque": {
+          "valor": 550,
+          "unidade": "Nm",
+          "categoria": "Engine & Transmission"
+        },
+        "0-100 km/h": {
+          "valor": 9.2,
+          "unidade": "s",
+          "categoria": "Engine & Transmission"
+        },
+        "Capacidade de carga": {
+          "valor": 1000,
+          "unidade": "kg",
+          "categoria": "Engine & Transmission"
+        }
+      }
+    },
+    {
+      "id": "volkswagen-amarok-v6",
+      "marca": "Volkswagen",
+      "modelo": "Amarok",
+      "versao": "V6",
+      "linha": null,
+      "fonte": "src/data/ranger.json (dados de demonstração do app)",
+      "specs": {
+        "Potência": {
+          "valor": 258,
+          "unidade": "cv",
+          "categoria": "Engine & Transmission"
+        },
+        "Torque": {
+          "valor": 580,
+          "unidade": "Nm",
+          "categoria": "Engine & Transmission"
+        },
+        "0-100 km/h": {
+          "valor": 7.1,
+          "unidade": "s",
+          "categoria": "Engine & Transmission"
+        },
+        "Capacidade de carga": {
+          "valor": 1050,
+          "unidade": "kg",
+          "categoria": "Engine & Transmission"
+        }
+      }
+    },
+    {
+      "id": "chevrolet-s10-high-country",
+      "marca": "Chevrolet",
+      "modelo": "S10",
+      "versao": "High Country",
+      "linha": null,
+      "fonte": "src/data/ranger.json (dados de demonstração do app)",
+      "specs": {
+        "Potência": {
+          "valor": 206,
+          "unidade": "cv",
+          "categoria": "Engine & Transmission"
+        },
+        "Torque": {
+          "valor": 450,
+          "unidade": "Nm",
+          "categoria": "Engine & Transmission"
+        },
+        "0-100 km/h": {
+          "valor": 8.5,
+          "unidade": "s",
+          "categoria": "Engine & Transmission"
+        },
+        "Capacidade de carga": {
+          "valor": 1100,
+          "unidade": "kg",
+          "categoria": "Engine & Transmission"
+        }
+      }
+    },
+    {
+      "id": "mitsubishi-l200-triton",
+      "marca": "Mitsubishi",
+      "modelo": "L200",
+      "versao": "Triton",
+      "linha": null,
+      "fonte": "src/data/ranger.json (dados de demonstração do app)",
+      "specs": {
+        "Potência": {
+          "valor": 190,
+          "unidade": "cv",
+          "categoria": "Engine & Transmission"
+        },
+        "Torque": {
+          "valor": 430,
+          "unidade": "Nm",
+          "categoria": "Engine & Transmission"
+        },
+        "0-100 km/h": {
+          "valor": 9.8,
+          "unidade": "s",
+          "categoria": "Engine & Transmission"
+        },
+        "Capacidade de carga": {
+          "valor": 1080,
+          "unidade": "kg",
+          "categoria": "Engine & Transmission"
+        }
+      }
+    }
+  ]
+}
