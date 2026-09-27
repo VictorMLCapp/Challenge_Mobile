@@ -1,0 +1,32 @@
+
+> ford-specs-api@1.0.0 test
+> node --test --test-reporter=spec test/*.test.js
+
+✔ login válido devolve JWT HS256 com expiração de 15 min (29.698417ms)
+✔ senha errada e usuário inexistente têm a mesma resposta (215.247708ms)
+✔ conta bloqueia após 5 falhas seguidas (12.488125ms)
+✔ rate limit do login devolve 429 (619.224958ms)
+✔ token com alg none, assinado com outro segredo ou expirado é recusado (5.216459ms)
+✔ logout revoga o token antes da expiração (6.410709ms)
+✔ boot falha com JWT_SECRET curto (0.44925ms)
+✔ JWT_SECRET_FILE (secret montado como arquivo) tem prioridade sobre a variável (3.811916ms)
+✔ headers de segurança do Helmet e sem X-Powered-By (22.644167ms)
+✔ CORS só libera origens da allowlist (8.18225ms)
+✔ JSON malformado vira 400 sem stack trace (7.2135ms)
+✔ telemetria do app aceita só eventos da lista fechada (6.929875ms)
+✔ X-Request-Id é devolvido para correlacionar logs (4.228625ms)
+✔ sem token a API responde 401 (24.552083ms)
+✔ matriz de permissões por perfil (27.539792ms)
+✔ Ranger Raptor: todas as especificações do slide vêm disponíveis (31.208708ms)
+✔ atributo inexistente fica explícito como NAO_DISPONIVEL, sem mudar o formato (7.352084ms)
+✔ veículo desconhecido devolve o mesmo formato com tudo NAO_DISPONIVEL (6.200541ms)
+✔ validação de entrada rejeita payload malformado ou malicioso (36.630417ms)
+✔ payload acima de 16kb é recusado com 413 (4.962208ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1255.332708

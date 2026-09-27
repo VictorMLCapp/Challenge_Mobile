@@ -10,6 +10,16 @@ Vitrine da Ford Ranger Raptor para a banca do desafio FIAP-Ford. O app é uma SP
 - João Pedro Signor Avelar — RM 558375
 - Roger Cardoso Ferreira — RM 557230
 
+## Sprint 3 — Cybersecurity
+
+- **API de especificações (Desafio 01):** [`server/`](server/README.md), com login JWT, perfis VIEWER/ANALISTA/ADMIN, validação, rate limit, auditoria e métricas.
+- **App:** nova tela **Pesquisar concorrência** (login + pesquisa por marca/modelo/versão/atributos), token cifrado no aparelho, CSP e Android endurecido.
+- **DevSecOps:** [`.github/workflows/devsecops.yml`](.github/workflows/devsecops.yml) (Gitleaks, Semgrep, npm audit, Trivy, Checkov, testes, APK) e Dependabot.
+- **Observabilidade:** [`infra/`](infra/docker-compose.yml) com Prometheus, alertas, Loki, Alloy e dashboard Grafana.
+- **Documento da entrega:** [`docs/cybersecurity/SPRINT3_CYBERSECURITY.md`](docs/cybersecurity/SPRINT3_CYBERSECURITY.md)
+
+Para usar a pesquisa, suba a API antes do app (`server/README.md`). O endereço vem de `VITE_API_URL` (veja `.env.example`). No emulador Android, gere o APK com `VITE_API_URL=http://10.0.2.2:3000 npm run android:apk`. Só o build debug aceita HTTP, e só para esse endereço e `localhost`.
+
 ## Pré-requisitos
 
 - Node.js 22.13 ou mais novo

@@ -1,0 +1,42 @@
+Rule semgrep.ford-hardcoded-jwt-secret contains an exclude pattern 'server/test/**' that will soon be interpreted as '/server/test/**' to comply with the Semgrepignore v2 and Gitignore specifications. To make this pattern permanently unanchored, edit rule semgrep.ford-hardcoded-jwt-secret and change it to '**/server/test/**'. To confirm the anchored behavior and avoid this warning, change it to '/server/test/**'.
+Rule semgrep.ford-hardcoded-jwt-secret contains an exclude pattern 'server/test/**' that will soon be interpreted as '/server/test/**' to comply with the Semgrepignore v2 and Gitignore specifications. To make this pattern permanently unanchored, edit rule semgrep.ford-hardcoded-jwt-secret and change it to '**/server/test/**'. To confirm the anchored behavior and avoid this warning, change it to '/server/test/**'.
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 139 files tracked by git with 278 Code rules:
+                                                                                                                        
+  Language      Rules   Files          Origin      Rules                                                                
+ ─────────────────────────────        ───────────────────                                                               
+  <multilang>      38     139          Community     274                                                                
+  js               94      41          Custom          4                                                                
+  yaml              7      10                                                                                           
+  json              1       9                                                                                           
+  python           53       2                                                                                           
+  java             20       2                                                                                           
+  dockerfile        3       1                                                                                           
+                                                                                                                        
+Rule semgrep.ford-hardcoded-jwt-secret contains an exclude pattern 'server/test/**' that will soon be interpreted as '/server/test/**' to comply with the Semgrepignore v2 and Gitignore specifications. To make this pattern permanently unanchored, edit rule semgrep.ford-hardcoded-jwt-secret and change it to '**/server/test/**'. To confirm the anchored behavior and avoid this warning, change it to '/server/test/**'.
+Rule semgrep.ford-hardcoded-jwt-secret contains an exclude pattern 'server/test/**' that will soon be interpreted as '/server/test/**' to comply with the Semgrepignore v2 and Gitignore specifications. To make this pattern permanently unanchored, edit rule semgrep.ford-hardcoded-jwt-secret and change it to '**/server/test/**'. To confirm the anchored behavior and avoid this warning, change it to '/server/test/**'.
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+✅ Scan completed successfully.
+ • Findings: 0 (0 blocking)
+ • Rules run: 216
+ • Targets scanned: 139
+ • Parsed lines: ~99.9%
+ • Scan skipped: 
+   ◦ Matching --exclude patterns: 25
+   ◦ Files larger than  files 1.0 MB: 2
+   ◦ Files matching .semgrepignore patterns: 6
+ • Scan was limited to files tracked by git
+ • For a detailed list of skipped files and lines, run semgrep with the --verbose flag
+Ran 216 rules on 139 files: 0 findings.
+(need more rules? `semgrep login` for additional free Semgrep Registry rules)
+
+If Semgrep missed a finding, please send us feedback to let us know!
+See https://semgrep.dev/docs/reporting-false-negatives/

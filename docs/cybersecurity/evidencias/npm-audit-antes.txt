@@ -1,0 +1,13 @@
+npm audit ANTES da correção (branch main):
+  @babel/core: low - @babel/core: Arbitrary File Read via sourceMappingURL Comment
+  @capacitor/cli: moderate - xcode
+  baseline-browser-mapping: moderate - baseline-browser-mapping process termination on invalid input causes denial of service
+  brace-expansion: high - brace-expansion: DoS via exponential-time expansion of consecutive non-expanding {} groups, brace-expansion: DoS via unbounded expansion length causing an out-of-memory process crash, brace-expansion: DoS via unbounded intermediate arrays, bypassing the CVE-2026-14257 mitigation
+  browserslist: high - Browserslist: Unbounded memory growth (no cache eviction) via distinct query results, leading to eventual OOM, Browserslist: Uncaught crash / prototype write via untrusted browserslist-stats.json custom stats (normalizeStats)
+  fflate: moderate - fflate unzipSync can enter an infinite loop when parsing malformed ZIP64 archives, fflate unzipSync can enter an infinite loop when parsing malformed ZIP64 archives
+  nanoid: high - nanoid: non-secure generators can loop indefinitely with negative size, nanoid: custom generators can loop indefinitely when size is zero
+  postcss: high - PostCSS: incomplete fix of GHSA-6g55-p6wh-862q — attacker-controlled sourceMappingURL reads arbitrary .map files when `from` is unset, PostCSS: Path Traversal in Previous Source Map Auto-Loading (sourceMappingURL) leads to Arbitrary .map File Disclosure
+  uuid: moderate - uuid: Missing buffer bounds check in v3/v5/v6 when buf is provided
+  vite: high - launch-editor: NTLMv2 hash disclosure via UNC path handling on Windows, vite: `server.fs.deny` bypass on Windows alternate paths
+  xcode: moderate - uuid
+  total: {'info': 0, 'low': 1, 'moderate': 5, 'high': 5, 'critical': 0, 'total': 11}
