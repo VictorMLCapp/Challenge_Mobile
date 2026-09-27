@@ -33,13 +33,13 @@ Decimal phases appear between their surrounding integers in numeric order.
   4. O cabeçalho não oferece Modelos, Configurar, Dealer nem Solicitar Proposta.
   5. O nome do app, o componente do modelo e os arquivos exportados identificam a Ranger Raptor.
 
-**Plans:** 2 plans
+**Plans:** 1/2 plans executed
 **UI hint**: yes
 
 Plans:
 **Wave 1**
 
-- [ ] 01-01-PLAN.md — As três telas leem só src/data/ranger.json, e o nome do app, do modelo e dos arquivos exportados identifica a Ranger Raptor
+- [x] 01-01-PLAN.md — As três telas leem só src/data/ranger.json, e o nome do app, do modelo e dos arquivos exportados identifica a Ranger Raptor
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
@@ -96,6 +96,6 @@ Phases execute in numeric order: 1 → 2 → 3
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Vitrine coerente no navegador | 0/2 | Not started | - |
+| 1. Vitrine coerente no navegador | 1/2 | In Progress | - |
 | 2. Percurso sem rede na largura do celular | 0/2 | Not started | - |
 | 3. APK da banca | 0/3 | Not started | - |

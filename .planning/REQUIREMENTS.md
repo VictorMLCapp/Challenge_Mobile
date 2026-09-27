@@ -29,12 +29,12 @@ Requisitos da entrega para a banca. Cada um entra no roadmap.
 
 ### Dados
 
-- [ ] **DATA-01**: Início, especificações e relatório leem os fatos do veículo somente de `src/data/ranger.json`.
-- [ ] **DATA-02**: Potência, combustível, concorrentes e notas são os mesmos nas três telas.
+- [x] **DATA-01**: Início, especificações e relatório leem os fatos do veículo somente de `src/data/ranger.json`.
+- [x] **DATA-02**: Potência, combustível, concorrentes e notas são os mesmos nas três telas.
 
 ### Código
 
-- [ ] **CODE-01**: O nome do app, o componente do modelo e os arquivos exportados identificam a Ranger Raptor.
+- [x] **CODE-01**: O nome do app, o componente do modelo e os arquivos exportados identificam a Ranger Raptor.
 - [ ] **CODE-02**: Scripts de oficina e assets que o app não usa não entram no pacote do APK.
 
 ### Documentação
@@ -80,9 +80,9 @@ Quais fases cobrem quais requisitos. Preenchido na criação do roadmap.
 | OFF-01 | Phase 2 | Pending |
 | VIS-01 | Phase 1 | Pending |
 | VIS-02 | Phase 1 | Pending |
-| DATA-01 | Phase 1 | Pending |
-| DATA-02 | Phase 1 | Pending |
-| CODE-01 | Phase 1 | Pending |
+| DATA-01 | Phase 1 | Complete |
+| DATA-02 | Phase 1 | Complete |
+| CODE-01 | Phase 1 | Complete |
 | CODE-02 | Phase 3 | Pending |
 | DOC-01 | Phase 3 | Pending |
 | DOC-02 | Phase 3 | Pending |
