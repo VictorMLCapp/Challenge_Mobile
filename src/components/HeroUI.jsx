@@ -1,13 +1,7 @@
 ﻿import { useState, useEffect } from 'react'
+import { status, homeFacts, EMPTY_HEADING, EMPTY_BODY, ERROR_MESSAGE } from '../data/ranger'
 import styles from './HeroUI.module.css'
 import fordLogo from '../assets/Ford-Logo-PNG-Isolated-Image.webp'
-
-const specs = [
-  { label: 'Motor', value: '3.0 V6 Bi-turbo' },
-  { label: 'Potência', value: '397 cv' },
-  { label: 'Torque', value: '583 Nm' },
-  { label: 'Tração', value: '4x4 inteligente' },
-]
 
 export default function HeroUI({ onViewSpecs, onViewReport, onHome }) {
   const [visible, setVisible] = useState(false)
@@ -44,14 +38,25 @@ export default function HeroUI({ onViewSpecs, onViewReport, onHome }) {
           dominar qualquer terreno.
         </p>
 
-        <div className={styles.specsGrid}>
-          {specs.map((s) => (
-            <div key={s.label} className={styles.specItem}>
-              <span className={styles.specValue}>{s.value}</span>
-              <span className={styles.specLabel}>{s.label}</span>
-            </div>
-          ))}
-        </div>
+        {status === 'ok' && (
+          <div className={styles.specsGrid}>
+            {homeFacts.map((fact) => (
+              <div key={fact.label} className={styles.specItem}>
+                <span className={styles.specValue}>{fact.value}</span>
+                <span className={styles.specLabel}>{fact.label}</span>
+              </div>
+            ))}
+          </div>
+        )}
+        {status === 'empty' && (
+          <>
+            <h2 className="emptyHeading">{EMPTY_HEADING}</h2>
+            <p className="emptyBody">{EMPTY_BODY}</p>
+          </>
+        )}
+        {status === 'error' && (
+          <p className="emptyBody">{ERROR_MESSAGE}</p>
+        )}
 
         <div className={styles.actions}>
           <button className={styles.btnPrimary} onClick={onViewSpecs}>Ver Specs</button>

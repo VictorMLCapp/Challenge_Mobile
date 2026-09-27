@@ -1,0 +1,328 @@
+{
+  "engine": {
+    "layout": "3.0 V6 Bi-turbo",
+    "fuel": "Diesel"
+  },
+  "power": {
+    "cv": 397,
+    "atRpm": 3500
+  },
+  "torque": {
+    "nm": 583,
+    "rpmMin": 1750,
+    "rpmMax": 3000
+  },
+  "drivetrain": "4x4 inteligente com baixa",
+  "zeroToHundred": {
+    "seconds": 5.4,
+    "unit": "segundos"
+  },
+  "suspensionFrontMm": 296,
+  "payloadKg": 620,
+  "competitors": [
+    { "id": "raptor", "name": "Ranger Raptor", "short": "Raptor" },
+    { "id": "hilux", "name": "Hilux GR-S", "short": "Hilux" },
+    { "id": "amarok", "name": "Amarok V6", "short": "Amarok" },
+    { "id": "s10", "name": "S10 High Country", "short": "S10" },
+    { "id": "l200", "name": "L200 Triton", "short": "L200" }
+  ],
+  "specSections": [
+    {
+      "section": "Motor & Performance",
+      "items": [
+        { "label": "Motor" },
+        { "label": "Potência" },
+        { "label": "Torque" },
+        { "label": "Câmbio", "value": "10 marchas automático SelectShift" },
+        { "label": "0-100 km/h" },
+        { "label": "Velocidade Máx.", "value": "180 km/h" }
+      ]
+    },
+    {
+      "section": "Tração & Suspensão",
+      "items": [
+        { "label": "Tração", "value": "4x4 inteligente com baixa" },
+        { "label": "Suspensão Dianteira", "value": "Fox Racing Shox 2.5\" bypass" },
+        { "label": "Suspensão Traseira", "value": "Multilink com Fox Racing Shox" },
+        { "label": "Course Dianteiro", "value": "296 mm" },
+        { "label": "Course Traseiro", "value": "297 mm" },
+        { "label": "Ângulo de Ataque", "value": "33,1°" }
+      ]
+    },
+    {
+      "section": "Dimensões",
+      "items": [
+        { "label": "Comprimento", "value": "5.362 mm" },
+        { "label": "Largura", "value": "2.028 mm" },
+        { "label": "Altura", "value": "1.873 mm" },
+        { "label": "Entre-eixos", "value": "3.270 mm" },
+        { "label": "Capacidade de carga", "value": "620 kg" },
+        { "label": "Pneus", "value": "285/70 R17 BFGoodrich" }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "id": "retrovisor",
+      "icon": "🪞",
+      "viewId": "geral_lateral",
+      "title": "Retrovisor Integrado",
+      "description": "Espelhos retrovisores rebatíveis eletricamente com aquecimento e câmera de ponto cego integrada.",
+      "specs": [
+        { "label": "Ajuste", "value": "Elétrico 6 direções" },
+        { "label": "Aquecimento", "value": "Sim" },
+        { "label": "Câmera BSM", "value": "Integrada" }
+      ],
+      "score": 88,
+      "scores": { "raptor": 88, "hilux": 71, "amarok": 76 }
+    },
+    {
+      "id": "farol",
+      "icon": "💡",
+      "viewId": "geral_frente",
+      "title": "Faróis LED Matrix",
+      "description": "Faróis full-LED com tecnologia Matrix adaptativa, ajuste automático de altura e DRL signature.",
+      "specs": [
+        { "label": "Tecnologia", "value": "Matrix LED" },
+        { "label": "Alcance", "value": "120 m (alto)" },
+        { "label": "DRL", "value": "Assinatura Ford" }
+      ],
+      "score": 92,
+      "scores": { "raptor": 92, "hilux": 68, "amarok": 80 }
+    },
+    {
+      "id": "roda_dianteira",
+      "icon": "🛞",
+      "viewId": "rodas_dianteira",
+      "title": "Suspensão Fox 2.5\"",
+      "description": "Suspensão dianteira Fox Racing Shox 2.5\" bypass com ajuste de amortecimento para off-road extremo.",
+      "specs": [
+        { "label": "Course", "value": "296 mm" },
+        { "label": "Pneu", "value": "285/70 R17" },
+        { "label": "Roda", "value": "Liga leve 17\"" }
+      ],
+      "score": 96,
+      "scores": { "raptor": 96, "hilux": 74, "amarok": 70 }
+    },
+    {
+      "id": "roda_traseira",
+      "icon": "⚙️",
+      "viewId": "rodas_traseira",
+      "title": "Suspensão Traseira Multilink",
+      "description": "Eixo traseiro multilink com Fox Racing Shox, projetado para máxima estabilidade em terrenos irregulares.",
+      "specs": [
+        { "label": "Course", "value": "297 mm" },
+        { "label": "Eixo", "value": "Multilink independente" },
+        { "label": "Freio", "value": "Disco 332 mm" }
+      ],
+      "score": 94,
+      "scores": { "raptor": 94, "hilux": 72, "amarok": 78 }
+    },
+    {
+      "id": "cacamba",
+      "icon": "📦",
+      "viewId": "caçamba",
+      "title": "Caçamba Inteligente",
+      "description": "Caçamba em alumínio de alta resistência com proteção de carga, tomadas 12V/220V e iluminação LED.",
+      "specs": [
+        { "label": "Capacidade", "value": "620 kg" },
+        { "label": "Volume", "value": "1.430 litros" },
+        { "label": "Tomada", "value": "12V + 220V" }
+      ],
+      "score": 85,
+      "scores": { "raptor": 85, "hilux": 80, "amarok": 82 }
+    },
+    {
+      "id": "motor",
+      "icon": "🔥",
+      "viewId": "motor_hood",
+      "description": "Bloco V6 biturbo {fuel} com {powerCv} cv e {torqueNm} Nm de torque. O mais potente da categoria pickup off-road.",
+      "score": 98,
+      "scores": { "raptor": 98, "hilux": 65, "amarok": 88 }
+    }
+  ],
+  "engineComparison": [
+    { "spec": "Potência (cv)", "hilux": 224, "amarok": 258, "s10": 206, "l200": 190 },
+    { "spec": "Torque (Nm)", "hilux": 550, "amarok": 580, "s10": 450, "l200": 430 },
+    { "spec": "0-100 (s)", "hilux": 9.2, "amarok": 7.1, "s10": 8.5, "l200": 9.8 },
+    { "spec": "Course (mm)", "hilux": 220, "amarok": 210, "s10": 200, "l200": 215 },
+    { "spec": "Carga (kg)", "hilux": 1000, "amarok": 1050, "s10": 1100, "l200": 1080 }
+  ],
+  "radar": [
+    { "subject": "Potência", "Raptor": 98, "Hilux": 62, "Amarok": 85, "S10": 70, "L200": 65 },
+    { "subject": "Off-Road", "Raptor": 96, "Hilux": 78, "Amarok": 72, "S10": 68, "L200": 74 },
+    { "subject": "Suspensão", "Raptor": 97, "Hilux": 70, "Amarok": 68, "S10": 65, "L200": 66 },
+    { "subject": "Segurança", "Raptor": 88, "Hilux": 82, "Amarok": 90, "S10": 78, "L200": 75 },
+    { "subject": "Conectividade", "Raptor": 82, "Hilux": 75, "Amarok": 92, "S10": 80, "L200": 70 },
+    { "subject": "Conforto", "Raptor": 90, "Hilux": 78, "Amarok": 88, "S10": 85, "L200": 72 }
+  ],
+  "overallScores": [
+    { "name": "Ranger Raptor", "value": 91, "fill": "#f54b2e" },
+    { "name": "Amarok V6", "value": 84, "fill": "#3b82f6" },
+    { "name": "S10 High Country", "value": 78, "fill": "#eab308" },
+    { "name": "Hilux GR-S", "value": 76, "fill": "#ef4444" },
+    { "name": "L200 Triton", "value": 72, "fill": "#8b5cf6" }
+  ],
+  "features": [
+    {
+      "category": "Motor & Performance",
+      "icon": "⚙️",
+      "items": [
+        { "name": "Motor V6 Bi-Turbo", "raptor": true, "hilux": false, "amarok": true, "s10": false, "l200": false },
+        { "name": "Potência > 350 cv", "raptor": true, "hilux": false, "amarok": false, "s10": false, "l200": false },
+        { "name": "Câmbio 10 marchas", "raptor": true, "hilux": false, "amarok": false, "s10": false, "l200": false },
+        { "name": "0-100 km/h < 6s", "raptor": true, "hilux": false, "amarok": false, "s10": false, "l200": false }
+      ]
+    },
+    {
+      "category": "Off-Road & Suspensão",
+      "icon": "🏔️",
+      "items": [
+        { "name": "Fox Racing Shox 2.5\"", "raptor": true, "hilux": false, "amarok": false, "s10": false, "l200": false },
+        { "name": "Course > 280 mm", "raptor": true, "hilux": false, "amarok": false, "s10": false, "l200": false },
+        { "name": "Modos Terrain Management", "raptor": true, "hilux": true, "amarok": true, "s10": true, "l200": true },
+        { "name": "Diferencial Traseiro Blocante", "raptor": true, "hilux": true, "amarok": true, "s10": true, "l200": true },
+        { "name": "Pneus All-Terrain 285/70", "raptor": true, "hilux": false, "amarok": false, "s10": false, "l200": false }
+      ]
+    },
+    {
+      "category": "Segurança",
+      "icon": "🛡️",
+      "items": [
+        { "name": "AEB + Alerta Colisão", "raptor": true, "hilux": true, "amarok": true, "s10": true, "l200": true },
+        { "name": "BLIS + Tráfego Cruzado", "raptor": true, "hilux": false, "amarok": true, "s10": false, "l200": false },
+        { "name": "Piloto Adaptativo Stop&Go", "raptor": true, "hilux": false, "amarok": true, "s10": true, "l200": false },
+        { "name": "Câmera 360°", "raptor": true, "hilux": false, "amarok": true, "s10": true, "l200": false },
+        { "name": "Airbags (un.)", "raptor": false, "hilux": false, "amarok": false, "s10": false, "l200": false, "values": ["7", "7", "9", "6", "6"] }
+      ]
+    },
+    {
+      "category": "Conectividade",
+      "icon": "📡",
+      "items": [
+        { "name": "Android Auto / CarPlay Wireless", "raptor": true, "hilux": true, "amarok": true, "s10": true, "l200": false },
+        { "name": "Tela Multimídia (pol.)", "raptor": false, "hilux": false, "amarok": false, "s10": false, "l200": false, "values": ["12\"", "8\"", "12\"", "11.3\"", "8\""] },
+        { "name": "Painel Digital (pol.)", "raptor": false, "hilux": false, "amarok": false, "s10": false, "l200": false, "values": ["12.4\"", "4.2\"", "12\"", "8\"", "7\""] },
+        { "name": "Carregamento Wireless", "raptor": true, "hilux": false, "amarok": true, "s10": true, "l200": false },
+        { "name": "Reconhecimento de Voz PT-BR", "raptor": false, "hilux": false, "amarok": true, "s10": true, "l200": false }
+      ]
+    }
+  ],
+  "categoryGrades": [
+    {
+      "category": "Motor & Performance",
+      "grade": "A+",
+      "score": 98,
+      "rank": 1,
+      "total": 5,
+      "leader": "Ranger Raptor",
+      "gap": null,
+      "status": "lider"
+    },
+    {
+      "category": "Off-Road & Suspensão",
+      "grade": "A+",
+      "score": 96,
+      "rank": 1,
+      "total": 5,
+      "leader": "Ranger Raptor",
+      "gap": null,
+      "status": "lider"
+    },
+    {
+      "category": "Segurança Ativa",
+      "grade": "B+",
+      "score": 88,
+      "rank": 2,
+      "total": 5,
+      "leader": "Amarok V6",
+      "gap": "-4 pts vs Amarok (9 airbags, ADAS avançado)",
+      "status": "competitivo"
+    },
+    {
+      "category": "Conectividade",
+      "grade": "B",
+      "score": 82,
+      "rank": 3,
+      "total": 5,
+      "leader": "Amarok V6",
+      "gap": "-10 pts vs Amarok (voz PT-BR, App Store)",
+      "status": "melhorar"
+    },
+    {
+      "category": "Conforto & Interior",
+      "grade": "A",
+      "score": 90,
+      "rank": 2,
+      "total": 5,
+      "leader": "Amarok V6",
+      "gap": "-2 pts vs Amarok (acabamento premium)",
+      "status": "competitivo"
+    },
+    {
+      "category": "Capacidade de Carga",
+      "grade": "C+",
+      "score": 68,
+      "rank": 5,
+      "total": 5,
+      "leader": "S10 High Country",
+      "gap": "-480 kg vs S10 (sacrifício off-road)",
+      "status": "tradeoff"
+    }
+  ],
+  "upgrades": [
+    {
+      "priority": "alta",
+      "title": "Pacote ADAS Premium",
+      "category": "Segurança",
+      "impact": "+6 pts",
+      "description": "Adicionar Reverse AEB, assistente de permanência em faixa e monitoramento de fadiga do motorista.",
+      "items": ["Reverse AEB com frenagem automática", "Lane Keeping Assist ativo", "Driver Attention Alert"],
+      "competitorRef": "Amarok V6 lidera com 9 airbags e pacote IQ.Drive completo"
+    },
+    {
+      "priority": "alta",
+      "title": "SYNC 4A com Voz em Português",
+      "category": "Conectividade",
+      "impact": "+8 pts",
+      "description": "Atualizar software SYNC para reconhecimento de voz nativo em PT-BR e loja de aplicativos integrada.",
+      "items": ["Comandos de voz em português brasileiro", "App Store Ford integrada", "OTA updates automáticos"],
+      "competitorRef": "Amarok V6 e S10 já oferecem assistente de voz localizado"
+    },
+    {
+      "priority": "média",
+      "title": "Caçamba Modular Pro",
+      "category": "Utilitário",
+      "impact": "+5 pts",
+      "description": "Sistema de organização com divisórias, tomada 220V reforçada e proteção anti-UV para compensar menor capacidade de carga.",
+      "items": ["Divisórias modulares de alumínio", "Tomada 220V 400W na caçamba", "Tampa rígida com trava elétrica"],
+      "competitorRef": "Hilux e S10 lideram em volume e capacidade de carga"
+    },
+    {
+      "priority": "média",
+      "title": "Interior Raptor+",
+      "category": "Conforto",
+      "impact": "+4 pts",
+      "description": "Elevar acabamento interno com materiais premium para igualar Amarok e S10 no segmento topo.",
+      "items": ["Painel com costura em couro sintético", "Iluminação ambiente 64 cores", "Bancos com ventilação"],
+      "competitorRef": "Amarok V6 Highline referência em acabamento premium"
+    },
+    {
+      "priority": "baixa",
+      "title": "Eficiência Híbrida Leve (MHEV)",
+      "category": "Motor",
+      "impact": "+3 pts",
+      "description": "Sistema mild-hybrid para reduzir consumo urbano sem comprometer performance off-road.",
+      "items": ["Alternador-starter 48V", "Recuperação de energia na frenagem", "Start/Stop inteligente off-road aware"],
+      "competitorRef": "Tendência do segmento — nenhum concorrente direto oferece ainda"
+    }
+  ],
+  "highlights": [
+    { "label": "Potência", "sub": "Líder da categoria", "icon": "⚡" },
+    { "label": "Torque", "sub": "2º melhor do segmento", "icon": "🌀" },
+    { "label": "Off-Road", "value": "296 mm", "sub": "Maior curso do mercado", "icon": "🏔️" },
+    { "label": "0-100 km/h", "sub": "Mais rápida da categoria", "icon": "🏁" },
+    { "label": "Score Geral", "value": "91/100", "sub": "1º entre 5 rivais", "icon": "🏆" },
+    { "label": "Posição", "value": "#1", "sub": "Performance off-road", "icon": "✅" }
+  ]
+}
