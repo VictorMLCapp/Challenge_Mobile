@@ -1,0 +1,71 @@
+# Regras Semgrep específicas do projeto (somadas aos rulesets públicos no CI).
+rules:
+  - id: ford-hardcoded-jwt-secret
+    languages: [javascript]
+    severity: ERROR
+    message: Segredo do JWT fixo no código. Use process.env.JWT_SECRET (validado em server/src/config.js).
+    patterns:
+      - pattern-either:
+          - pattern: jwt.sign($P, "...", ...)
+          - pattern: jwt.verify($T, "...", ...)
+    paths:
+      exclude: ["server/test/**"]
+    metadata: { owasp: "A02:2021 - Cryptographic Failures", cwe: "CWE-798" }
+
+  - id: ford-jwt-verify-without-algorithms
+    languages: [javascript]
+    severity: ERROR
+    message: jwt.verify sem lista fixa de algoritmos aceita tokens com 'alg' escolhido pelo atacante.
+    patterns:
+      - pattern: jwt.verify($T, $K, $OPTS)
+      - metavariable-pattern:
+          metavariable: $OPTS
+          patterns:
+            - pattern-not: "{..., algorithms: $A, ...}"
+    metadata: { owasp: "API2:2023 - Broken Authentication", cwe: "CWE-347" }
+
+  - id: ford-token-in-plain-storage
+    languages: [javascript]
+    severity: ERROR
+    message: Token/sessão gravado em texto puro. Use setSecureItem (src/services/secureStore.js).
+    pattern-either:
+      - pattern: localStorage.setItem($K, <... $X.accessToken ...>)
+      - pattern: localStorage.setItem("=~/(?i)token|session/", ...)
+      - pattern: sessionStorage.setItem("=~/(?i)token|session/", ...)
+    metadata: { owasp: "M9: Insecure Data Storage", cwe: "CWE-312" }
+
+  - id: ford-dangerously-set-inner-html
+    languages: [javascript]
+    severity: ERROR
+    message: dangerouslySetInnerHTML abre XSS. Renderize como texto React.
+    pattern: <$EL dangerouslySetInnerHTML={...} />
+    metadata: { owasp: "A03:2021 - Injection", cwe: "CWE-79" }
+
+  - id: ford-route-without-authorize
+    languages: [javascript]
+    severity: WARNING
+    message: Rota que altera dados sem authorize(...). Toda escrita precisa de controle de perfil (RBAC).
+    patterns:
+      - pattern-either:
+          - pattern: $R.post($PATH, ...)
+          - pattern: $R.put($PATH, ...)
+          - pattern: $R.delete($PATH, ...)
+      - pattern-not: $R.$M($PATH, ..., authorize(...), ...)
+      - pattern-not-inside: |
+          $R.use(authorize(...))
+          ...
+      - metavariable-regex:
+          metavariable: $PATH
+          regex: ^['"]/(vehicles|users|admin)
+    paths:
+      include: ["server/src/routes/**"]
+    metadata: { owasp: "API5:2023 - Broken Function Level Authorization", cwe: "CWE-285" }
+
+  - id: ford-cleartext-api-url
+    languages: [javascript]
+    severity: WARNING
+    message: URL http:// fixa para host remoto. Produção exige HTTPS.
+    pattern-regex: '[''"`]http://(?!localhost|127\.0\.0\.1|10\.0\.2\.2)[a-zA-Z0-9.-]+'
+    paths:
+      include: ["src/**"]
+    metadata: { owasp: "M5: Insecure Communication", cwe: "CWE-319" }

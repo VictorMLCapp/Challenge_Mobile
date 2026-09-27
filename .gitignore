@@ -22,3 +22,14 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Segredos e ambiente (Sprint 3 - Cybersecurity)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.keystore
+*.jks
+android/keystore.properties
+server/data/users.json

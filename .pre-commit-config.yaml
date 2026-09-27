@@ -1,0 +1,7 @@
+# Opcional: roda o Gitleaks antes de cada commit na máquina do dev.
+#   pip install pre-commit && pre-commit install
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.1
+    hooks:
+      - id: gitleaks

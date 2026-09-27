@@ -1,0 +1,39 @@
+# SCA contínuo: PRs automáticos de atualização (segurança + versões) toda semana.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule: { interval: weekly, day: monday }
+    cooldown:
+      default-days: 7 # espera 7 dias após a publicação: reduz risco de versão maliciosa recém-lançada
+    open-pull-requests-limit: 10
+    labels: [dependencies, security]
+    groups:
+      react-three:
+        patterns: ["three", "@react-three/*"]
+      capacitor:
+        patterns: ["@capacitor/*"]
+  - package-ecosystem: npm
+    directory: /server
+    schedule: { interval: weekly, day: monday }
+    cooldown:
+      default-days: 7 # espera 7 dias após a publicação: reduz risco de versão maliciosa recém-lançada
+    labels: [dependencies, security, api]
+  - package-ecosystem: gradle
+    directory: /android
+    schedule: { interval: weekly, day: monday }
+    cooldown:
+      default-days: 7 # espera 7 dias após a publicação: reduz risco de versão maliciosa recém-lançada
+    labels: [dependencies, security, android]
+  - package-ecosystem: docker
+    directory: /server
+    schedule: { interval: weekly, day: monday }
+    cooldown:
+      default-days: 7 # espera 7 dias após a publicação: reduz risco de versão maliciosa recém-lançada
+    labels: [dependencies, security, docker]
+  - package-ecosystem: github-actions
+    directory: /
+    schedule: { interval: weekly, day: monday }
+    cooldown:
+      default-days: 7 # espera 7 dias após a publicação: reduz risco de versão maliciosa recém-lançada
+    labels: [dependencies, ci]

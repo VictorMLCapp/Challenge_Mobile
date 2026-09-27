@@ -1,0 +1,182 @@
+# Pipeline DevSecOps - Ford Ranger Raptor (app mobile + API de especificações)
+# Qualquer achado HIGH/CRITICAL falha o job e bloqueia o merge/deploy.
+# Actions fixadas por SHA de commit (proteção de supply chain; Dependabot atualiza).
+name: DevSecOps
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: "0 6 * * 1" # varredura semanal (novas CVEs em dependências já existentes)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: devsecops-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  secrets:
+    name: Secret scanning (Gitleaks)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0 # histórico completo: segredo apagado num commit antigo também é achado
+      - name: Gitleaks
+        run: |
+          docker run --rm -v "$PWD:/repo" zricethezav/gitleaks:v8.30.1 \
+            git /repo --config /repo/.gitleaks.toml --redact --verbose \
+            --report-format sarif --report-path /repo/gitleaks.sarif
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: always()
+        with: { name: gitleaks-report, path: gitleaks.sarif, if-no-files-found: ignore }
+
+  sast:
+    name: SAST (Semgrep)
+    runs-on: ubuntu-latest
+    container: semgrep/semgrep:1.178.0
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Semgrep (rulesets OWASP + regras do projeto)
+        run: |
+          semgrep scan \
+            --config p/owasp-top-ten --config p/javascript --config p/react \
+            --config p/nodejsscan --config p/jwt --config p/secrets \
+            --config .semgrep/ford-rules.yml \
+            --exclude workshop --exclude android/app/build \
+            --severity ERROR --error \
+            --sarif --output semgrep.sarif
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: always()
+        with: { name: semgrep-report, path: semgrep.sarif }
+
+  sca:
+    name: SCA (npm audit)
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        project: [".", "server"]
+    defaults:
+      run:
+        working-directory: ${{ matrix.project }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with: { node-version: 22, cache: npm, cache-dependency-path: "${{ matrix.project }}/package-lock.json" }
+      - run: npm ci --ignore-scripts
+      - name: npm audit (falha em HIGH/CRITICAL)
+        run: npm audit --audit-level=high
+      - name: Relatório completo
+        if: always()
+        run: npm audit --json > npm-audit.json || true
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: always()
+        with: { name: "npm-audit-${{ matrix.project == '.' && 'app' || 'server' }}", path: "${{ matrix.project }}/npm-audit.json" }
+
+  test:
+    name: Lint, testes e build
+    runs-on: ubuntu-latest
+    needs: [secrets, sast, sca]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npm run lint
+      - name: Testes de segurança da API (auth, RBAC, validação, rate limit, headers)
+        working-directory: server
+        run: npm ci && npm test
+      - name: Build web (CSP injetada no index.html)
+        run: npm run build
+        env:
+          VITE_API_URL: https://api.ford-specs.example
+      - name: Confere CSP no build
+        run: grep -q 'Content-Security-Policy' dist/index.html
+
+  iac:
+    name: IaC security (Trivy config + Checkov)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Trivy misconfig (Dockerfile, compose, Kubernetes)
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          scan-type: config
+          scan-ref: .
+          severity: HIGH,CRITICAL
+          exit-code: "1"
+      - name: Checkov (Dockerfile, Kubernetes, GitHub Actions)
+        uses: bridgecrewio/checkov-action@99bb2caf247dfd9f03cf984373bc6043d4e32ebf # v12.1347.0
+        with:
+          directory: .
+          framework: dockerfile,kubernetes,github_actions
+          skip_path: workshop
+          quiet: true
+          soft_fail: false
+
+  container:
+    name: Container security (Trivy image)
+    runs-on: ubuntu-latest
+    needs: [test, iac]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Build da imagem da API
+        run: docker build -t ford-specs-api:${{ github.sha }} server
+      - name: Trivy image scan
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          image-ref: ford-specs-api:${{ github.sha }}
+          severity: HIGH,CRITICAL
+          ignore-unfixed: true
+          exit-code: "1"
+          format: table
+      - name: SBOM (CycloneDX)
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          image-ref: ford-specs-api:${{ github.sha }}
+          format: cyclonedx
+          output: sbom.cdx.json
+          exit-code: "0"
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with: { name: sbom, path: sbom.cdx.json }
+
+  android:
+    name: Build Android (APK debug)
+    runs-on: ubuntu-latest
+    needs: [test]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with: { node-version: 22, cache: npm }
+      - uses: actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6 # v6.0.1
+        with: { distribution: temurin, java-version: 21 }
+      - uses: android-actions/setup-android@be39fa834029ff78f1a44aa3bb0819b8fc2bd8fd # v4.0.4
+      - run: npm ci
+      - run: npm run android:sync
+        env:
+          VITE_API_URL: http://10.0.2.2:3000
+      - name: assembleDebug
+        working-directory: android
+        run: ./gradlew assembleDebug --no-daemon
+      - name: Confere hardening no manifest do APK
+        run: |
+          MANIFEST=android/app/build/intermediates/merged_manifests/debug/processDebugManifest/AndroidManifest.xml
+          [ -f "$MANIFEST" ] || MANIFEST=$(find android/app/build/intermediates -name AndroidManifest.xml -path '*merged*' | head -1)
+          grep -q 'android:allowBackup="false"' "$MANIFEST"
+          grep -q 'android:networkSecurityConfig' "$MANIFEST"
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with: { name: app-debug-apk, path: android/app/build/outputs/apk/debug/app-debug.apk }
+
+  deploy:
+    name: Deploy (gate)
+    runs-on: ubuntu-latest
+    needs: [container, android]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    environment: production
+    steps:
+      - run: echo "Todos os gates de segurança passaram. Deploy liberado para ${{ github.sha }}."
