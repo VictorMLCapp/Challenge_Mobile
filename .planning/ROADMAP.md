@@ -96,6 +96,6 @@ Phases execute in numeric order: 1 → 2 → 3
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Vitrine coerente no navegador | 2/2 | Complete   | 2026-09-27 |
+| 1. Vitrine coerente no navegador | 2/2 | Complete    | 2026-09-27 |
 | 2. Percurso sem rede na largura do celular | 0/2 | Not started | - |
 | 3. APK da banca | 0/3 | Not started | - |
