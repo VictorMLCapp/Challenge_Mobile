@@ -5,6 +5,7 @@ import { Suspense } from 'react'
 import * as THREE from 'three'
 import { PieChart, Pie, Cell } from 'recharts'
 import FordRangerRaptor from './FordRangerRaptor'
+import { status, specSections, components, EMPTY_HEADING, EMPTY_BODY, ERROR_MESSAGE, SCORE_DISCLAIMER } from '../data/ranger'
 import styles from './SpecsPage.module.css'
 import fordLogo from '../assets/Ford-Logo-PNG-Isolated-Image.webp'
 
@@ -45,144 +46,6 @@ const NAV_CATEGORIES = [
   },
 ]
 
-const SPECS_DATA = [
-  { section: 'Motor & Performance', items: [
-    { label: 'Motor', value: '3.0 V6 Bi-turbo Diesel' },
-    { label: 'Potência', value: '397 cv @ 3.500 rpm' },
-    { label: 'Torque', value: '583 Nm @ 1.750-3.000 rpm' },
-    { label: 'Câmbio', value: '10 marchas automático SelectShift' },
-    { label: '0-100 km/h', value: '5,4 segundos' },
-    { label: 'Velocidade Máx.', value: '180 km/h' },
-  ]},
-  { section: 'Tração & Suspensão', items: [
-    { label: 'Tração', value: '4x4 inteligente com baixa' },
-    { label: 'Suspensão Dianteira', value: 'Fox Racing Shox 2.5" bypass' },
-    { label: 'Suspensão Traseira', value: 'Multilink com Fox Racing Shox' },
-    { label: 'Course Dianteiro', value: '296 mm' },
-    { label: 'Course Traseiro', value: '297 mm' },
-    { label: 'Ângulo de Ataque', value: '33,1°' },
-  ]},
-  { section: 'Dimensões', items: [
-    { label: 'Comprimento', value: '5.362 mm' },
-    { label: 'Largura', value: '2.028 mm' },
-    { label: 'Altura', value: '1.873 mm' },
-    { label: 'Entre-eixos', value: '3.270 mm' },
-    { label: 'Capacidade de carga', value: '620 kg' },
-    { label: 'Pneus', value: '285/70 R17 BFGoodrich' },
-  ]},
-]
-
-// ── COMPONENT EXPLORER DATA
-const COMPONENTS = [
-  {
-    id: 'retrovisor',
-    icon: '🪞',
-    viewId: 'geral_lateral',
-    title: 'Retrovisor Integrado',
-    description: 'Espelhos retrovisores rebatíveis eletricamente com aquecimento e câmera de ponto cego integrada.',
-    specs: [
-      { label: 'Ajuste', value: 'Elétrico 6 direções' },
-      { label: 'Aquecimento', value: 'Sim' },
-      { label: 'Câmera BSM', value: 'Integrada' },
-    ],
-    score: 88,
-    competitors: [
-      { name: 'Ranger Raptor', value: 88 },
-      { name: 'Hilux GR-S', value: 71 },
-      { name: 'Amarok V6', value: 76 },
-    ],
-  },
-  {
-    id: 'farol',
-    icon: '💡',
-    viewId: 'geral_frente',
-    title: 'Faróis LED Matrix',
-    description: 'Faróis full-LED com tecnologia Matrix adaptativa, ajuste automático de altura e DRL signature.',
-    specs: [
-      { label: 'Tecnologia', value: 'Matrix LED' },
-      { label: 'Alcance', value: '120 m (alto)' },
-      { label: 'DRL', value: 'Assinatura Ford' },
-    ],
-    score: 92,
-    competitors: [
-      { name: 'Ranger Raptor', value: 92 },
-      { name: 'Hilux GR-S', value: 68 },
-      { name: 'Amarok V6', value: 80 },
-    ],
-  },
-  {
-    id: 'roda_dianteira',
-    icon: '🛞',
-    viewId: 'rodas_dianteira',
-    title: 'Suspensão Fox 2.5"',
-    description: 'Suspensão dianteira Fox Racing Shox 2.5" bypass com ajuste de amortecimento para off-road extremo.',
-    specs: [
-      { label: 'Course', value: '296 mm' },
-      { label: 'Pneu', value: '285/70 R17' },
-      { label: 'Roda', value: 'Liga leve 17"' },
-    ],
-    score: 96,
-    competitors: [
-      { name: 'Ranger Raptor', value: 96 },
-      { name: 'Hilux GR-S', value: 74 },
-      { name: 'Amarok V6', value: 70 },
-    ],
-  },
-  {
-    id: 'roda_traseira',
-    icon: '⚙️',
-    viewId: 'rodas_traseira',
-    title: 'Suspensão Traseira Multilink',
-    description: 'Eixo traseiro multilink com Fox Racing Shox, projetado para máxima estabilidade em terrenos irregulares.',
-    specs: [
-      { label: 'Course', value: '297 mm' },
-      { label: 'Eixo', value: 'Multilink independente' },
-      { label: 'Freio', value: 'Disco 332 mm' },
-    ],
-    score: 94,
-    competitors: [
-      { name: 'Ranger Raptor', value: 94 },
-      { name: 'Hilux GR-S', value: 72 },
-      { name: 'Amarok V6', value: 78 },
-    ],
-  },
-  {
-    id: 'cacamba',
-    icon: '📦',
-    viewId: 'caçamba',
-    title: 'Caçamba Inteligente',
-    description: 'Caçamba em alumínio de alta resistência com proteção de carga, tomadas 12V/220V e iluminação LED.',
-    specs: [
-      { label: 'Capacidade', value: '620 kg' },
-      { label: 'Volume', value: '1.430 litros' },
-      { label: 'Tomada', value: '12V + 220V' },
-    ],
-    score: 85,
-    competitors: [
-      { name: 'Ranger Raptor', value: 85 },
-      { name: 'Hilux GR-S', value: 80 },
-      { name: 'Amarok V6', value: 82 },
-    ],
-  },
-  {
-    id: 'motor',
-    icon: '🔥',
-    viewId: 'motor_hood',
-    title: 'Motor 3.0 V6 Bi-Turbo',
-    description: 'Bloco V6 biturbo diesel com 397 cv e 583 Nm de torque. O mais potente da categoria pickup off-road.',
-    specs: [
-      { label: 'Potência', value: '397 cv @ 3.500 rpm' },
-      { label: 'Torque', value: '583 Nm' },
-      { label: '0–100 km/h', value: '5,4 s' },
-    ],
-    score: 98,
-    competitors: [
-      { name: 'Ranger Raptor', value: 98 },
-      { name: 'Hilux GR-S', value: 65 },
-      { name: 'Amarok V6', value: 88 },
-    ],
-  },
-]
 
 // Donut chart component
 function DonutScore({ score }) {
@@ -262,15 +125,15 @@ function ComponentDetailPanel({ data }) {
         </div>
         <div className={styles.panelCompare}>
           <span className={styles.panelCompareLabel}>VS. COMPETIDORES</span>
-          {data.competitors.map(c => (
-            <div key={c.name} className={styles.panelCompareRow}>
+          {data.comparisons.map(c => (
+            <div key={c.id} className={styles.panelCompareRow}>
               <span className={styles.panelCompareName}>{c.name}</span>
               <div className={styles.panelCompareBar}>
                 <div
                   className={styles.panelCompareBarFill}
                   style={{
                     width: `${c.value}%`,
-                    background: c.name === 'Ranger Raptor' ? '#f54b2e' : 'rgba(255,255,255,0.2)',
+                    background: c.id === 'raptor' ? 'var(--accent)' : 'rgba(255,255,255,0.2)',
                   }}
                 />
               </div>
@@ -290,7 +153,7 @@ export default function SpecsPage({ onBack, onViewReport, onHome }) {
   const [activeComponent, setActiveComponent] = useState(null)
 
   const view = VIEWS[activeView]
-  const selectedComponent = COMPONENTS.find(c => c.id === activeComponent)
+  const selectedComponent = status === 'ok' ? components.find(c => c.id === activeComponent) : null
 
   function handleCategory(id) {
     setOpenCategory(id === openCategory ? null : id)
@@ -344,26 +207,40 @@ export default function SpecsPage({ onBack, onViewReport, onHome }) {
 
       {/* Component Explorer */}
       <aside className={styles.componentExplorer}>
-        <div className={styles.explorerLabel}>COMPONENTES</div>
-        <p className={styles.explorerHint}>Selecione para ver specs e comparar</p>
-        <div className={styles.explorerList}>
-          {COMPONENTS.map(c => (
-            <button
-              key={c.id}
-              type="button"
-              className={`${styles.explorerItem} ${activeComponent === c.id ? styles.explorerItemActive : ''}`}
-              onClick={() => handleComponentSelect(c)}
-            >
-              <span className={styles.explorerIcon}>{c.icon}</span>
-              <div className={styles.explorerMeta}>
-                <span className={styles.explorerName}>{c.title}</span>
-                <span className={styles.explorerScore}>{c.score}/100</span>
-              </div>
-              <span className={styles.explorerChevron}>{activeComponent === c.id ? '▲' : '›'}</span>
-            </button>
-          ))}
-        </div>
-        {selectedComponent && <ComponentDetailPanel data={selectedComponent} />}
+        {status === 'ok' && (
+          <>
+            <div className={styles.explorerLabel}>COMPONENTES</div>
+            <p className={styles.explorerHint}>Selecione para ver specs e comparar</p>
+            <div className={styles.explorerList}>
+              {components.map(c => (
+                <button
+                  key={c.id}
+                  type="button"
+                  className={`${styles.explorerItem} ${activeComponent === c.id ? styles.explorerItemActive : ''}`}
+                  onClick={() => handleComponentSelect(c)}
+                >
+                  <span className={styles.explorerIcon}>{c.icon}</span>
+                  <div className={styles.explorerMeta}>
+                    <span className={styles.explorerName}>{c.title}</span>
+                    <span className={styles.explorerScore}>{c.score}/100</span>
+                  </div>
+                  <span className={styles.explorerChevron}>{activeComponent === c.id ? '▲' : '›'}</span>
+                </button>
+              ))}
+            </div>
+            {selectedComponent && <ComponentDetailPanel data={selectedComponent} />}
+            <p>{SCORE_DISCLAIMER}</p>
+          </>
+        )}
+        {status === 'empty' && (
+          <>
+            <h2 className="emptyHeading">{EMPTY_HEADING}</h2>
+            <p className="emptyBody">{EMPTY_BODY}</p>
+          </>
+        )}
+        {status === 'error' && (
+          <p className="emptyBody">{ERROR_MESSAGE}</p>
+        )}
       </aside>
 
       {/* Header */}
@@ -412,25 +289,38 @@ export default function SpecsPage({ onBack, onViewReport, onHome }) {
 
       {/* Specs Panel */}
       <div className={styles.specsPanel}>
-        <div className={styles.specsTabs}>
-          {SPECS_DATA.map((sec, i) => (
-            <button
-              key={i}
-              className={`${styles.specsTab} ${activeSection === i ? styles.specsTabActive : ''}`}
-              onClick={() => setActiveSection(i)}
-            >
-              {sec.section}
-            </button>
-          ))}
-        </div>
-        <div className={styles.specsTable}>
-          {SPECS_DATA[activeSection].items.map(item => (
-            <div key={item.label} className={styles.specsRow}>
-              <span className={styles.specsRowLabel}>{item.label}</span>
-              <span className={styles.specsRowValue}>{item.value}</span>
+        {status === 'ok' && (
+          <>
+            <div className={styles.specsTabs}>
+              {specSections.map((sec, i) => (
+                <button
+                  key={sec.section}
+                  className={`${styles.specsTab} ${activeSection === i ? styles.specsTabActive : ''}`}
+                  onClick={() => setActiveSection(i)}
+                >
+                  {sec.section}
+                </button>
+              ))}
             </div>
-          ))}
-        </div>
+            <div className={styles.specsTable}>
+              {specSections[activeSection].items.map(item => (
+                <div key={item.label} className={styles.specsRow}>
+                  <span className={styles.specsRowLabel}>{item.label}</span>
+                  <span className={styles.specsRowValue}>{item.value}</span>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+        {status === 'empty' && (
+          <>
+            <h2 className="emptyHeading">{EMPTY_HEADING}</h2>
+            <p className="emptyBody">{EMPTY_BODY}</p>
+          </>
+        )}
+        {status === 'error' && (
+          <p className="emptyBody">{ERROR_MESSAGE}</p>
+        )}
       </div>
 
       {/* View Label overlay */}
