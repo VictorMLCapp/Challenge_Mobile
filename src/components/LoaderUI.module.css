@@ -36,15 +36,17 @@
 
 .barFill {
   height: 100%;
-  background: #f54b2e;
+  background: var(--accent);
   border-radius: 2px;
   transition: width 0.3s ease-out;
 }
 
 .text {
   font-family: 'Inter', sans-serif;
-  font-size: 0.75rem;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
   letter-spacing: 0.2em;
-  color: #9aa0ad;
+  color: var(--text-secondary);
   text-transform: uppercase;
 }

@@ -5,7 +5,7 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background: #080a0e;
+  background: var(--bg);
   overflow: hidden;
 }
 
@@ -45,15 +45,17 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
-  border-left: 2px solid #f54b2e;
+  border-left: 2px solid var(--accent);
   padding-left: 16px;
 }
 
 .headerSub {
-  font-size: 0.6rem;
+  font-size: 12px;
   font-weight: 600;
+  line-height: 1.2;
+  font-family: 'Inter', sans-serif;
   letter-spacing: 0.3em;
-  color: #f54b2e;
+  color: var(--accent);
   text-transform: uppercase;
 }
 
@@ -61,7 +63,7 @@
   font-family: 'Bebas Neue', sans-serif;
   font-size: 1.1rem;
   letter-spacing: 0.12em;
-  color: #e8e2d6;
+  color: var(--text-primary);
 }
 
 .headerRight {
@@ -95,25 +97,30 @@
 
 .exportBtn:hover {
   border-color: rgba(255,255,255,0.3);
-  color: #e8e2d6;
+  color: var(--text-primary);
   background: rgba(255,255,255,0.04);
 }
 
 .exportBtnPdf {
-  border-color: rgba(245, 75, 46, 0.4);
-  color: #f54b2e;
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .exportBtnPdf:hover {
   background: rgba(245, 75, 46, 0.1);
-  border-color: #f54b2e;
-  color: #f54b2e;
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .exportBtnActive {
-  background: rgba(245, 75, 46, 0.15) !important;
-  border-color: #f54b2e !important;
-  color: #f54b2e !important;
+  background: rgba(255,255,255,0.04);
+  border-color: var(--border);
+  color: var(--text-primary);
+}
+
+.exportBtnPdf.exportBtnActive {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .exportIcon {
@@ -124,7 +131,7 @@
   padding: 8px 20px;
   background: transparent;
   border: 1px solid rgba(255,255,255,0.12);
-  color: #5a6478;
+  color: var(--text-secondary);
   font-family: 'Inter', sans-serif;
   font-size: 0.72rem;
   font-weight: 500;
@@ -136,7 +143,7 @@
 }
 
 .backBtn:hover {
-  color: #e8e2d6;
+  color: var(--text-primary);
   border-color: rgba(255,255,255,0.3);
 }
 
@@ -191,7 +198,7 @@
   font-size: 0.62rem;
   font-weight: 600;
   letter-spacing: 0.25em;
-  color: #f54b2e;
+  color: var(--accent);
   text-transform: uppercase;
   margin-bottom: 8px;
 }
@@ -200,13 +207,13 @@
   font-family: 'Bebas Neue', sans-serif;
   font-size: 3.2rem;
   line-height: 1;
-  color: #e8e2d6;
+  color: var(--text-primary);
   letter-spacing: 0.04em;
   margin-bottom: 10px;
 }
 
 .heroTitle span {
-  color: #f54b2e;
+  color: var(--accent);
 }
 
 .heroDesc {
@@ -231,13 +238,13 @@
   padding: 16px 10px;
   background: rgba(15,19,24,0.7);
   border: 1px solid rgba(255,255,255,0.04);
-  border-top: 2px solid rgba(245, 75, 46,0.3);
+  border-top: 2px solid var(--accent-glow);
   text-align: center;
   transition: border-top-color 0.2s;
 }
 
 .heroCard:hover {
-  border-top-color: #f54b2e;
+  border-top-color: var(--accent);
   background: rgba(245, 75, 46,0.05);
 }
 
@@ -247,10 +254,29 @@
 }
 
 .heroCardValue {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.2;
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.3rem;
   letter-spacing: 0.05em;
-  color: #e8e2d6;
+  color: var(--text-primary);
+}
+
+:global(.emptyHeading) {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.2;
+  font-family: 'Bebas Neue', sans-serif;
+  color: var(--text-primary);
+}
+
+:global(.emptyBody) {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-secondary);
+  margin-top: 8px;
 }
 
 .heroCardLabel {
@@ -258,7 +284,7 @@
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #f54b2e;
+  color: var(--accent);
 }
 
 .heroCardSub {
@@ -274,12 +300,13 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 2px;
   padding: 24px 40px;
-  background: #080a0e;
+  background: var(--bg);
 }
 
 .chartCard {
   background: rgba(15,19,24,0.8);
   border: 1px solid rgba(255,255,255,0.04);
+  border-top: 2px solid var(--accent);
   padding: 20px 16px 16px;
   position: relative;
 }
@@ -291,7 +318,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(to right, #f54b2e, transparent);
+  background: linear-gradient(to right, var(--accent), transparent);
 }
 
 .chartCardHeader {
@@ -305,7 +332,7 @@
   font-family: 'Bebas Neue', sans-serif;
   font-size: 1rem;
   letter-spacing: 0.1em;
-  color: #e8e2d6;
+  color: var(--text-primary);
 }
 
 .chartCardSub {
@@ -348,7 +375,7 @@
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #f54b2e;
+  color: var(--accent);
   padding: 2px 8px;
   border: 1px solid rgba(245, 75, 46, 0.35);
   border-radius: 2px;
@@ -372,7 +399,7 @@
   font-family: 'Bebas Neue', sans-serif;
   font-size: 1.4rem;
   letter-spacing: 0.1em;
-  color: #e8e2d6;
+  color: var(--text-primary);
 }
 
 .featuresTabs {
@@ -403,8 +430,8 @@
 
 .featuresTabActive {
   background: rgba(245, 75, 46,0.1);
-  border-color: #f54b2e;
-  color: #f54b2e;
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 /* TABLE */
@@ -427,7 +454,7 @@
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #f54b2e;
+  color: var(--accent);
 }
 
 .featuresColVar {
@@ -469,7 +496,7 @@
 
 .checkYes {
   font-size: 0.9rem;
-  color: #f54b2e;
+  color: var(--accent);
   font-weight: 700;
 }
 
@@ -481,16 +508,16 @@
 .featuresValue {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 0.9rem;
-  color: #e8e2d6;
+  color: var(--text-primary);
   letter-spacing: 0.04em;
 }
 
 .featuresValueHighlight {
-  color: #f54b2e;
+  color: var(--accent);
 }
 
 .checkYesHighlight {
-  color: #f54b2e !important;
+  color: var(--accent) !important;
 }
 
 .featuresTableHeadWide,
@@ -518,7 +545,7 @@
   font-family: 'Bebas Neue', sans-serif;
   font-size: 1.6rem;
   letter-spacing: 0.1em;
-  color: #e8e2d6;
+  color: var(--text-primary);
   margin-bottom: 6px;
 }
 
@@ -543,7 +570,7 @@
   font-size: 0.58rem;
   font-weight: 600;
   letter-spacing: 0.25em;
-  color: #f54b2e;
+  color: var(--accent);
   margin-bottom: 4px;
 }
 
@@ -551,13 +578,13 @@
   font-family: 'Bebas Neue', sans-serif;
   font-size: 3.5rem;
   line-height: 1;
-  color: #f54b2e;
+  color: var(--accent);
   letter-spacing: 0.05em;
 }
 
 .overallGradeScore {
   font-size: 0.68rem;
-  color: #5a6478;
+  color: var(--text-secondary);
   margin-top: 6px;
   letter-spacing: 0.06em;
 }
@@ -577,7 +604,7 @@
 }
 
 .gradeCard:hover {
-  border-left-color: #f54b2e;
+  border-left-color: var(--accent);
 }
 
 .gradeCardTop {
@@ -636,7 +663,7 @@
   font-family: 'Inter', sans-serif;
   font-size: 0.82rem;
   font-weight: 600;
-  color: #e8e2d6;
+  color: var(--text-primary);
   margin-bottom: 8px;
   letter-spacing: 0.03em;
 }
@@ -650,13 +677,13 @@
 .gradeCardScore {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 1.1rem;
-  color: #f54b2e;
+  color: var(--accent);
   letter-spacing: 0.05em;
 }
 
 .gradeCardRank {
   font-size: 0.68rem;
-  color: #5a6478;
+  color: var(--text-secondary);
   align-self: center;
 }
 
@@ -670,14 +697,14 @@
 
 .gradeBarFill {
   height: 100%;
-  background: linear-gradient(to right, #f54b2e, rgba(245, 75, 46, 0.5));
+  background: linear-gradient(to right, var(--accent), rgba(245, 75, 46, 0.5));
   border-radius: 2px;
   transition: width 0.6s ease;
 }
 
 .gradeGap {
   font-size: 0.65rem;
-  color: #5a6478;
+  color: var(--text-secondary);
   line-height: 1.4;
   margin: 0;
 }
@@ -707,7 +734,7 @@
   font-family: 'Bebas Neue', sans-serif;
   font-size: 1.6rem;
   letter-spacing: 0.1em;
-  color: #e8e2d6;
+  color: var(--text-primary);
   margin-bottom: 6px;
 }
 
@@ -742,7 +769,7 @@
 
 .projectedDelta {
   font-size: 0.68rem;
-  color: #5a6478;
+  color: var(--text-secondary);
   margin-top: 4px;
 }
 
@@ -771,7 +798,7 @@
   left: 0;
   width: 3px;
   height: 100%;
-  background: linear-gradient(to bottom, #f54b2e, transparent);
+  background: linear-gradient(to bottom, var(--accent), transparent);
 }
 
 .upgradeCardHeader {
@@ -804,7 +831,7 @@
 }
 
 .priorityBaixa {
-  color: #5a6478;
+  color: var(--text-secondary);
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
 }
@@ -818,7 +845,7 @@
 
 .upgradeCategory {
   font-size: 0.62rem;
-  color: #5a6478;
+  color: var(--text-secondary);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-left: auto;
@@ -828,7 +855,7 @@
   font-family: 'Inter', sans-serif;
   font-size: 1rem;
   font-weight: 600;
-  color: #e8e2d6;
+  color: var(--text-primary);
   margin-bottom: 8px;
 }
 
@@ -859,7 +886,7 @@
   content: '→';
   position: absolute;
   left: 0;
-  color: #f54b2e;
+  color: var(--accent);
   font-size: 0.65rem;
 }
 
@@ -872,7 +899,7 @@
 }
 
 .upgradeRef span {
-  color: #f54b2e;
+  color: var(--accent);
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1027,7 +1054,7 @@
   }
 
   .chartCard::before {
-    background: linear-gradient(to right, #f54b2e, rgba(245, 75, 46, 0.3));
+    background: linear-gradient(to right, var(--accent), var(--accent-glow));
   }
 
   .featuresSection,
@@ -1066,7 +1093,7 @@
 
   .featuresTabActive {
     background: rgba(245, 75, 46, 0.08) !important;
-    color: #f54b2e !important;
+    color: var(--accent) !important;
     border-color: rgba(245, 75, 46, 0.4);
   }
 
