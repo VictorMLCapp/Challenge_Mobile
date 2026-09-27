@@ -4,6 +4,24 @@ import {
   BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, Legend,
   RadialBarChart, RadialBar,
 } from 'recharts'
+import {
+  status,
+  competitors,
+  competitorSummary,
+  highlights,
+  engineData,
+  radarData,
+  overallScores,
+  featuresComparison,
+  categoryGrades,
+  upgradeRecommendations,
+  CSV_FILENAME,
+  TXT_FILENAME,
+  EMPTY_HEADING,
+  EMPTY_BODY,
+  ERROR_MESSAGE,
+  SCORE_DISCLAIMER,
+} from '../data/ranger'
 import styles from './ReportPage.module.css'
 import fordLogo from '../assets/Ford-Logo-PNG-Isolated-Image.webp'
 
@@ -24,224 +42,27 @@ const SCREEN_COMPETITOR_COLORS = {
   l200: '#4a4d63',
 }
 
-const COMPETITORS = [
-  { id: 'raptor', name: 'Ranger Raptor', short: 'Raptor', color: PRINT_COMPETITOR_COLORS.raptor },
-  { id: 'hilux', name: 'Hilux GR-S', short: 'Hilux', color: PRINT_COMPETITOR_COLORS.hilux },
-  { id: 'amarok', name: 'Amarok V6', short: 'Amarok', color: PRINT_COMPETITOR_COLORS.amarok },
-  { id: 's10', name: 'S10 High Country', short: 'S10', color: PRINT_COMPETITOR_COLORS.s10 },
-  { id: 'l200', name: 'L200 Triton', short: 'L200', color: PRINT_COMPETITOR_COLORS.l200 },
-]
-
-const RADAR_DATA = [
-  { subject: 'Potência', Raptor: 98, Hilux: 62, Amarok: 85, S10: 70, L200: 65 },
-  { subject: 'Off-Road', Raptor: 96, Hilux: 78, Amarok: 72, S10: 68, L200: 74 },
-  { subject: 'Suspensão', Raptor: 97, Hilux: 70, Amarok: 68, S10: 65, L200: 66 },
-  { subject: 'Segurança', Raptor: 88, Hilux: 82, Amarok: 90, S10: 78, L200: 75 },
-  { subject: 'Conectividade', Raptor: 82, Hilux: 75, Amarok: 92, S10: 80, L200: 70 },
-  { subject: 'Conforto', Raptor: 90, Hilux: 78, Amarok: 88, S10: 85, L200: 72 },
-]
-
-const ENGINE_DATA = [
-  { spec: 'Potência (cv)', raptor: 397, hilux: 224, amarok: 258, s10: 206, l200: 190 },
-  { spec: 'Torque (Nm)', raptor: 583, hilux: 550, amarok: 580, s10: 450, l200: 430 },
-  { spec: '0-100 (s)', raptor: 5.4, hilux: 9.2, amarok: 7.1, s10: 8.5, l200: 9.8 },
-  { spec: 'Course (mm)', raptor: 296, hilux: 220, amarok: 210, s10: 200, l200: 215 },
-  { spec: 'Carga (kg)', raptor: 620, hilux: 1000, amarok: 1050, s10: 1100, l200: 1080 },
-]
-
-const OVERALL_SCORES = [
-  { name: 'Ranger Raptor', value: 91, fill: '#f54b2e' },
-  { name: 'Amarok V6', value: 84, fill: '#3b82f6' },
-  { name: 'S10 High Country', value: 78, fill: '#eab308' },
-  { name: 'Hilux GR-S', value: 76, fill: '#ef4444' },
-  { name: 'L200 Triton', value: 72, fill: '#8b5cf6' },
-]
-
-const FEATURES_COMPARISON = [
-  {
-    category: 'Motor & Performance',
-    icon: '⚙️',
-    items: [
-      { name: 'Motor V6 Bi-Turbo', raptor: true, hilux: false, amarok: true, s10: false, l200: false },
-      { name: 'Potência > 350 cv', raptor: true, hilux: false, amarok: false, s10: false, l200: false },
-      { name: 'Câmbio 10 marchas', raptor: true, hilux: false, amarok: false, s10: false, l200: false },
-      { name: '0-100 km/h < 6s', raptor: true, hilux: false, amarok: false, s10: false, l200: false },
-    ],
-  },
-  {
-    category: 'Off-Road & Suspensão',
-    icon: '🏔️',
-    items: [
-      { name: 'Fox Racing Shox 2.5"', raptor: true, hilux: false, amarok: false, s10: false, l200: false },
-      { name: 'Course > 280 mm', raptor: true, hilux: false, amarok: false, s10: false, l200: false },
-      { name: 'Modos Terrain Management', raptor: true, hilux: true, amarok: true, s10: true, l200: true },
-      { name: 'Diferencial Traseiro Blocante', raptor: true, hilux: true, amarok: true, s10: true, l200: true },
-      { name: 'Pneus All-Terrain 285/70', raptor: true, hilux: false, amarok: false, s10: false, l200: false },
-    ],
-  },
-  {
-    category: 'Segurança',
-    icon: '🛡️',
-    items: [
-      { name: 'AEB + Alerta Colisão', raptor: true, hilux: true, amarok: true, s10: true, l200: true },
-      { name: 'BLIS + Tráfego Cruzado', raptor: true, hilux: false, amarok: true, s10: false, l200: false },
-      { name: 'Piloto Adaptativo Stop&Go', raptor: true, hilux: false, amarok: true, s10: true, l200: false },
-      { name: 'Câmera 360°', raptor: true, hilux: false, amarok: true, s10: true, l200: false },
-      { name: 'Airbags (un.)', raptor: false, hilux: false, amarok: false, s10: false, l200: false, values: ['7', '7', '9', '6', '6'] },
-    ],
-  },
-  {
-    category: 'Conectividade',
-    icon: '📡',
-    items: [
-      { name: 'Android Auto / CarPlay Wireless', raptor: true, hilux: true, amarok: true, s10: true, l200: false },
-      { name: 'Tela Multimídia (pol.)', raptor: false, hilux: false, amarok: false, s10: false, l200: false, values: ['12"', '8"', '12"', '11.3"', '8"'] },
-      { name: 'Painel Digital (pol.)', raptor: false, hilux: false, amarok: false, s10: false, l200: false, values: ['12.4"', '4.2"', '12"', '8"', '7"'] },
-      { name: 'Carregamento Wireless', raptor: true, hilux: false, amarok: true, s10: true, l200: false },
-      { name: 'Reconhecimento de Voz PT-BR', raptor: false, hilux: false, amarok: true, s10: true, l200: false },
-    ],
-  },
-]
-
-const CATEGORY_GRADES = [
-  {
-    category: 'Motor & Performance',
-    grade: 'A+',
-    score: 98,
-    rank: 1,
-    total: 5,
-    leader: 'Ranger Raptor',
-    gap: null,
-    status: 'lider',
-  },
-  {
-    category: 'Off-Road & Suspensão',
-    grade: 'A+',
-    score: 96,
-    rank: 1,
-    total: 5,
-    leader: 'Ranger Raptor',
-    gap: null,
-    status: 'lider',
-  },
-  {
-    category: 'Segurança Ativa',
-    grade: 'B+',
-    score: 88,
-    rank: 2,
-    total: 5,
-    leader: 'Amarok V6',
-    gap: '-4 pts vs Amarok (9 airbags, ADAS avançado)',
-    status: 'competitivo',
-  },
-  {
-    category: 'Conectividade',
-    grade: 'B',
-    score: 82,
-    rank: 3,
-    total: 5,
-    leader: 'Amarok V6',
-    gap: '-10 pts vs Amarok (voz PT-BR, App Store)',
-    status: 'melhorar',
-  },
-  {
-    category: 'Conforto & Interior',
-    grade: 'A',
-    score: 90,
-    rank: 2,
-    total: 5,
-    leader: 'Amarok V6',
-    gap: '-2 pts vs Amarok (acabamento premium)',
-    status: 'competitivo',
-  },
-  {
-    category: 'Capacidade de Carga',
-    grade: 'C+',
-    score: 68,
-    rank: 5,
-    total: 5,
-    leader: 'S10 High Country',
-    gap: '-480 kg vs S10 (sacrifício off-road)',
-    status: 'tradeoff',
-  },
-]
-
-const UPGRADE_RECOMMENDATIONS = [
-  {
-    priority: 'alta',
-    title: 'Pacote ADAS Premium',
-    category: 'Segurança',
-    impact: '+6 pts',
-    description: 'Adicionar Reverse AEB, assistente de permanência em faixa e monitoramento de fadiga do motorista.',
-    items: ['Reverse AEB com frenagem automática', 'Lane Keeping Assist ativo', 'Driver Attention Alert'],
-    competitorRef: 'Amarok V6 lidera com 9 airbags e pacote IQ.Drive completo',
-  },
-  {
-    priority: 'alta',
-    title: 'SYNC 4A com Voz em Português',
-    category: 'Conectividade',
-    impact: '+8 pts',
-    description: 'Atualizar software SYNC para reconhecimento de voz nativo em PT-BR e loja de aplicativos integrada.',
-    items: ['Comandos de voz em português brasileiro', 'App Store Ford integrada', 'OTA updates automáticos'],
-    competitorRef: 'Amarok V6 e S10 já oferecem assistente de voz localizado',
-  },
-  {
-    priority: 'média',
-    title: 'Caçamba Modular Pro',
-    category: 'Utilitário',
-    impact: '+5 pts',
-    description: 'Sistema de organização com divisórias, tomada 220V reforçada e proteção anti-UV para compensar menor capacidade de carga.',
-    items: ['Divisórias modulares de alumínio', 'Tomada 220V 400W na caçamba', 'Tampa rígida com trava elétrica'],
-    competitorRef: 'Hilux e S10 lideram em volume e capacidade de carga',
-  },
-  {
-    priority: 'média',
-    title: 'Interior Raptor+',
-    category: 'Conforto',
-    impact: '+4 pts',
-    description: 'Elevar acabamento interno com materiais premium para igualar Amarok e S10 no segmento topo.',
-    items: ['Painel com costura em couro sintético', 'Iluminação ambiente 64 cores', 'Bancos com ventilação'],
-    competitorRef: 'Amarok V6 Highline referência em acabamento premium',
-  },
-  {
-    priority: 'baixa',
-    title: 'Eficiência Híbrida Leve (MHEV)',
-    category: 'Motor',
-    impact: '+3 pts',
-    description: 'Sistema mild-hybrid para reduzir consumo urbano sem comprometer performance off-road.',
-    items: ['Alternador-starter 48V', 'Recuperação de energia na frenagem', 'Start/Stop inteligente off-road aware'],
-    competitorRef: 'Tendência do segmento — nenhum concorrente direto oferece ainda',
-  },
-]
-
-const HIGHLIGHTS = [
-  { label: 'Potência', value: '397 cv', sub: 'Líder da categoria', icon: '⚡' },
-  { label: 'Torque', value: '583 Nm', sub: '2º melhor do segmento', icon: '🌀' },
-  { label: 'Off-Road', value: '296 mm', sub: 'Maior curso do mercado', icon: '🏔️' },
-  { label: '0-100 km/h', value: '5,4 s', sub: 'Mais rápida da categoria', icon: '🏁' },
-  { label: 'Score Geral', value: '91/100', sub: '1º entre 5 rivais', icon: '🏆' },
-  { label: 'Posição', value: '#1', sub: 'Performance off-road', icon: '✅' },
-]
-
-const COMPETITOR_NAMES = COMPETITORS.map(c => c.short)
 
 // ── EXPORT HELPERS ───────────────────────────────────────────────────────────
 function buildCSVContent() {
-  const header = ['Especificação', ...COMPETITORS.map(c => c.name)]
+  const header = ['Especificação', ...competitors.map(c => c.name)]
   const rows = [header]
-  rows.push(['--- Motor & Performance ---', ...COMPETITORS.map(() => '')])
-  ENGINE_DATA.forEach(row => {
+  rows.push(['--- Motor & Performance ---', ...competitors.map(() => '')])
+  engineData.forEach(row => {
     rows.push([row.spec, row.raptor, row.hilux, row.amarok, row.s10, row.l200])
   })
-  rows.push(['--- Score Geral ---', ...COMPETITORS.map(() => '')])
-  OVERALL_SCORES.forEach(s => {
-    const vals = COMPETITORS.map(c => s.name.includes(c.name.split(' ')[0]) || s.name === c.name ? s.value : '')
+  rows.push(['--- Score Geral ---', ...competitors.map(() => '')])
+  overallScores.forEach(s => {
+    const vals = competitors.map(c => s.name.includes(c.name.split(' ')[0]) || s.name === c.name ? s.value : '')
     rows.push(['Score', ...vals])
   })
   return rows.map(r => r.join(',')).join('\n')
 }
 
 function buildTXTContent() {
+  const competitorLines = competitors
+    .map(c => `  • ${c.name}${c.id === 'raptor' ? ' (referência)' : ''}`)
+    .join('\n')
   return `FORD VISION - RELATÓRIO COMPARATIVO
 ${'='.repeat(60)}
 Gerado em: ${new Date().toLocaleString('pt-BR')}
@@ -249,26 +70,22 @@ Análise: Ford Vision vs principais concorrentes do segmento
 
 CONCORRENTES ANALISADOS
 ${'─'.repeat(60)}
-  • Ford Ranger Raptor (referência)
-  • Toyota Hilux GR-S
-  • VW Amarok V6
-  • Chevrolet S10 High Country
-  • Mitsubishi L200 Triton
+${competitorLines}
 
 SCORE GERAL
 ${'─'.repeat(60)}
-${OVERALL_SCORES.map((s, i) => `  ${i + 1}º  ${s.name.padEnd(22)} ${s.value}/100`).join('\n')}
+${overallScores.map((s, i) => `  ${i + 1}º  ${s.name.padEnd(22)} ${s.value}/100`).join('\n')}
 
 NOTAS POR CATEGORIA — RANGER RAPTOR
 ${'─'.repeat(60)}
-${CATEGORY_GRADES.map(g => `  ${g.category.padEnd(26)} ${g.grade}  (${g.score}/100) — ${g.rank}º de ${g.total}`).join('\n')}
+${categoryGrades.map(g => `  ${g.category.padEnd(26)} ${g.grade}  (${g.score}/100) — ${g.rank}º de ${g.total}`).join('\n')}
 
 UPGRADES RECOMENDADOS
 ${'─'.repeat(60)}
-${UPGRADE_RECOMMENDATIONS.map((u, i) => `  ${i + 1}. [${u.priority.toUpperCase()}] ${u.title} (${u.impact})\n     ${u.description}`).join('\n\n')}
+${upgradeRecommendations.map((u, i) => `  ${i + 1}. [${u.priority.toUpperCase()}] ${u.title} (${u.impact})\n     ${u.description}`).join('\n\n')}
 
 ${'='.repeat(60)}
-Ford Motor Company - Dados mockados para demonstração
+Ford Motor Company - ${SCORE_DISCLAIMER}
 `
 }
 
@@ -308,26 +125,28 @@ export default function ReportPage({ onBack, onHome }) {
   const [isPrintingReport, setIsPrintingReport] = useState(false)
 
   function exportCSV() {
+    if (status !== 'ok') return
     setExporting('csv')
     const content = buildCSVContent()
     const blob = new Blob([content], { type: 'text/csv;charset=utf-8;' })
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
     a.href = url
-    a.download = 'ford-srv-smart-report-view.csv'
+    a.download = CSV_FILENAME
     a.click()
     URL.revokeObjectURL(url)
     setTimeout(() => setExporting(null), 1200)
   }
 
   function exportTXT() {
+    if (status !== 'ok') return
     setExporting('txt')
     const content = buildTXTContent()
     const blob = new Blob([content], { type: 'text/plain;charset=utf-8;' })
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
     a.href = url
-    a.download = 'ford-srv-smart-report-view.txt'
+    a.download = TXT_FILENAME
     a.click()
     URL.revokeObjectURL(url)
     setTimeout(() => setExporting(null), 1200)
@@ -345,12 +164,13 @@ export default function ReportPage({ onBack, onHome }) {
 
   const isVisualPrintMode = exporting === 'pdf' || isPrintingReport
   const palette = isVisualPrintMode ? PRINT_COMPETITOR_COLORS : SCREEN_COMPETITOR_COLORS
-  const competitorPalette = COMPETITORS.map(c => ({ ...c, color: c.id === 'raptor' ? palette.raptor : palette[c.id] }))
-  const overallScores = OVERALL_SCORES.map(score => ({ ...score, fill: score.name.includes('Ranger') ? palette.raptor : palette[score.name.includes('Amarok') ? 'amarok' : score.name.includes('S10') ? 's10' : score.name.includes('Hilux') ? 'hilux' : 'l200'] }))
-  const cat = FEATURES_COMPARISON[activeCategory]
+  const competitorPalette = competitors.map(c => ({ ...c, color: c.id === 'raptor' ? palette.raptor : palette[c.id] }))
+  const rankedScores = overallScores.map(score => ({ ...score, fill: score.name.includes('Ranger') ? palette.raptor : palette[score.name.includes('Amarok') ? 'amarok' : score.name.includes('S10') ? 's10' : score.name.includes('Hilux') ? 'hilux' : 'l200'] }))
+  const competitorNames = competitors.map(c => c.short)
+  const cat = featuresComparison[activeCategory]
   const projectedScore = Math.min(
     99,
-    91 + UPGRADE_RECOMMENDATIONS.reduce((sum, u) => sum + (parseInt(u.impact, 10) || 0), 0),
+    91 + upgradeRecommendations.reduce((sum, u) => sum + (parseInt(u.impact, 10) || 0), 0),
   )
 
   return (
@@ -394,16 +214,25 @@ export default function ReportPage({ onBack, onHome }) {
       </header>
 
       <div className={styles.scroll}>
+        {status === 'empty' && (
+          <>
+            <h2 className="emptyHeading">{EMPTY_HEADING}</h2>
+            <p className="emptyBody">{EMPTY_BODY}</p>
+          </>
+        )}
+        {status === 'error' && (
+          <p className="emptyBody">{ERROR_MESSAGE}</p>
+        )}
+        {status === 'ok' && (
+        <>
         <section className={styles.heroStrip}>
           <div className={styles.heroLabel}>
             <span className={styles.heroEyebrow}>Análise Competitiva · Segmento Pickup Premium</span>
             <h1 className={styles.heroTitle}>RANGER <span>RAPTOR</span></h1>
-            <p className={styles.heroDesc}>
-              Comparativo de desempenho contra Hilux GR-S, Amarok V6, S10 High Country e L200 Triton
-            </p>
+            <p className={styles.heroDesc}>{competitorSummary}</p>
           </div>
           <div className={styles.heroGrid}>
-            {HIGHLIGHTS.map(h => (
+            {highlights.map(h => (
               <div key={h.label} className={styles.heroCard}>
                 <span className={styles.heroCardIcon}>{h.icon}</span>
                 <span className={styles.heroCardValue}>{h.value}</span>
@@ -431,7 +260,7 @@ export default function ReportPage({ onBack, onHome }) {
               <span className={styles.chartCardSub}>Raptor vs 4 concorrentes diretos</span>
             </div>
             <ResponsiveContainer width="100%" height={300}>
-              <RadarChart data={RADAR_DATA}>
+              <RadarChart data={radarData}>
                 <PolarGrid stroke="rgba(255,255,255,0.06)" />
                 <PolarAngleAxis dataKey="subject" tick={{ fill: '#5a6478', fontSize: 10, fontFamily: 'Inter' }} />
                 <PolarRadiusAxis angle={30} domain={[0, 100]} tick={false} axisLine={false} />
@@ -452,7 +281,7 @@ export default function ReportPage({ onBack, onHome }) {
               <span className={styles.chartCardSub}>Valores absolutos por modelo</span>
             </div>
             <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={ENGINE_DATA} margin={{ top: 10, right: 10, left: -10, bottom: 0 }}>
+              <BarChart data={engineData} margin={{ top: 10, right: 10, left: -10, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" />
                 <XAxis dataKey="spec" tick={{ fill: '#5a6478', fontSize: 9, fontFamily: 'Inter' }} />
                 <YAxis tick={{ fill: '#5a6478', fontSize: 9, fontFamily: 'Inter' }} />
@@ -476,7 +305,7 @@ export default function ReportPage({ onBack, onHome }) {
               <RadialBarChart
                 innerRadius="25%"
                 outerRadius="90%"
-                data={overallScores}
+                data={rankedScores}
                 startAngle={180}
                 endAngle={-180}
               >
@@ -505,7 +334,7 @@ export default function ReportPage({ onBack, onHome }) {
           <div className={styles.featuresSectionHeader}>
             <h2 className={styles.featuresSectionTitle}>Equipamentos vs Concorrentes</h2>
             <div className={styles.featuresTabs}>
-              {FEATURES_COMPARISON.map((c, i) => (
+              {featuresComparison.map((c, i) => (
                 <button
                   key={i}
                   className={`${styles.featuresTab} ${activeCategory === i ? styles.featuresTabActive : ''}`}
@@ -520,7 +349,7 @@ export default function ReportPage({ onBack, onHome }) {
           <div className={styles.featuresTable}>
             <div className={`${styles.featuresTableHead} ${styles.featuresTableHeadWide}`}>
               <div className={styles.featuresCol}>EQUIPAMENTO</div>
-              {COMPETITOR_NAMES.map(v => (
+              {competitorNames.map(v => (
                 <div key={v} className={styles.featuresColVar}>{v}</div>
               ))}
             </div>
@@ -563,7 +392,7 @@ export default function ReportPage({ onBack, onHome }) {
           </div>
 
           <div className={styles.gradesGrid}>
-            {CATEGORY_GRADES.map(g => (
+            {categoryGrades.map(g => (
               <div key={g.category} className={styles.gradeCard}>
                 <div className={styles.gradeCardTop}>
                   <span className={`${styles.gradeLetter} ${gradeClass(g.grade)}`}>{g.grade}</span>
@@ -606,7 +435,7 @@ export default function ReportPage({ onBack, onHome }) {
           </div>
 
           <div className={styles.upgradeList}>
-            {UPGRADE_RECOMMENDATIONS.map((u, i) => (
+            {upgradeRecommendations.map((u, i) => (
               <article key={i} className={styles.upgradeCard}>
                 <div className={styles.upgradeCardHeader}>
                   <span className={`${styles.upgradePriority} ${priorityClass(u.priority)}`}>
@@ -631,10 +460,12 @@ export default function ReportPage({ onBack, onHome }) {
         </section>
 
         <footer className={styles.reportFooter}>
-          <span>Análise comparativa · Dados mockados para demonstração</span>
-          <span>Ranger Raptor vs Hilux GR-S · Amarok V6 · S10 · L200 Triton</span>
+          <span>Análise comparativa · {SCORE_DISCLAIMER}</span>
+          <span>{competitors.map(c => c.name).join(' · ')}</span>
           <span>© {new Date().getFullYear()} Ford Motor Company</span>
         </footer>
+        </>
+        )}
       </div>
     </div>
   )

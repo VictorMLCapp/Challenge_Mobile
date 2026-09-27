@@ -94,7 +94,7 @@ function buildMaterial(cfg) {
   })
 }
 
-export default function FordF150() {
+export default function FordRangerRaptor() {
   const { scene } = useGLTF('/ford_ranger.glb')
   const groupRef = useRef()
 
