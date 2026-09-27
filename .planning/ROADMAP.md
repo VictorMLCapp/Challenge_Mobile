@@ -13,7 +13,7 @@ A banca instala um APK e percorre início, especificações e relatório sem red
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Vitrine coerente no navegador** - Início, especificações e relatório mostram a mesma Ranger, com a identidade que já existe
+- [x] **Phase 1: Vitrine coerente no navegador** - Início, especificações e relatório mostram a mesma Ranger, com a identidade que já existe (completed 2026-09-27)
 - [ ] **Phase 2: Percurso sem rede na largura do celular** - Os três fluxos fecham sem internet numa janela de celular, com modelo, luz e fontes locais
 - [ ] **Phase 3: APK da banca** - A banca instala o APK de debug e repete os três fluxos offline, com o README
 
@@ -33,7 +33,7 @@ Decimal phases appear between their surrounding integers in numeric order.
   4. O cabeçalho não oferece Modelos, Configurar, Dealer nem Solicitar Proposta.
   5. O nome do app, o componente do modelo e os arquivos exportados identificam a Ranger Raptor.
 
-**Plans:** 1/2 plans executed
+**Plans:** 2/2 plans complete
 **UI hint**: yes
 
 Plans:
@@ -43,7 +43,7 @@ Plans:
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
-- [ ] 01-02-PLAN.md — Cores, tipografia e cabeçalho das três telas seguem src/index.css, sem ações sem destino
+- [x] 01-02-PLAN.md — Cores, tipografia e cabeçalho das três telas seguem src/index.css, sem ações sem destino
 
 ### Phase 2: Percurso sem rede na largura do celular
 
@@ -96,6 +96,6 @@ Phases execute in numeric order: 1 → 2 → 3
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Vitrine coerente no navegador | 1/2 | In Progress | - |
+| 1. Vitrine coerente no navegador | 2/2 | Complete   | 2026-09-27 |
 | 2. Percurso sem rede na largura do celular | 0/2 | Not started | - |
 | 3. APK da banca | 0/3 | Not started | - |

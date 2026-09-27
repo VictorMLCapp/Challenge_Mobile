@@ -24,8 +24,8 @@ Requisitos da entrega para a banca. Cada um entra no roadmap.
 
 ### Identidade
 
-- [ ] **VIS-01**: Início, especificações e relatório usam as cores e a tipografia já definidas em `src/index.css`.
-- [ ] **VIS-02**: O cabeçalho não mostra ações sem destino (Modelos, Configurar, Dealer, Solicitar Proposta).
+- [x] **VIS-01**: Início, especificações e relatório usam as cores e a tipografia já definidas em `src/index.css`.
+- [x] **VIS-02**: O cabeçalho não mostra ações sem destino (Modelos, Configurar, Dealer, Solicitar Proposta).
 
 ### Dados
 
@@ -78,8 +78,8 @@ Quais fases cobrem quais requisitos. Preenchido na criação do roadmap.
 | FLOW-02 | Phase 2 | Pending |
 | FLOW-03 | Phase 2 | Pending |
 | OFF-01 | Phase 2 | Pending |
-| VIS-01 | Phase 1 | Pending |
-| VIS-02 | Phase 1 | Pending |
+| VIS-01 | Phase 1 | Complete |
+| VIS-02 | Phase 1 | Complete |
 | DATA-01 | Phase 1 | Complete |
 | DATA-02 | Phase 1 | Complete |
 | CODE-01 | Phase 1 | Complete |
