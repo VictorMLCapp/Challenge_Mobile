@@ -3,7 +3,7 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background: #080a0e;
+  background: var(--bg);
 }
 
 @media (max-width: 700px) {
@@ -59,18 +59,21 @@
 
 .navTitle {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 1rem;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.2;
   letter-spacing: 0.15em;
-  color: #f54b2e;
+  color: var(--text-primary);
 }
 
 .backBtn {
   background: transparent;
   border: 1px solid rgba(255,255,255,0.15);
-  color: #9aa0ad;
+  color: var(--text-secondary);
   font-family: 'Inter', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 8px 18px;
@@ -79,17 +82,18 @@
 }
 
 .backBtn:hover {
-  color: #e8e2d6;
+  color: var(--text-primary);
   border-color: rgba(255,255,255,0.35);
 }
 
 .reportBtn {
-  background: #080a0e;
-  border: 1px solid rgba(245, 75, 46, 0.4);
-  color: #f54b2e;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
   font-family: 'Inter', sans-serif;
-  font-size: 0.75rem;
+  font-size: 12px;
   font-weight: 600;
+  line-height: 1.2;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 8px 18px;
@@ -98,9 +102,9 @@
 }
 
 .reportBtn:hover {
-  background: rgba(245, 75, 46, 0.2);
-  border-color: #f54b2e;
-  color: #f54b2e;
+  background: var(--bg);
+  border-color: var(--border);
+  color: var(--text-primary);
   transform: translateY(-1px);
 }
 
@@ -123,7 +127,7 @@
   font-size: 0.6rem;
   font-weight: 600;
   letter-spacing: 0.3em;
-  color: #f54b2e;
+  color: var(--accent);
   margin-bottom: 12px;
   padding-left: 4px;
 }
@@ -136,7 +140,7 @@
 .camCategory {
   background: transparent;
   border: none;
-  color: #e8e2d6;
+  color: var(--text-primary);
   font-family: 'Inter', sans-serif;
   font-size: 0.8rem;
   font-weight: 600;
@@ -153,12 +157,12 @@
 }
 
 .camCategory:hover {
-  color: #f54b2e;
+  color: var(--accent);
 }
 
 .camCategoryActive {
-  color: #f54b2e;
-  border-left-color: #f54b2e;
+  color: var(--accent);
+  border-left-color: var(--accent);
 }
 
 .chevron {
@@ -194,12 +198,12 @@
 }
 
 .camChild:hover {
-  color: #e8e2d6;
+  color: var(--text-primary);
 }
 
 .camChildActive {
-  color: #f54b2e !important;
-  border-left-color: #f54b2e;
+  color: var(--accent) !important;
+  border-left-color: var(--accent);
 }
 
 @keyframes slideIn {
@@ -251,8 +255,8 @@
 }
 
 .specsTabActive {
-  color: #f54b2e;
-  border-bottom-color: #f54b2e;
+  color: var(--accent);
+  border-bottom-color: var(--accent);
 }
 
 .specsTable {
@@ -278,9 +282,28 @@
 
 .specsRowValue {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 0.95rem;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.2;
   letter-spacing: 0.05em;
-  color: #e8e2d6;
+  color: var(--text-primary);
+}
+
+:global(.emptyHeading) {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.2;
+  font-family: 'Bebas Neue', sans-serif;
+  color: var(--text-primary);
+}
+
+:global(.emptyBody) {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-secondary);
+  margin-top: 8px;
 }
 
 /* ── VIEW LABEL ── */
@@ -356,7 +379,7 @@
 
   .camCategoryActive {
     border-left: none;
-    border-bottom-color: #f54b2e;
+    border-bottom-color: var(--accent);
   }
 
   .camChildren {
@@ -479,14 +502,14 @@
   background: linear-gradient(to left, rgba(8,10,14,0.95) 60%, transparent);
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: rgba(245, 75, 46, 0.3) transparent;
+  scrollbar-color: var(--accent-glow) transparent;
 }
 
 .explorerLabel {
   font-size: 0.6rem;
   font-weight: 600;
   letter-spacing: 0.3em;
-  color: #f54b2e;
+  color: var(--accent);
   margin-bottom: 4px;
 }
 
@@ -524,7 +547,7 @@
 }
 
 .explorerItemActive {
-  border-left-color: #f54b2e;
+  border-left-color: var(--accent);
   border-color: rgba(245, 75, 46, 0.35);
   background: rgba(245, 75, 46, 0.08);
 }
@@ -548,7 +571,7 @@
   font-family: 'Inter', sans-serif;
   font-size: 0.72rem;
   font-weight: 600;
-  color: #e8e2d6;
+  color: var(--text-primary);
   letter-spacing: 0.04em;
   white-space: nowrap;
   overflow: hidden;
@@ -558,7 +581,7 @@
 .explorerScore {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 0.85rem;
-  color: #f54b2e;
+  color: var(--accent);
   letter-spacing: 0.06em;
 }
 
@@ -569,7 +592,7 @@
 }
 
 .explorerItemActive .explorerChevron {
-  color: #f54b2e;
+  color: var(--accent);
 }
 
 .componentDetail {
@@ -602,9 +625,10 @@
 
 .panelTitle {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.05rem;
+  font-size: 20px;
+  font-weight: 400;
   letter-spacing: 0.1em;
-  color: #e8e2d6;
+  color: var(--text-primary);
   margin: 0;
   line-height: 1.2;
   flex: 1;
@@ -645,7 +669,7 @@
   font-family: 'Bebas Neue', sans-serif;
   font-size: 0.85rem;
   letter-spacing: 0.06em;
-  color: #e8e2d6;
+  color: var(--text-primary);
 }
 
 /* ── Competitor comparison ── */
