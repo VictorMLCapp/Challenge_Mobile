@@ -1,7 +1,7 @@
 # Sprint 3 — Cybersecurity (DevSecOps)
 
 **Projeto:** Ford Ranger Raptor — Desafio 01 (Inteligência Competitiva Automotiva) · FIAP × Ford
-**Repositório:** https://github.com/ArturTenca/Challenge_Mobile (branch `feat/sprint3-cybersecurity`)
+**Repositório:** https://github.com/VictorMLCapp/Challenge_Mobile
 **Integrantes:** Victor Mattenhauer Lopes Capp (RM 555753) · Artur Alves Tenca (RM 555171) · Igor Brunelli Ralo (RM 555035) · João Pedro Signor Avelar (RM 558375) · Roger Cardoso Ferreira (RM 557230)
 
 > Todos os trechos de código citados existem no repositório. O item 5 (checklist) separa o que foi **executado e verificado** do que está **configurado e depende de executar no GitHub/Docker**.
