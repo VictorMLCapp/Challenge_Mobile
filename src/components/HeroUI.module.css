@@ -156,6 +156,7 @@
 /* ── ACTIONS ── */
 .actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 14px;
 }
 

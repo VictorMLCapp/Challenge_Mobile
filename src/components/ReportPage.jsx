@@ -24,6 +24,7 @@ import {
 } from '../data/ranger'
 import styles from './ReportPage.module.css'
 import fordLogo from '../assets/Ford-Logo-PNG-Isolated-Image.webp'
+import { toCsv } from '../services/csv'
 
 // ── COMPETITORS ─────────────────────────────────────────────────────────────
 const PRINT_COMPETITOR_COLORS = {
@@ -56,7 +57,7 @@ function buildCSVContent() {
     const vals = competitors.map(c => s.name.includes(c.name.split(' ')[0]) || s.name === c.name ? s.value : '')
     rows.push(['Score', ...vals])
   })
-  return rows.map(r => r.join(',')).join('\n')
+  return toCsv(rows)
 }
 
 function buildTXTContent() {

@@ -5,17 +5,16 @@ import fordLogo from '../assets/Ford-Logo-PNG-Isolated-Image.webp'
 
 export default function LoaderUI() {
   const { active, progress } = useProgress()
-  const [opacity, setOpacity] = useState(1)
   const [mounted, setMounted] = useState(true)
+  // If finished loading (or already loaded from cache)
+  const done = !active && progress === 100
+  const opacity = done ? 0 : 1
 
   useEffect(() => {
-    // If finished loading (or already loaded from cache)
-    if (!active && progress === 100) {
-      setOpacity(0)
-      const t = setTimeout(() => setMounted(false), 500) // wait for CSS transition
-      return () => clearTimeout(t)
-    }
-  }, [active, progress])
+    if (!done) return undefined
+    const t = setTimeout(() => setMounted(false), 500) // wait for CSS transition
+    return () => clearTimeout(t)
+  }, [done])
 
   if (!mounted) return null
 

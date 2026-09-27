@@ -1,9 +1,9 @@
-﻿import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { status, homeFacts, EMPTY_HEADING, EMPTY_BODY, ERROR_MESSAGE } from '../data/ranger'
 import styles from './HeroUI.module.css'
 import fordLogo from '../assets/Ford-Logo-PNG-Isolated-Image.webp'
 
-export default function HeroUI({ onViewSpecs, onViewReport, onHome }) {
+export default function HeroUI({ onViewSpecs, onViewReport, onViewIntel, onHome }) {
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
@@ -55,6 +55,7 @@ export default function HeroUI({ onViewSpecs, onViewReport, onHome }) {
         <div className={styles.actions}>
           <button className={styles.btnPrimary} onClick={onViewSpecs}>Ver Specs</button>
           <button className={styles.btnSecondary} onClick={onViewReport}>Relatório</button>
+          <button className={styles.btnSecondary} onClick={onViewIntel}>Pesquisar concorrência</button>
         </div>
       </div>
 
