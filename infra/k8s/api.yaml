@@ -1,0 +1,115 @@
+# Referência de deploy da API em Kubernetes com boas práticas de segurança.
+# Os segredos vêm de um Secret criado fora do Git:
+#   kubectl -n ford create secret generic ford-specs-api \
+#     --from-literal=jwt_secret=$(openssl rand -base64 48) --from-file=users.json=server/data/users.json
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ford
+  labels:
+    pod-security.kubernetes.io/enforce: restricted
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: ford-specs-api
+  namespace: ford
+automountServiceAccountToken: false
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ford-specs-api
+  namespace: ford
+  labels: { app: ford-specs-api }
+  annotations:
+    # O digest só existe depois do build: o pipeline troca a tag pelo digest (image@sha256:...) no deploy.
+    checkov.io/skip1: CKV_K8S_43=digest injetado pelo pipeline no momento do deploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels: { app: ford-specs-api }
+  template:
+    metadata:
+      labels: { app: ford-specs-api }
+    spec:
+      serviceAccountName: ford-specs-api
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+        fsGroup: 10001
+        seccompProfile: { type: RuntimeDefault }
+      containers:
+        - name: api
+          image: ghcr.io/arturtenca/ford-specs-api:1.0.0
+          imagePullPolicy: Always
+          ports:
+            - { name: http, containerPort: 3000 }
+            - { name: metrics, containerPort: 9464 }
+          env:
+            - { name: NODE_ENV, value: production }
+            - { name: TRUST_PROXY, value: "1" }
+            - { name: USERS_FILE, value: /run/secrets/ford/users.json }
+            - { name: CORS_ORIGINS, value: "https://localhost,capacitor://localhost" }
+            - { name: JWT_SECRET_FILE, value: /run/secrets/ford/jwt_secret }
+          volumeMounts:
+            - { name: secrets, mountPath: /run/secrets/ford, readOnly: true }
+            - { name: tmp, mountPath: /tmp }
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            privileged: false
+            capabilities: { drop: [ALL] }
+          resources:
+            requests: { cpu: 100m, memory: 128Mi }
+            limits: { cpu: 500m, memory: 256Mi }
+          readinessProbe:
+            httpGet: { path: /healthz, port: http }
+            periodSeconds: 10
+          livenessProbe:
+            httpGet: { path: /healthz, port: http }
+            initialDelaySeconds: 10
+            periodSeconds: 20
+      volumes:
+        - name: secrets
+          secret:
+            secretName: ford-specs-api
+            items:
+              - { key: users.json, path: users.json }
+              - { key: jwt_secret, path: jwt_secret }
+            defaultMode: 0440
+        - name: tmp
+          emptyDir: { sizeLimit: 16Mi }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ford-specs-api
+  namespace: ford
+spec:
+  selector: { app: ford-specs-api }
+  ports:
+    - { name: http, port: 80, targetPort: http }
+---
+# Só o ingress controller fala com a porta HTTP; só o Prometheus lê /metrics.
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: ford-specs-api
+  namespace: ford
+spec:
+  podSelector:
+    matchLabels: { app: ford-specs-api }
+  policyTypes: [Ingress, Egress]
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels: { kubernetes.io/metadata.name: ingress-nginx }
+      ports: [{ port: 3000 }]
+    - from:
+        - namespaceSelector:
+            matchLabels: { kubernetes.io/metadata.name: monitoring }
+      ports: [{ port: 9464 }]
+  egress: []

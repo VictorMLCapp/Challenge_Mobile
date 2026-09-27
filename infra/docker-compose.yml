@@ -1,0 +1,100 @@
+# Stack local: API + observabilidade (Prometheus, Loki, Alloy, Grafana).
+# Uso (a partir da pasta infra/):
+#   cp .env.example .env         # defina GRAFANA_ADMIN_PASSWORD
+#   docker compose up -d --build
+# Portas publicadas só em 127.0.0.1; /metrics (9464) e Loki não saem da rede interna.
+name: ford-specs
+
+x-hardening: &hardening
+  read_only: true
+  security_opt: ["no-new-privileges:true"]
+  cap_drop: [ALL]
+  restart: unless-stopped
+
+services:
+  api:
+    <<: *hardening
+    build: ../server
+    image: ford-specs-api:local
+    init: true
+    env_file: ../server/.env
+    environment:
+      NODE_ENV: production
+      LOG_FILE: /var/log/api/api.log
+      USERS_FILE: /run/secrets/users.json
+    secrets: [users.json]
+    volumes:
+      - api-logs:/var/log/api
+    tmpfs: [/tmp]
+    ports: ["127.0.0.1:3000:3000"]
+    networks: [backend]
+    deploy:
+      resources:
+        limits: { cpus: "0.50", memory: 256M }
+
+  prometheus:
+    <<: *hardening
+    image: prom/prometheus:v3.15.0
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.path=/prometheus
+      - --storage.tsdb.retention.time=15d
+    volumes:
+      - ./prometheus:/etc/prometheus:ro
+      - prometheus-data:/prometheus
+    ports: ["127.0.0.1:9090:9090"]
+    networks: [backend]
+
+  loki:
+    <<: *hardening
+    image: grafana/loki:3.7.8
+    command: ["-config.file=/etc/loki/loki.yml"]
+    volumes:
+      - ./loki/loki.yml:/etc/loki/loki.yml:ro
+      - loki-data:/loki
+    networks: [backend]
+
+  alloy:
+    <<: *hardening
+    image: grafana/alloy:v1.20.0
+    command: ["run", "--storage.path=/var/lib/alloy", "/etc/alloy/config.alloy"]
+    volumes:
+      - ./alloy/config.alloy:/etc/alloy/config.alloy:ro
+      - api-logs:/var/log/api:ro
+      - alloy-data:/var/lib/alloy
+    networks: [backend]
+    depends_on: [loki]
+
+  grafana:
+    <<: *hardening
+    image: grafana/grafana:13.2.2
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD:?defina GRAFANA_ADMIN_PASSWORD em infra/.env}
+      GF_USERS_ALLOW_SIGN_UP: "false"
+      GF_AUTH_ANONYMOUS_ENABLED: "false"
+      GF_SECURITY_COOKIE_SECURE: "false" # true quando atrás de HTTPS
+      GF_SECURITY_DISABLE_GRAVATAR: "true"
+      GF_ANALYTICS_REPORTING_ENABLED: "false"
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./grafana/dashboards:/var/lib/grafana/dashboards:ro
+      - grafana-data:/var/lib/grafana
+    tmpfs: [/tmp]
+    ports: ["127.0.0.1:3001:3000"]
+    networks: [backend]
+    depends_on: [prometheus, loki]
+
+secrets:
+  users.json:
+    file: ../server/data/users.json
+
+networks:
+  backend: {}
+
+volumes:
+  api-logs: {}
+  prometheus-data: {}
+  loki-data: {}
+  alloy-data: {}
+  grafana-data: {}

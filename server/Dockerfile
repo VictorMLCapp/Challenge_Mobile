@@ -1,0 +1,35 @@
+# syntax=docker/dockerfile:1.7
+# API de especificações - imagem de produção endurecida.
+#  - base alpine enxuta, fixada por digest (Dependabot atualiza)
+#  - multi-stage: só dependências de produção vão para a imagem final
+#  - sem npm/yarn no runtime (menos pacotes = menos CVEs no Trivy)
+#  - usuário não-root, sistema de arquivos read-only no compose/k8s
+FROM node:22-alpine@sha256:0a7108bf6c7bf5de370ffb1a3ed6be93d405b43ff159f681a8d18c0e2bc2e402 AS deps
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm ci --omit=dev --ignore-scripts --no-audit --no-fund
+
+FROM node:22-alpine@sha256:0a7108bf6c7bf5de370ffb1a3ed6be93d405b43ff159f681a8d18c0e2bc2e402 AS runtime
+LABEL org.opencontainers.image.title="ford-specs-api" \
+      org.opencontainers.image.description="API de inteligência competitiva - Desafio 01 FIAP/Ford" \
+      org.opencontainers.image.source="https://github.com/ArturTenca/Challenge_Mobile"
+ENV NODE_ENV=production \
+    PORT=3000 \
+    METRICS_PORT=9464
+RUN apk upgrade --no-cache \
+ && addgroup -S -g 10001 app && adduser -S -D -H -u 10001 -G app app \
+ && rm -rf /usr/local/lib/node_modules/npm /usr/local/bin/npm /usr/local/bin/npx \
+           /opt/yarn* /usr/local/bin/yarn /usr/local/bin/yarnpkg
+WORKDIR /app
+COPY --from=deps --chown=root:root /app/node_modules ./node_modules
+COPY --chown=root:root package.json ./
+COPY --chown=root:root src ./src
+COPY --chown=root:root data/catalog.json ./data/catalog.json
+# Único diretório gravável: logs (volume lido pelo Alloy).
+RUN mkdir -p /var/log/api && chown app:app /var/log/api
+# Código pertence ao root e é só leitura para o processo; o app roda como uid 10001 (sem shell de login).
+USER 10001:10001
+EXPOSE 3000 9464
+HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
+  CMD ["node", "-e", "fetch('http://127.0.0.1:3000/healthz').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+CMD ["node", "src/index.js"]

@@ -1,0 +1,32 @@
+// Lê os logs JSON da API e envia ao Loki, indexando level e event.
+local.file_match "api" {
+  path_targets = [{"__path__" = "/var/log/api/*.log", "job" = "ford-specs-api"}]
+}
+
+loki.source.file "api" {
+  targets    = local.file_match.api.targets
+  forward_to = [loki.process.api.receiver]
+}
+
+loki.process "api" {
+  forward_to = [loki.write.local.receiver]
+
+  stage.json {
+    expressions = { level = "level", event = "event", timestamp = "timestamp" }
+  }
+
+  stage.timestamp {
+    source = "timestamp"
+    format = "RFC3339"
+  }
+
+  stage.labels {
+    values = { level = "", event = "" }
+  }
+}
+
+loki.write "local" {
+  endpoint {
+    url = "http://loki:3100/loki/api/v1/push"
+  }
+}

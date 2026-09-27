@@ -1,0 +1,73 @@
+# Alertas de segurança e operação (Sprint 3 - Observabilidade).
+groups:
+  - name: seguranca
+    rules:
+      - alert: BruteForceSuspeito
+        expr: sum(increase(auth_login_total{result=~"failure|locked"}[5m])) > 20
+        labels: { severity: critical, area: auth }
+        annotations:
+          summary: Mais de 20 falhas de login em 5 minutos
+          runbook: docs/cybersecurity/RESPOSTA_A_INCIDENTES.md#playbook-1---brute-force
+
+      - alert: RateLimitDisparando
+        expr: sum by (limiter) (increase(rate_limit_hits_total[5m])) > 10
+        labels: { severity: warning, area: api }
+        annotations:
+          summary: "Rate limit '{{ $labels.limiter }}' bloqueou mais de 10 requisições em 5 minutos"
+
+      - alert: TentativaDeEscalacaoDePrivilegio
+        expr: sum(increase(authz_denied_total{reason="forbidden_role"}[10m])) > 10
+        labels: { severity: critical, area: rbac }
+        annotations:
+          summary: Muitas chamadas a rotas administrativas por perfis sem permissão
+          runbook: docs/cybersecurity/RESPOSTA_A_INCIDENTES.md#playbook-2---escalacao-de-privilegio
+
+      - alert: TokensInvalidosEmMassa
+        expr: sum(increase(authz_denied_total{reason="invalid_token"}[10m])) > 30
+        labels: { severity: warning, area: auth }
+        annotations:
+          summary: Muitos JWT inválidos/expirados (token forjado ou segredo trocado)
+
+      - alert: AlteracaoAdministrativa
+        expr: sum by (action) (increase(admin_changes_total[5m])) > 0
+        labels: { severity: info, area: auditoria }
+        annotations:
+          summary: "Alteração administrativa no catálogo: {{ $labels.action }}"
+
+  - name: operacao
+    rules:
+      - alert: ApiFora
+        expr: up{job="ford-specs-api"} == 0
+        for: 1m
+        labels: { severity: critical, area: api }
+        annotations:
+          summary: API de especificações não responde ao Prometheus
+
+      - alert: TaxaDeErro5xxAlta
+        expr: |
+          sum(rate(http_requests_total{status=~"5.."}[5m]))
+            / clamp_min(sum(rate(http_requests_total[5m])), 1e-9) > 0.05
+        for: 5m
+        labels: { severity: critical, area: api }
+        annotations:
+          summary: Mais de 5% das requisições com erro 5xx
+
+      - alert: LatenciaP95Alta
+        expr: histogram_quantile(0.95, sum by (le) (rate(http_request_duration_seconds_bucket[5m]))) > 0.5
+        for: 5m
+        labels: { severity: warning, area: api }
+        annotations:
+          summary: p95 da API acima de 500 ms
+
+      - alert: CpuAlta
+        expr: rate(process_cpu_seconds_total{job="ford-specs-api"}[5m]) > 0.8
+        for: 5m
+        labels: { severity: warning, area: infra }
+        annotations:
+          summary: Processo da API acima de 80% de CPU por 5 minutos
+
+      - alert: FalhaCarregamentoModelo3D
+        expr: sum(increase(mobile_client_events_total{event="MODEL_LOAD_FAILURE"}[15m])) > 5
+        labels: { severity: warning, area: mobile }
+        annotations:
+          summary: Aumento de falhas ao carregar o modelo 3D no app
