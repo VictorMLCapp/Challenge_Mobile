@@ -13,6 +13,7 @@ export default function CarViewer() {
       <Canvas
         camera={{ position: [4, 0.2, 8], fov: 40, near: 0.1, far: 200 }}
         shadows
+        dpr={[1, 1.5]}
         gl={{ antialias: true, alpha: false }}
         style={{ background: 'transparent' }}
       >
@@ -41,7 +42,7 @@ export default function CarViewer() {
         />
 
         {/* Environment */}
-        <Environment preset="city" />
+        <Environment files="/hdri/potsdamer_platz_1k.hdr" />
 
         {/* Car Model */}
         <Suspense fallback={<LoadingFallback />}>

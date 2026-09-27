@@ -183,6 +183,7 @@ export default function SpecsPage({ onBack, onViewReport, onHome }) {
         <Canvas
           camera={{ position: VIEWS['geral_lateral'].pos, fov: 40, near: 0.1, far: 200 }}
           shadows
+          dpr={[1, 1.5]}
           gl={{ antialias: true }}
           style={{ background: 'transparent' }}
         >
@@ -191,7 +192,7 @@ export default function SpecsPage({ onBack, onViewReport, onHome }) {
           <directionalLight position={[10, 15, 8]} intensity={2.5} castShadow shadow-mapSize={[2048, 2048]} />
           <directionalLight position={[-8, 8, -5]} intensity={0.8} color="#4a7aff" />
           <pointLight position={[0, 6, -8]} intensity={1.2} color="#f54b2e" />
-          <Environment preset="city" />
+          <Environment files="/hdri/potsdamer_platz_1k.hdr" />
           <Suspense fallback={null}>
             <FordRangerRaptor />
           </Suspense>

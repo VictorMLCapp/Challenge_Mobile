@@ -1,16 +1,49 @@
-# React + Vite
+# Ford Ranger Raptor
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Vitrine da Ford Ranger Raptor para a banca. O app é uma SPA em React e Vite: início com o modelo 3D, especificações e relatório. O APK de debug empacota esse build e abre o app local, sem apontar para o computador de desenvolvimento.
 
-Currently, two official plugins are available:
+## Pré-requisitos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Node.js 22.13 ou mais novo
+- JDK 21
+- Android SDK com a plataforma 36 e o build-tools 36
+- Um celular Android ou um emulador, com a depuração USB ligada se for instalar por cabo
 
-## React Compiler
+## Rodar no navegador
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+npm run dev
+```
 
-## Expanding the ESLint configuration
+Abra o endereço que o Vite mostrar. As três telas são início, Ver Specs e Relatório.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Gerar o APK
+
+O arquivo entregue é um APK de debug, assinado com a chave de debug da máquina. Não é um pacote da Play Store.
+
+```bash
+npm run android:apk
+```
+
+Esse comando gera o `dist`, copia para o projeto Android e roda `assembleDebug`. O APK fica em:
+
+`android/app/build/outputs/apk/debug/app-debug.apk`
+
+`android/local.properties` precisa apontar o SDK (`sdk.dir`). O Capacitor não usa `server.url`: o WebView abre o app empacotado.
+
+## Instalar
+
+Com o celular ou o emulador visível em `adb devices`:
+
+```bash
+adb install -r android/app/build/outputs/apk/debug/app-debug.apk
+```
+
+No celular, também dá para copiar o APK e abri-lo no gerenciador de arquivos. Se o Android bloquear, permita a instalação dessa fonte.
+
+O botão voltar do Android sai do relatório para as especificações, das especificações para o início, e no início fecha o app.
+
+## O que entra no pacote
+
+O modelo, o mapa de luz e as fontes Inter e Bebas Neue vão dentro do app. Arquivos de oficina que a vitrine não usa ficam em `workshop/unused-public/` e não entram no APK.

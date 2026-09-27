@@ -8,9 +8,20 @@
 
 @media (max-width: 700px) {
   .page {
+    display: flex;
+    flex-direction: column;
     height: auto;
     min-height: 100vh;
     overflow: visible;
+  }
+
+  .canvas {
+    position: relative;
+    inset: auto;
+    flex: 0 0 auto;
+    height: 52vh;
+    min-height: 280px;
+    order: 1;
   }
 }
 
@@ -395,8 +406,11 @@
     font-size: 0.68rem;
   }
 
-  /* Specs panel: 2-column grid */
+  /* Specs panel sits in the scroll, above the explorer */
   .specsPanel {
+    position: relative;
+    bottom: auto;
+    order: 2;
     padding: 0 20px 20px;
   }
 
@@ -772,6 +786,7 @@
     background: rgba(8,10,14,0.95);
     border-top: 1px solid rgba(245, 75, 46, 0.15);
     order: 3;
+    z-index: 1;
   }
 
   .explorerList {
