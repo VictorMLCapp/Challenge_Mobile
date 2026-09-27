@@ -110,14 +110,13 @@ jobs:
           scan-ref: .
           severity: HIGH,CRITICAL
           exit-code: "1"
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with: { python-version: "3.13" }
       - name: Checkov (Dockerfile, Kubernetes, GitHub Actions)
-        uses: bridgecrewio/checkov-action@99bb2caf247dfd9f03cf984373bc6043d4e32ebf # v12.1347.0
-        with:
-          directory: .
-          framework: dockerfile,kubernetes,github_actions
-          skip_path: workshop
-          quiet: true
-          soft_fail: false
+        run: |
+          pip install --quiet checkov==3.3.20
+          checkov -d . --framework dockerfile,kubernetes,github_actions \
+            --skip-path workshop --skip-path node_modules --compact --quiet
 
   container:
     name: Container security (Trivy image)

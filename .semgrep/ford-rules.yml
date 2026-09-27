@@ -9,7 +9,7 @@ rules:
           - pattern: jwt.sign($P, "...", ...)
           - pattern: jwt.verify($T, "...", ...)
     paths:
-      exclude: ["server/test/**"]
+      exclude: ["/server/test/**"]
     metadata: { owasp: "A02:2021 - Cryptographic Failures", cwe: "CWE-798" }
 
   - id: ford-jwt-verify-without-algorithms

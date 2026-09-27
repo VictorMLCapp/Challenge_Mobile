@@ -34,7 +34,9 @@ const schema = z.object({
 // sobre JWT_SECRET em variável de ambiente, que vaza mais fácil (ps, /proc, dumps).
 function withFileSecrets(env) {
   if (!env.JWT_SECRET_FILE) return env
-  return { ...env, JWT_SECRET: readFileSync(env.JWT_SECRET_FILE, 'utf8').trim() }
+  // Triagem Semgrep (node_secret): falso positivo. O valor é lido do arquivo montado em runtime,
+  // não há segredo literal no código.
+  return { ...env, JWT_SECRET: readFileSync(env.JWT_SECRET_FILE, 'utf8').trim() } // nosemgrep
 }
 
 export function loadConfig(env = process.env) {
