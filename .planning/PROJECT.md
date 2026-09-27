@@ -17,13 +17,14 @@ A banca instala o APK e percorre início, especificações e relatório sem erro
 - ✓ A pessoa abre o relatório, compara concorrentes e exporta CSV/TXT ou imprime — existing (`src/components/ReportPage.jsx`)
 - ✓ A pessoa navega entre início, especificações e relatório — existing (`src/App.jsx`)
 - ✓ O app roda no navegador como SPA, sem servidor e sem login — existing
+- ✓ Início, especificações e relatório usam as mesmas cores, tipografia e componentes — Validated in Phase 1: Vitrine coerente no navegador
+- ✓ Potência, torque, concorrentes e demais fatos do veículo vêm de um único JSON empacotado no app — Validated in Phase 1: Vitrine coerente no navegador
+- ✓ O nome do app, o componente do modelo e os arquivos exportados identificam a Ranger Raptor — Validated in Phase 1: Vitrine coerente no navegador
 
 ### Active
 
 - [ ] A banca instala um APK Android e executa os três fluxos num celular ou emulador
-- [ ] Início, especificações e relatório usam as mesmas cores, tipografia e componentes
-- [ ] Potência, torque, concorrentes e demais fatos do veículo vêm de um único JSON empacotado no app
-- [ ] O código está apresentável: nomes alinhados ao produto, dados fora dos componentes de tela, scripts de oficina fora do caminho de execução
+- [ ] Scripts de oficina e assets que o app não usa não entram no pacote do APK
 - [ ] O README explica como rodar, como gerar o APK e mostra as três telas
 
 ### Out of Scope
@@ -40,8 +41,9 @@ O repositório já contém o app `ford-ranger-raptor-app`. Mapa do código em `.
 
 - Stack atual: React 19, Vite 8, `@react-three/fiber`, `@react-three/drei`, Three.js, Recharts. Sem TypeScript, sem testes, sem router.
 - Navegação: um `useState` em `src/App.jsx` com `'home' | 'specs' | 'report'`.
-- O modelo é `public/ford_ranger.glb`, pintado em `src/components/FordRangerRaptor.jsx`. O componente ainda se chama `FordF150`.
-- Os fatos do veículo estão copiados em `src/components/HeroUI.jsx`, `src/components/SpecsPage.jsx` e `src/components/ReportPage.jsx`. A planilha `FIAP-Ford - Data sheet_Desafio_01_v02.xlsx` não é lida pelo app. O rodapé do relatório admite dados mockados.
+- Phase 1 complete — no navegador, início, especificações e relatório mostram uma só Ranger Raptor, com os mesmos fatos e a identidade visual já existente.
+- O modelo é `public/ford_ranger.glb`, pintado em `src/components/FordRangerRaptor.jsx`.
+- Os fatos do veículo vêm de `src/data/ranger.json`, lidos pelas três telas através de `src/data/ranger.js`. A planilha `FIAP-Ford - Data sheet_Desafio_01_v02.xlsx` não é lida pelo app.
 - Cada tela tem o próprio CSS Module. Há scripts de oficina na raiz (`capture_meshes.cjs`, `split_glb.py`, `replace_colors*.ps1`) que não fazem parte do runtime.
 - O README ainda é o template do Vite.
 
@@ -59,8 +61,8 @@ O repositório já contém o app `ford-ranger-raptor-app`. Mapa do código em `.
 |----------|-----------|---------|
 | Embrulhar o app web com Capacitor em vez de reescrever em Expo | O desafio pede APK; a stack 3D atual é WebGL no browser e não passa direto para React Native | — Pending |
 | APK só para sideload da banca, sem Play Store | A entrega pedida é instalar e executar no celular ou emulador | — Pending |
-| Unificar a identidade atual, sem redesenho | Consistência entre telas, não uma cara nova de produto | — Pending |
-| Um JSON empacotado no app como única fonte de dados | Simples, funciona sem internet no dia da apresentação, e tira os números duplicados das telas | — Pending |
+| Unificar a identidade atual, sem redesenho | Consistência entre telas, não uma cara nova de produto | Feito na Fase 1 |
+| Um JSON empacotado no app como única fonte de dados | Simples, funciona sem internet no dia da apresentação, e tira os números duplicados das telas | Feito na Fase 1 — `src/data/ranger.json` |
 | Escopo limitado às três telas já existentes | Início, especificações e relatório são o fluxo do desafio escolhido | — Pending |
 
 ## Evolution
@@ -81,4 +83,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-09-27 after initialization*
+*Last updated: 2026-09-27 after Phase 1*
