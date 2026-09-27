@@ -6,7 +6,9 @@
   "android": {
     "buildOptions": {
       "releaseType": "APK"
-    }
+    },
+    "allowMixedContent": false,
+    "captureInput": true
   },
   "plugins": {
     "SystemBars": {

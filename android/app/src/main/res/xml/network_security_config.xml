@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Release: só HTTPS e só com CAs do sistema (sem CA instalada pelo usuário,
+  o que dificulta interceptação com proxy/MITM). OWASP Mobile M5.
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>

@@ -2,13 +2,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
+        android:fullBackupContent="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:usesCleartextTraffic="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <!-- exported="true" é obrigatório para a Activity de launcher (MAIN/LAUNCHER).
+             Triagem Semgrep exported_activity: aceito; não há outros componentes exportados. -->
         <activity
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode|navigation|density"
             android:name=".MainActivity"
