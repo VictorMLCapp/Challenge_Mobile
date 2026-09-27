@@ -1,0 +1,346 @@
+<!-- GSD:project-start source:PROJECT.md -->
+## Project
+
+**Ford Ranger Raptor — entrega do desafio**
+
+Aplicação de vitrine da Ford Ranger Raptor para a banca do desafio FIAP-Ford. O app que já existe é uma SPA em React + Vite: início com o modelo 3D, especificações e relatório comparativo. Esta entrega embrulha esse app num APK Android (Capacitor) que a banca instala no celular ou no emulador, com as três telas consistentes e os dados do veículo vindos de um único JSON.
+
+**Core Value:** A banca instala o APK e percorre início, especificações e relatório sem erro, vendo os mesmos dados e a mesma identidade visual nas três telas.
+
+### Constraints
+
+- **Tech stack**: Manter React + Vite + react-three-fiber. O APK vem de um wrapper Capacitor em cima do build web. Sem Expo.
+- **Entrega**: APK instalável em dispositivo físico ou emulador, para a banca. Sem loja.
+- **Dados**: Um JSON no app (por exemplo `src/data/ranger.json`). As três telas importam só essa fonte. Offline.
+- **Visual**: Unificar cores, tipografia e componentes já existentes. Sem sistema visual novo.
+- **Compatibilidade**: O 3D precisa continuar funcionando dentro da WebView do APK.
+<!-- GSD:project-end -->
+
+<!-- GSD:stack-start source:codebase/STACK.md -->
+## Technology Stack
+
+## Languages
+- JavaScript (ES modules, JSX) — all application code under `src/`. Entry is `src/main.jsx`. Components are `.jsx`. There is no TypeScript source and no `tsconfig.json`. `"type": "module"` is set in `package.json`.
+- CSS — global styles in `src/index.css` and `src/App.css`; component styles as CSS modules (`src/components/*.module.css`). Vite 8 compiles CSS with Lightning CSS (`lightningcss` is a Vite dependency in `package-lock.json`).
+- HTML — `index.html` (Vite entry shell) and `public/scratch/view.html` (static mesh-screenshot gallery, not part of the app).
+- Python — one-off mesh splitter `split_glb.py`. It imports `trimesh`. There is no `requirements.txt` or `pyproject.toml`; `trimesh` is not a project dependency.
+- PowerShell — one-off color rewrites `replace_colors2.ps1` and `replace_colors3.ps1`. Hardcoded to a Windows path (`C:\Users\artur\Desktop\Challenge_Mobile\src`). Not part of `npm` scripts.
+- CommonJS (`.cjs`) — browser-automation scripts `capture_meshes.cjs` and `get_logs.cjs`. Both `require('puppeteer')`. Puppeteer is not listed in `package.json`.
+## Runtime
+- Browser SPA. `eslint.config.js` sets `globals.browser`. The 3D view needs WebGL (`<Canvas>` from `@react-three/fiber` in `src/components/CarViewer.jsx` and `src/components/SpecsPage.jsx`).
+- Node.js for the dev server, production build, and lint. No `engines` field in `package.json` and no `.nvmrc`. Constraints come from locked tools:
+- No server runtime. The app does not start an API, database client, or SSR process.
+- npm — inferred from `package-lock.json` (`lockfileVersion` 3). No `packageManager` field. No `yarn.lock` or `pnpm-lock.yaml`.
+- Lockfile: `package-lock.json` present. Install with `npm install`. Do not add a second lockfile.
+- npm CLI version is not pinned.
+## Frameworks
+- React 19.2.6 — UI. Mounted with `createRoot` and `<StrictMode>` in `src/main.jsx`. Page state is a single `useState('home' | 'specs' | 'report')` in `src/App.jsx`. No router library.
+- React DOM 19.2.6 — DOM renderer. The root node is `#root` in `index.html`.
+- `@react-three/fiber` 9.6.1 — React renderer for Three.js. Use `<Canvas>`, `useThree`, and `useFrame` (see `src/components/SpecsPage.jsx`).
+- `@react-three/drei` 10.7.7 — Three.js helpers. Used helpers: `OrbitControls`, `Environment`, `ContactShadows`, `Grid`, `useGLTF`, `useProgress`. Peer range in the lockfile: `@react-three/fiber` ^9, `react` ^19, `three` >=0.159.
+- `three` 0.184.0 — WebGL scene graph. Materials are built in `src/components/FordRangerRaptor.jsx` (`MeshPhysicalMaterial`, `MeshStandardMaterial`, `MeshBasicMaterial`).
+- `recharts` 3.8.1 — charts on the report and specs screens (`src/components/ReportPage.jsx`, `src/components/SpecsPage.jsx`).
+- Not detected. `package.json` scripts are `dev`, `build`, `lint`, and `preview` only. No Jest, Vitest, Playwright, Cypress, or Testing Library dependency. No `*.test.*` or `*.spec.*` files.
+- Vite 8.0.12 — dev server (`npm run dev`), production bundle (`npm run build` → `dist/`, gitignored), and preview (`npm run preview`). Config is `vite.config.js` (React plugin only; no aliases, proxy, or `base`). Bundler inside Vite 8 is Rolldown 1.0.0 (`package-lock.json`).
+- `@vitejs/plugin-react` 6.0.1 — JSX transform and Fast Refresh. `README.md` states this plugin uses Oxc, not Babel/SWC, for the app transform. The React Compiler is not enabled (`README.md`).
+- ESLint 10.3.0 — `npm run lint` runs `eslint .`. Flat config in `eslint.config.js`. Extends `@eslint/js` recommended, `eslint-plugin-react-hooks` 7.1.1 (`reactHooks.configs.flat.recommended`), and `eslint-plugin-react-refresh` 0.5.2 (`reactRefresh.configs.vite`). `dist` is ignored. Lint targets `**/*.{js,jsx}`.
+## Key Dependencies
+- `react` 19.2.6 / `react-dom` 19.2.6 — component model and DOM mount. Keep them on the same 19.x line; drei peers require React 19.
+- `three` 0.184.0 — vehicle scene, PBR materials, and camera math. Import as `import * as THREE from 'three'` (see `src/components/FordRangerRaptor.jsx` and `src/components/SpecsPage.jsx`).
+- `@react-three/fiber` 9.6.1 — puts the Three.js scene inside React. New 3D views go through `<Canvas>`, not a raw `WebGLRenderer`.
+- `@react-three/drei` 10.7.7 — GLB loading (`useGLTF('/ford_ranger.glb')` in `src/components/FordRangerRaptor.jsx`) and the `city` environment preset. Preset HDRIs are fetched at runtime (see INTEGRATIONS.md). Transitive libraries such as `three-stdlib`, `zustand`, `@mediapipe/tasks-vision`, and `hls.js` come from drei; do not import them from app code unless a feature needs them.
+- `recharts` 3.8.1 — comparison charts. Specs and competitor series are constants in the component files, not fetched.
+- Vite 8.0.12 + Rolldown 1.0.0 — serve and bundle the SPA. Static files in `public/` are copied to the site root (`/ford_ranger.glb`, `/favicon.png`).
+- `@vitejs/plugin-react` 6.0.1 — JSX and HMR.
+- ESLint 10.3.0 plus `eslint-plugin-react-hooks` and `eslint-plugin-react-refresh` — the only automated quality gate.
+## Configuration
+- No `.env`, `.env.example`, or `.env.local` files. No `import.meta.env` or `process.env` usage under `src/`.
+- No required environment variables. Do not introduce secrets into the client bundle; this app has no backend to hold them.
+- Runtime behavior is code and static assets only.
+- `package.json` — name `ford-ranger-raptor-app`, private, version `0.0.0`, scripts above.
+- `vite.config.js` — `defineConfig({ plugins: [react()] })`. Default Vite port 5173 is what `capture_meshes.cjs` and `get_logs.cjs` open (`http://localhost:5173`).
+- `eslint.config.js` — flat config described above.
+- `index.html` — title `Ford Vision`, favicon `/favicon.png`, module script `/src/main.jsx`.
+- `package-lock.json` — exact versions. Treat the lockfile as the source of truth for versions listed here.
+- `.gitignore` — ignores `node_modules`, `dist`, `dist-ssr`, `*.local`, logs, and editor folders. GLB files under `public/` are present on disk and are not ignored.
+## Platform Requirements
+- Node.js in the range shared by Vite and ESLint (`^20.19.0`, `^22.13.0`, or `>=24`) and npm.
+- A browser with WebGL. The home and specs pages render a full-viewport canvas.
+- `npm install` then `npm run dev`. No Docker, database, or API process.
+- Optional and undeclared: Python with `trimesh` to re-run `split_glb.py`; Puppeteer to re-run `capture_meshes.cjs` / `get_logs.cjs`; PowerShell on Windows to re-run the color scripts. Do not add these to the app runtime.
+- Static hosting of the `vite build` output (`dist/`). No hosting config is in the repo: no `Dockerfile`, `vercel.json`, `netlify.toml`, GitHub Actions workflow, or `base` path in `vite.config.js`.
+- The deployed host must serve `public/` assets at the site root, especially `/ford_ranger.glb` (`useGLTF` and `useGLTF.preload` in `src/components/FordRangerRaptor.jsx`).
+- The browser must be able to reach Google Fonts and the drei HDRI CDN (see INTEGRATIONS.md). There is no offline font or HDRI fallback in the repo.
+- No Node server is required after the build.
+<!-- GSD:stack-end -->
+
+<!-- GSD:conventions-start source:CONVENTIONS.md -->
+## Conventions
+
+## Naming Patterns
+- PascalCase `.jsx` for React components: `src/components/CarViewer.jsx`, `src/components/SpecsPage.jsx`, `src/components/ReportPage.jsx`, `src/components/LoaderUI.jsx`, `src/components/HeroUI.jsx`
+- Match the default-export function name to the filename. `src/components/FordRangerRaptor.jsx` exports `FordF150`; new components must not repeat that mismatch
+- CSS Modules use the same stem plus `.module.css`: `src/components/HeroUI.module.css`, `src/components/SpecsPage.module.css`, `src/components/ReportPage.module.css`, `src/components/LoaderUI.module.css`
+- Global CSS stays unmoduled and lives next to the shell: `src/index.css`, `src/App.css`
+- App entry files stay lowercase: `src/main.jsx`, `src/App.jsx`
+- Tooling config is lowercase: `eslint.config.js`, `vite.config.js`
+- One-off scripts at the repo root use snake_case and are not app modules: `get_logs.cjs`, `capture_meshes.cjs`, `split_glb.py`
+- No `index.js` barrels. Import the component file directly
+- Components are `function` declarations in PascalCase, never arrow components: `export default function SpecsPage`
+- File-private helpers are camelCase `function` declarations: `buildMaterial` in `src/components/FordRangerRaptor.jsx`, `buildCSVContent` / `gradeClass` / `statusLabel` in `src/components/ReportPage.jsx`
+- Named event handlers inside a component use the `handle` prefix: `handleCategory`, `handleView`, `handleComponentSelect` in `src/components/SpecsPage.jsx`
+- Callback props use the `on` prefix: `onHome`, `onBack`, `onViewSpecs`, `onViewReport` in `src/App.jsx`
+- One-line callbacks stay inline arrows: `onClick={() => setPage('specs')}` in `src/App.jsx`
+- No `async` prefix. Async appears only in root CommonJS scripts (`get_logs.cjs`, `capture_meshes.cjs`)
+- camelCase for state, locals, and refs: `activeView`, `isPrintingReport`, `groupRef`
+- UPPER_SNAKE_CASE for module-level data and config objects: `VIEWS`, `SPECS_DATA`, `COMPONENTS` in `src/components/SpecsPage.jsx`; `COMPETITORS`, `RADAR_DATA`, `TOOLTIP_STYLE` in `src/components/ReportPage.jsx`; `MATERIAL_MAP`, `BODY_METAL` in `src/components/FordRangerRaptor.jsx`
+- Small arrays local to one component may stay camelCase: `specs` in `src/components/HeroUI.jsx`
+- CSS Module import is always `styles`
+- Static asset imports are camelCase: `fordLogo` from `src/assets/Ford-Logo-PNG-Isolated-Image.webp`
+- No underscore prefix for “private” bindings. Privacy is “not exported”
+- Page ids are string literals: `'home'`, `'specs'`, `'report'` in `src/App.jsx`
+- Identifiers and comments are English. User-visible copy is Portuguese (`pt-BR`)
+- Not applicable. The app is plain JavaScript. No TypeScript, no PropTypes, no JSDoc types
+- Document a closed string set with a trailing comment when the value is a page id: `useState('home') // 'home' | 'specs' | 'report'` in `src/App.jsx`
+- Shape data as plain objects and arrays. Do not introduce classes or enums
+## Code Style
+- No Prettier config, no `.editorconfig`, no formatter script in `package.json`
+- Match the surrounding file: 2-space indent, single quotes in JavaScript, double quotes in JSX attributes
+- Omit semicolons in `src/**/*.jsx` and in ESM config (`eslint.config.js`, `vite.config.js`)
+- Keep semicolons in root CommonJS scripts (`get_logs.cjs`, `capture_meshes.cjs`). Do not copy that style into `src/`
+- Trailing commas on multiline objects, arrays, and argument lists
+- No enforced line length. Prefer wrapping long JSX props the way `src/components/ReportPage.jsx` wraps chart props
+- Do not add `clsx` or `classnames`. Compose module classes with a template string: `` `${styles.explorerItem} ${active ? styles.explorerItemActive : ''}` ``
+- Active-state classes are a second camelCase class with an `Active` suffix: `styles.camChildActive`, `styles.specsTabActive`, `styles.exportBtnActive`
+- Static layout goes in a CSS Module. Use a `style={{ }}` object only for values that change at runtime (widths, colors, `animationDelay`)
+- `src/components/CarViewer.jsx` styles its shell inline because it has no CSS Module. New UI gets a `.module.css` file instead of copying that shell
+- ESLint 10 flat config in `eslint.config.js`
+- Extends `@eslint/js` recommended, `eslint-plugin-react-hooks` recommended, and `eslint-plugin-react-refresh` (Vite)
+- Applies to `**/*.{js,jsx}`, browser globals, JSX enabled. Ignores `dist`
+- No `eslint-plugin-react`, no TypeScript parser, no import-order plugin, no `no-console` rule
+- Run: `npm run lint` (`eslint .`)
+- Global tokens live on `:root` in `src/index.css`: `--bg`, `--surface`, `--border`, `--accent`, `--text-primary`, `--text-secondary`
+- Module class names are camelCase: `.logoImg`, `.btnPrimary`, `.barFill`, `.donutScore`
+- Section banners in CSS use `/* ── HEADER ── */` (see `src/components/HeroUI.module.css`)
+- Responsive overrides use `max-width: 700px`, then `500px` where a tighter layout exists (`src/components/HeroUI.module.css`, `src/components/ReportPage.module.css`, `src/components/SpecsPage.module.css`)
+- Print rules stay in the report module: `@media print` in `src/components/ReportPage.module.css`
+## Import Organization
+- No blank line between groups. `src/components/SpecsPage.jsx` stacks imports with no separators
+- No alphabetical sort and no enforced order plugin. Keep the order above when adding imports
+- `src/components/SpecsPage.jsx` splits `react` into two import lines. New code uses a single `react` import
+- Three.js is `import * as THREE from 'three'`
+- Local JSX imports omit the extension: `import CarViewer from './components/CarViewer'` in `src/App.jsx`
+- `src/main.jsx` keeps the extension on `./App.jsx`. Leave that entry import as written
+- None. `vite.config.js` only registers `@vitejs/plugin-react`
+- Use relative paths. Do not add `@/` unless the Vite config gains an alias
+## Error Handling
+- No `try/catch`, no custom `Error` subclasses, no React error boundary
+- Fail soft in the UI: return `null` when a view should disappear (`if (!mounted) return null` in `src/components/LoaderUI.jsx`; `LoadingFallback` and `CameraController` return `null`)
+- Guard effects before touching the scene: `if (!scene) return` in `src/components/FordRangerRaptor.jsx`
+- Defaults use `??`, not `||`, when `0` or `''` would be valid: `MATERIAL_MAP[obj.name] ?? DEFAULT_METAL` and `cfg.roughness ?? 0.5` in `buildMaterial`
+- Use `||` only for a numeric parse that should collapse `NaN`: `parseInt(u.impact, 10) || 0` in `src/components/ReportPage.jsx`
+- Suspense around the GLTF model uses `fallback={null}` (`src/components/CarViewer.jsx`, `src/components/SpecsPage.jsx`). Loading UI is `LoaderUI`, driven by `useProgress`, not by the Suspense fallback
+- Export actions in `exportCSV` / `exportTXT` / `exportPDF` do not catch failures. Do not add a logging wrapper around them unless the caller can show UI state
+- Clear timers in the effect cleanup: `return () => clearTimeout(t)` in `src/components/HeroUI.jsx` and `src/components/LoaderUI.jsx`
+- Do not throw for expected UI states (missing view, loading, unmounted overlay)
+- Do not introduce a `Result` type. This codebase returns `null` or keeps the previous screen
+- Root scripts (`get_logs.cjs`, `capture_meshes.cjs`, `split_glb.py`) also have no error handling. Leave them as one-off tools
+## Logging
+- Do not add `console.log` to components. Nothing under `src/` logs
+- Mesh inspection is a `window` hook, not a log: `window.highlightMesh` is assigned inside the `useEffect` in `src/components/FordRangerRaptor.jsx` and called from `capture_meshes.cjs`
+- `get_logs.cjs` prints Puppeteer console lines that include `MESH:`
+- `split_glb.py` uses `print` for asset splitting progress
+- Do not add a logging dependency for UI work
+## Comments
+- Section banners for large data blocks: `// ── COMPETITORS ──` and `// ── EXPORT HELPERS ──` in `src/components/ReportPage.jsx`; `// ── COMPONENT EXPLORER DATA` in `src/components/SpecsPage.jsx`
+- Explain non-obvious 3D setup (scale, origin, material groups) as in the scale notes in `src/components/FordRangerRaptor.jsx`
+- Mark scene regions in JSX with a short comment: `{/* Lighting */}`, `{/* Car Model */}` in `src/components/CarViewer.jsx`
+- Explain a timer’s purpose: the 500ms unmount delay in `src/components/LoaderUI.jsx`
+- Do not comment obvious JSX structure or restate the following line
+- Not used. Do not add `@param` / `@returns` blocks to components or helpers
+- None in the repo. Do not leave `TODO` / `FIXME` markers in new code; change the code or keep the note in planning docs
+## Function Design
+- Page files own their data, helpers, and private subcomponents. `src/components/ReportPage.jsx` and `src/components/SpecsPage.jsx` are the pattern: constants at the top, helpers next, default-exported page last
+- Extract a `function` in the same file when logic is pure or reused (`buildMaterial`, `buildCSVContent`, `gradeClass`, `DonutScore`, `CameraController`)
+- Do not create `src/utils/` or a shared hooks folder for logic used by one page
+- R3F behavior that must run every frame is a child component using `useFrame` (`CameraController` in `src/components/SpecsPage.jsx`), not a custom hook
+- Destructure props in the signature: `function ReportPage({ onBack, onHome })`
+- Private subcomponents take one object: `DonutScore({ score })`, `CameraController({ targetView })`, `ComponentDetailPanel({ data })`
+- Module helpers take one config or no args: `buildMaterial(cfg)`, `buildCSVContent()`
+- Do not add an options-object layer for a single callback
+- Pages return one root element (`div` with a module class such as `styles.page`)
+- Return `null` from R3F controllers and from overlays that have finished (`LoaderUI`, `CameraController`)
+- Return early when toggling selection off: `handleComponentSelect` in `src/components/SpecsPage.jsx` clears `activeComponent` and returns
+- Pure helpers return strings or Three.js materials. They do not touch React state
+- List keys prefer a stable field (`key={c.id}`, `key={s.label}`, `key={item}`). Index keys appear where rows have no id (`key={i}` on feature and upgrade rows in `src/components/ReportPage.jsx`). Prefer an id when the row has one
+## Module Design
+- One default export per component file: the page or viewer
+- Helpers, data constants, and private subcomponents stay unexported
+- `useGLTF.preload('/ford_ranger.glb')` stays at module scope after the component in `src/components/FordRangerRaptor.jsx`
+- Config files default-export the tool config (`vite.config.js`, `eslint.config.js`)
+- State stays in the component that renders it. `src/App.jsx` holds the page string with `useState` and passes callbacks down. No context, no store, no router
+- Not used. Do not add `src/components/index.js`
+- Import each component from its file, as `src/App.jsx` does
+<!-- GSD:conventions-end -->
+
+<!-- GSD:architecture-start source:ARCHITECTURE.md -->
+## Architecture
+
+## System Overview
+```text
+```
+## Component Responsibilities
+| Component | Responsibility | File |
+|-----------|----------------|------|
+| Bootstrap | Mount React into `#root` under `StrictMode` | `src/main.jsx` |
+| Page shell | Exclusive page switch (`home`, `specs`, `report`) | `src/App.jsx` |
+| Home canvas | Orbit camera, lights, grid, shadows, auto-rotate | `src/components/CarViewer.jsx` |
+| Vehicle model | Load GLB, scale/place it, assign PBR materials by mesh name | `src/components/FordRangerRaptor.jsx` |
+| Load overlay | Full-screen progress until drei reports 100% | `src/components/LoaderUI.jsx` |
+| Home chrome | Headline, teaser specs, navigation callbacks | `src/components/HeroUI.jsx` |
+| Specs screen | Second canvas, animated camera, spec tabs, component explorer | `src/components/SpecsPage.jsx` |
+| Camera rig | Lerp camera position and look-at each frame | `CameraController` in `src/components/SpecsPage.jsx` |
+| Score donut | Recharts pie used as a 0–100 score ring | `DonutScore` in `src/components/SpecsPage.jsx` |
+| Report screen | Competitive charts, feature matrix, grades, upgrades, file export | `src/components/ReportPage.jsx` |
+| Global tokens | CSS variables and document reset | `src/index.css` |
+| App frame | Full-viewport shell and mobile overflow override | `src/App.css` |
+## Pattern Overview
+- One mounted screen at a time. `src/App.jsx` renders either the home stack or a full-page replacement. Leaving home unmounts the hero canvas; entering specs mounts a new canvas.
+- All product, competitor, and camera data is static JavaScript constants inside the screen that displays it.
+- The vehicle is a single shared mesh component (`src/components/FordRangerRaptor.jsx`) consumed by both canvases. Scene dressing (lights, grid, environment, contact shadows) is duplicated, not shared.
+- Presentation and content live in the same file. There is no service, repository, or data-access layer.
+- Styling is CSS Modules per screen (`*.module.css`) plus two global stylesheets.
+## Layers
+- Purpose: Attach the React tree to the DOM
+- Location: `index.html`, `src/main.jsx`
+- Contains: HTML shell, `createRoot`, global CSS import
+- Depends on: `react-dom/client`, `src/App.jsx`, `src/index.css`
+- Used by: Vite dev server and production `index.html`
+- Purpose: Choose which screen is visible and pass navigation callbacks
+- Location: `src/App.jsx`, `src/App.css`
+- Contains: `useState('home' | 'specs' | 'report')` and conditional render
+- Depends on: screen components only
+- Used by: `src/main.jsx`
+- Purpose: User-facing layout, copy, and interaction for one route-equivalent view
+- Location: `src/components/HeroUI.jsx`, `src/components/LoaderUI.jsx`, `src/components/SpecsPage.jsx`, `src/components/ReportPage.jsx`
+- Contains: JSX, local UI state, inline catalogs, CSS Module class names
+- Depends on: callbacks from `src/App.jsx`, shared model component, Recharts (specs donut and report charts), drei `useProgress` (loader)
+- Used by: `src/App.jsx`
+- Purpose: WebGL canvas, lighting, camera, and ground
+- Location: `src/components/CarViewer.jsx` (home) and the `<Canvas>` block in `src/components/SpecsPage.jsx` (specs)
+- Contains: `@react-three/fiber` `Canvas`, drei `Environment`, `ContactShadows`, `Grid`, and (home only) `OrbitControls`
+- Depends on: `src/components/FordRangerRaptor.jsx`
+- Used by: home and specs screens. Report does not mount a canvas.
+- Purpose: Turn the GLB into a shaded, grounded vehicle
+- Location: `src/components/FordRangerRaptor.jsx`
+- Contains: `MATERIAL_MAP`, `buildMaterial`, `useGLTF`, scene traversal that replaces mesh materials
+- Depends on: `three`, `@react-three/drei` `useGLTF`, `public/ford_ranger.glb`
+- Used by: `src/components/CarViewer.jsx` and `src/components/SpecsPage.jsx`
+- Purpose: Spec copy, camera bookmarks, competitor scores, feature matrix, upgrade recommendations
+- Location: module-level constants in `src/components/HeroUI.jsx` (`specs`), `src/components/SpecsPage.jsx` (`VIEWS`, `NAV_CATEGORIES`, `SPECS_DATA`, `COMPONENTS`), `src/components/ReportPage.jsx` (`COMPETITORS`, `RADAR_DATA`, `ENGINE_DATA`, `OVERALL_SCORES`, `FEATURES_COMPARISON`, `CATEGORY_GRADES`, `UPGRADE_RECOMMENDATIONS`, `HIGHLIGHTS`)
+- Contains: plain objects and arrays, not fetched data
+- Depends on: nothing
+- Used by: the screen component in the same file
+- Purpose: Split the GLB and screenshot mesh groups against a running dev server
+- Location: `split_glb.py`, `capture_meshes.cjs`, `get_logs.cjs`, `replace_colors2.ps1`, `replace_colors3.ps1`
+- Contains: one-off scripts
+- Depends on: a local Vite server for the Puppeteer scripts; `trimesh` for the Python splitter
+- Used by: manual asset work, not by `src/`
+## Data Flow
+### Primary Request Path
+### Specs camera and component explorer
+### Report and export
+- Navigation state is one `useState` string in `src/App.jsx`. It is not in the URL, `localStorage`, or a context. Refresh always returns to home.
+- Each screen owns its UI state. Specs camera, open category, spec tab, and selected component reset when `SpecsPage` unmounts. Report category and export flags reset the same way.
+- The only shared mutable value outside React is `window.highlightMesh`, assigned inside the model effect (`src/components/FordRangerRaptor.jsx:115-125`). It exists for the Puppeteer capture script (`capture_meshes.cjs`).
+- GLTF cache is the drei/three loader cache triggered by `useGLTF` and `useGLTF.preload('/ford_ranger.glb')`.
+- No server state, no persistence, no authentication session.
+## Key Abstractions
+- Purpose: Which full screen is mounted
+- Examples: `'home'`, `'specs'`, `'report'` in `src/App.jsx`
+- Pattern: String state plus mutually exclusive JSX. Add a page by extending this union and rendering one component. Do not introduce a router unless the shell is changed deliberately.
+- Purpose: One full view, default-exported, styled by a co-located CSS Module
+- Examples: `src/components/HeroUI.jsx`, `src/components/SpecsPage.jsx`, `src/components/ReportPage.jsx`, `src/components/LoaderUI.jsx`
+- Pattern: Props are navigation callbacks (`onHome`, `onBack`, `onViewSpecs`, `onViewReport`). Screens do not import `App`.
+- Purpose: Named camera pose for the specs canvas
+- Examples: `VIEWS` and `NAV_CATEGORIES` in `src/components/SpecsPage.jsx`
+- Pattern: Plain object `{ pos, target, label }` keyed by id. Categories list child ids. `CameraController` is the only consumer of `pos` and `target`.
+- Purpose: A clickable vehicle part with copy, score, competitors, and an optional camera id
+- Examples: `COMPONENTS` in `src/components/SpecsPage.jsx`
+- Pattern: Data object rendered by the explorer list and `ComponentDetailPanel`. Selection is an id in React state, not a mesh pick on the GLB. These records are not wired to `MATERIAL_MAP` mesh names.
+- Purpose: Map a 3ds Max mesh name (`wire_*`) to Three.js material parameters
+- Examples: `MATERIAL_MAP`, `BODY_METAL`, `buildMaterial` in `src/components/FordRangerRaptor.jsx`
+- Pattern: Lookup table plus a small factory (`type: 'physical' | 'standard'`). Unknown mesh names fall through to `DEFAULT_METAL`.
+- Purpose: Mock comparison numbers for charts, tables, grades, and exports
+- Examples: constants at the top of `src/components/ReportPage.jsx`
+- Pattern: Parallel arrays/objects keyed by competitor id (`raptor`, `hilux`, `amarok`, `s10`, `l200`). Export helpers (`buildCSVContent`, `buildTXTContent`) read the same constants. Keep new metrics in those constants so charts and downloads stay aligned.
+- Purpose: The loaded GLB placed in meters on the shared ground plane `y = -1.42`
+- Examples: `<primitive>` in `src/components/FordRangerRaptor.jsx` (`scale` `0.001`, position `[0.068, -1.42, 0.446]`, yaw `Math.PI`)
+- Pattern: One component, two parents. Do not fork a second model component for specs.
+## Entry Points
+- Location: `index.html`
+- Triggers: Browser navigation to the Vite origin
+- Responsibilities: Viewport, title "Ford Vision", favicon, `#root`, module script for `src/main.jsx`
+- Location: `src/main.jsx`
+- Triggers: ES module evaluation
+- Responsibilities: Import global CSS, create the root, render `App` in `StrictMode`
+- Location: `src/App.jsx`
+- Triggers: Render from `src/main.jsx`
+- Responsibilities: Own `page` and mount exactly one screen tree
+- Location: `vite.config.js`
+- Triggers: `npm run dev`, `npm run build`, `npm run preview`
+- Responsibilities: Enable `@vitejs/plugin-react`. No aliases, proxies, or custom public path.
+- Location: `useGLTF.preload('/ford_ranger.glb')` in `src/components/FordRangerRaptor.jsx`
+- Triggers: First import of the module (home canvas, or specs if home was skipped — home always imports it because `CarViewer` is imported by `App`)
+- Responsibilities: Start fetching the GLB before the suspended component commits
+- Location: `split_glb.py`, `capture_meshes.cjs`, `get_logs.cjs`
+- Triggers: Manual execution, not npm scripts
+- Responsibilities: Split `public/ford_ranger.glb` into `public/ford_ranger_split.glb`; drive `window.highlightMesh` against `http://localhost:5173`. They are not part of the user-facing runtime.
+## Architectural Constraints
+- **Threading:** Browser main thread. React state updates and the R3F `useFrame` loop share that thread. No Web Workers. `StrictMode` in `src/main.jsx` double-invokes effects in development, so the material traversal in `src/components/FordRangerRaptor.jsx` runs twice in dev.
+- **Global state:** `window.highlightMesh` is assigned whenever the model effect runs (`src/components/FordRangerRaptor.jsx:115`). It mutates live mesh materials to debug colors and does not restore `MATERIAL_MAP`. No React context, no module-level mutable store besides that window hook and the drei GLTF cache.
+- **Circular imports:** Not detected. The graph is a tree: `src/main.jsx` → `src/App.jsx` → screen components → `src/components/FordRangerRaptor.jsx`. CSS Modules and asset imports are leaves. No `index.js` barrel files.
+- **Single canvas at a time:** Home and specs each construct a `<Canvas>`, but `src/App.jsx` never mounts both. Do not render both screens together without extracting a single shared canvas; two WebGL contexts on this model is not the current design.
+- **Ground and scale contract:** Contact shadows and the grid sit at `y = -1.42` in both `src/components/CarViewer.jsx` and `src/components/SpecsPage.jsx`. The model primitive uses the same Y. Camera bookmarks in `VIEWS` assume that placement. Change scale or ground in all three places together.
+- **Exclusive page unmount:** Switching pages destroys local state and the WebGL context. Specs camera position is not preserved across a trip to the report.
+- **Static public URLs:** The runtime model path is the absolute public URL `/ford_ranger.glb`. `public/ford_ranger_grouped.glb` and `public/ford_ranger_split.glb` are not imported by `src/`.
+## Anti-Patterns
+### Duplicated scene rig
+### Content catalogs inside view files
+### Debug hook left on the live model
+### Default export name disagrees with the file
+## Error Handling
+- GLB loading is wrapped in `<Suspense>`. The home fallback renders `null` (`LoadingFallback` in `src/components/CarViewer.jsx`). The specs fallback is `fallback={null}` (`src/components/SpecsPage.jsx`). The user-visible wait state is `LoaderUI`, which only reacts to drei progress, not to a rejected load.
+- Unknown mesh names use `DEFAULT_METAL` (`src/components/FordRangerRaptor.jsx:110`). They do not throw.
+- Export actions in `src/components/ReportPage.jsx` assume `Blob`, object URLs, and `window.print()` succeed. `exporting` is cleared on a timeout, not on failure.
+- `LoaderUI` treats "not active and progress === 100" as success, including a warm cache (`src/components/LoaderUI.jsx:13`).
+## Cross-Cutting Concerns
+<!-- GSD:architecture-end -->
+
+<!-- GSD:skills-start source:skills/ -->
+## Project Skills
+
+No project skills found. Add skills to any of: `.claude/skills/`, `.agents/skills/`, `.cursor/skills/`, `.github/skills/`, or `.codex/skills/` with a `SKILL.md` index file.
+<!-- GSD:skills-end -->
+
+<!-- GSD:workflow-start source:GSD defaults -->
+## GSD Workflow Enforcement
+
+Before using Edit, Write, or other file-changing tools, start work through a GSD command so planning artifacts and execution context stay in sync.
+
+Use these entry points:
+- `/gsd-quick` for small fixes, doc updates, and ad-hoc tasks
+- `/gsd-debug` for investigation and bug fixing
+- `/gsd-execute-phase` for planned phase work
+
+Do not make direct repo edits outside a GSD workflow unless the user explicitly asks to bypass it.
+<!-- GSD:workflow-end -->
+
+
+
+<!-- GSD:profile-start -->
+## Developer Profile
+
+> Profile not yet configured. Run `/gsd-profile-user` to generate your developer profile.
+> This section is managed by `generate-claude-profile` -- do not edit manually.
+<!-- GSD:profile-end -->
