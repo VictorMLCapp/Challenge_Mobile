@@ -4,7 +4,7 @@
 **Repositório:** https://github.com/VictorMLCapp/Challenge_Mobile
 **Integrantes:** Victor Mattenhauer Lopes Capp (RM 555753) · Artur Alves Tenca (RM 555171) · Igor Brunelli Ralo (RM 555035) · João Pedro Signor Avelar (RM 558375) · Roger Cardoso Ferreira (RM 557230)
 
-> Todos os trechos de código citados existem no repositório. O item 5 (checklist) separa o que foi **executado e verificado** do que está **configurado e depende de executar no GitHub/Docker**.
+> Todos os trechos de código citados existem no repositório. O pipeline DevSecOps rodou no GitHub Actions com **os 9 jobs aprovados**: [execução 36359884511](https://github.com/VictorMLCapp/Challenge_Mobile/actions/runs/36359884511). O item 5 (checklist) separa o que foi executado do que depende de Docker local.
 
 ---
 
@@ -128,6 +128,8 @@ flowchart LR
 | 8 | Mobile | Gradle `assembleDebug` | Gera o APK e confere no manifest mesclado `allowBackup="false"` e `networkSecurityConfig` | APK que perde o hardening por mudança de config |
 | 9 | Deploy | Gate `needs:` | Só roda com todos os gates verdes | Deploy de versão insegura |
 
+**Recursos de segurança ativos no repositório GitHub:** alertas do Dependabot, *Dependabot security updates* (PR automático de correção), **secret scanning com push protection** (o GitHub recusa um push que contenha token conhecido) e *private vulnerability reporting* (canal do `SECURITY.md`).
+
 **Proteção da própria esteira (supply chain do CI):**
 - toda `uses:` é fixada por **SHA de commit** (ex.: `actions/checkout@3d3c42e…  # v7.0.1`), não por tag móvel. Uma tag comprometida não troca o código executado;
 - `permissions: contents: read` no workflow inteiro (menor privilégio do `GITHUB_TOKEN`);
@@ -138,7 +140,10 @@ flowchart LR
 | Ferramenta | Resultado | Arquivo |
 |---|---|---|
 | Semgrep (216 regras, mesmo comando do CI) | **0 achados bloqueantes** após triagem (ver 1.4) | `semgrep.txt` |
-| Checkov | Kubernetes **91 ok / 0 falhas**, Dockerfile **65 / 0**, GitHub Actions **184 / 0** | `checkov.txt` |
+| Checkov | Kubernetes **91 ok / 0 falhas**, Dockerfile **65 / 0**, GitHub Actions **188 / 0** (local e no CI) | `checkov.txt`, `iac-ci.txt` |
+| Gitleaks (CI) | **52 commits varridos, no leaks found** | `gitleaks-ci.txt` |
+| Trivy image (CI) | **0 vulnerabilidades** no SO (alpine 3.24.2) e nos 112 pacotes npm da imagem | `trivy-image-ci.txt` |
+| Build do APK (CI) | `assembleDebug` ok; manifest mesclado com `allowBackup="false"` e `networkSecurityConfig` | job *Build Android* |
 | npm audit — antes (branch `main`) | **11 vulnerabilidades: 5 HIGH**, 5 moderadas, 1 baixa (vite, postcss, nanoid, brace-expansion, browserslist, fflate…) | `npm-audit-antes.txt` |
 | npm audit — depois (app) | 0 HIGH/CRITICAL; restam 3 moderadas em `@capacitor/cli → xcode → uuid` (risco aceito, ver 4.1) | `npm-audit-app.txt` |
 | npm audit — API | **0 vulnerabilidades** | `npm-audit-server.txt` |
@@ -146,7 +151,7 @@ flowchart LR
 
 ### 1.4 Triagem dos achados do Semgrep
 
-Semgrep trouxe 10 achados na primeira execução. Nenhum foi ignorado sem análise:
+Semgrep trouxe 10 achados na primeira execução local e mais 1 na primeira execução do CI. Nenhum foi ignorado sem análise:
 
 | Achado | Local | Decisão |
 |---|---|---|
@@ -155,6 +160,8 @@ Semgrep trouxe 10 achados na primeira execução. Nenhum foi ignorado sem análi
 | `regex_dos` | `server/src/app.js` (X-Request-Id) | **Falso positivo**: classe fixa `{36}`, sem quantificador aninhado. Adicionado também o teste de tamanho antes da regex |
 | `exported_activity` | `AndroidManifest.xml` | **Aceito**: a Activity de launcher (MAIN/LAUNCHER) precisa ser exportada. Não há outros componentes exportados |
 | `helmet_header_*` (info) | app de métricas | **Corrigido**: `helmet()` também no servidor de `/metrics` |
+| `node_secret` (achado **no CI**, 1ª execução) | `server/src/config.js` (leitura do `JWT_SECRET_FILE`) | **Falso positivo**: o valor vem do arquivo montado em runtime. Justificado + `nosemgrep`. A 1ª execução do pipeline **falhou por causa disso**, e o gate funcionou como esperado |
+| `checkov-action` puxando checkov 2.0.930 | workflow | **Corrigido**: trocado pela CLI `checkov==3.3.20` fixada |
 
 ---
 
@@ -484,14 +491,14 @@ Legenda: ✅ implementado **e executado/verificado** · 🟡 implementado/config
 
 | # | Controle | Status | Evidência |
 |---|---|---|---|
-| 1 | Pipeline CI/CD com gates de segurança | 🟡 | `.github/workflows/devsecops.yml` (roda ao fazer push) |
+| 1 | Pipeline CI/CD com gates de segurança | ✅ | [9/9 jobs aprovados](https://github.com/VictorMLCapp/Challenge_Mobile/actions/runs/36359884511); a 1ª execução foi bloqueada pelo Semgrep (gate funcionando) |
 | 2 | SAST — Semgrep | ✅ | `evidencias/semgrep.txt`: 216 regras, 0 bloqueantes |
 | 3 | SCA — npm audit | ✅ | `npm-audit-antes.txt` (5 HIGH) → `npm-audit-app.txt` (0 HIGH) · `npm-audit-server.txt` (0) |
-| 4 | SCA — Dependabot | 🟡 | `.github/dependabot.yml` (ativa no push) |
-| 5 | Secret scanning — Gitleaks | 🟡 | `.gitleaks.toml` + job `secrets` |
-| 6 | Container — Trivy image + SBOM | 🟡 | job `container` |
-| 7 | IaC — Checkov | ✅ | `evidencias/checkov.txt`: 340 checks, 0 falhas |
-| 8 | IaC — Trivy config | 🟡 | job `iac` |
+| 4 | SCA — Dependabot | ✅ | `.github/dependabot.yml`, ativo no repositório (execuções *Dependabot Updates*) |
+| 5 | Secret scanning — Gitleaks | ✅ | `evidencias/gitleaks-ci.txt`: 52 commits, sem vazamento |
+| 6 | Container — Trivy image + SBOM | ✅ | `evidencias/trivy-image-ci.txt`: 0 vulnerabilidades; SBOM como artefato do run |
+| 7 | IaC — Checkov | ✅ | `evidencias/checkov.txt` e `iac-ci.txt`: 344 checks, 0 falhas |
+| 8 | IaC — Trivy config | ✅ | job `iac` aprovado |
 | 9 | Segredos fora do código (`.env.example`, `.gitignore`) | ✅ | `server/.env.example`, `.gitignore`; `git status --ignored` mostra `.env` e `users.json` ignorados |
 | 10 | Criptografia local no mobile | ✅ | `secureStore.js`; storage verificado sem JWT legível |
 | 11 | Validação de entrada | ✅ | `routes/specs.js` + `specs.test.js` |
@@ -499,7 +506,7 @@ Legenda: ✅ implementado **e executado/verificado** · 🟡 implementado/config
 | 13 | JWT seguro | ✅ | `tokens.js` + testes `alg:none`/forjado/expirado/revogado |
 | 14 | RBAC (3 perfis) | ✅ | `rbac.test.js` + teste manual com API rodando |
 | 15 | Headers/CORS/CSP | ✅ | `hardening.test.js`; CSP verificada no navegador |
-| 16 | Hardening Android | 🟡 | Manifest/XML/Gradle prontos; o build do APK roda no job `android` (SDK não instalado na máquina de desenvolvimento) |
+| 16 | Hardening Android | ✅ | Job `android`: APK gerado e manifest conferido; APK disponível como artefato |
 | 17 | MQTT/TLS | ➖ | Sem IoT no escopo (2.4) |
 | 18 | Dockerfile / compose / K8s seguros | ✅ | Checkov 0 falhas |
 | 19 | Logs estruturados | ✅ | `evidencias/exemplo-logs.jsonl` (logs reais) |

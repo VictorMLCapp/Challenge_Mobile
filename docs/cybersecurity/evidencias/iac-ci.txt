@@ -1,0 +1,6 @@
+kubernetes scan results:
+Passed checks: 91, Failed checks: 0, Skipped checks: 1
+dockerfile scan results:
+Passed checks: 65, Failed checks: 0, Skipped checks: 0
+github_actions scan results:
+Passed checks: 188, Failed checks: 0, Skipped checks: 0
