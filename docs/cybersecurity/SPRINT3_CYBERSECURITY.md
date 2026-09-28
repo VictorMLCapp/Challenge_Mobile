@@ -162,6 +162,7 @@ Semgrep trouxe 10 achados na primeira execução local e mais 1 na primeira exec
 | `helmet_header_*` (info) | app de métricas | **Corrigido**: `helmet()` também no servidor de `/metrics` |
 | `node_secret` (achado **no CI**, 1ª execução) | `server/src/config.js` (leitura do `JWT_SECRET_FILE`) | **Falso positivo**: o valor vem do arquivo montado em runtime. Justificado + `nosemgrep`. A 1ª execução do pipeline **falhou por causa disso**, e o gate funcionou como esperado |
 | `checkov-action` puxando checkov 2.0.930 | workflow | **Corrigido**: trocado pela CLI `checkov==3.3.20` fixada |
+| Gitleaks `generic-api-key` (CI) | `evidencias/trivy-image-ci.txt` | **Falso positivo**: era o SHA do commit usado como tag da imagem Docker no relatório do Trivy. O arquivo entrou na allowlist do `.gitleaks.toml`, com justificativa. O push foi bloqueado até a triagem |
 
 ---
 

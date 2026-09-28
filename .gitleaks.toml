@@ -17,4 +17,6 @@ paths = [
   '''package-lock\.json''',
   '''server/package-lock\.json''',
   '''server/data/catalog\.json''',
+  # Relatório do Trivy: o "segredo" apontado é o SHA do commit usado como tag da imagem (ford-specs-api:<sha>).
+  '''docs/cybersecurity/evidencias/trivy-image-ci\.txt''',
 ]
