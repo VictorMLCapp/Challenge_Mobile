@@ -68,6 +68,7 @@
 }
 
 .card {
+  scroll-margin-top: calc(env(safe-area-inset-top, 0px) + 96px);
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 6px;

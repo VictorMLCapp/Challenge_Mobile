@@ -20,6 +20,7 @@ services:
     env_file: ../server/.env
     environment:
       NODE_ENV: production
+      METRICS_HOST: 0.0.0.0
       LOG_FILE: /var/log/api/api.log
       USERS_FILE: /run/secrets/users.json
     secrets: [users.json]

@@ -1,4 +1,5 @@
 import { randomUUID } from 'node:crypto'
+import { fileURLToPath } from 'node:url'
 import express from 'express'
 import helmet from 'helmet'
 import cors from 'cors'
@@ -115,13 +116,18 @@ export function createApp({ config, logger, metrics, users, catalog }) {
   return app
 }
 
-// /metrics fica numa porta separada, que não é publicada para fora da rede interna.
-export function createMetricsApp(metrics) {
+// Porta interna (não publicada): /metrics para o Prometheus e o painel de
+// monitoramento de segurança em /dashboard, que lê as mesmas métricas ao vivo.
+export function createMetricsApp(metrics, logger) {
   const app = express()
   app.use(helmet())
   app.get('/metrics', async (req, res) => {
     res.set('Content-Type', metrics.registry.contentType)
     res.end(await metrics.registry.metrics())
   })
+  app.get('/security-events', (req, res) => {
+    res.json({ eventos: logger?.recentSecurityEvents?.(60) ?? [] })
+  })
+  app.use('/dashboard', express.static(fileURLToPath(new URL('./dashboard', import.meta.url))))
   return app
 }

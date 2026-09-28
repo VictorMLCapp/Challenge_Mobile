@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ford Specs API · Security Monitoring</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <header class="top">
+    <div>
+      <p class="crumb">Ford Ranger Raptor · Observabilidade</p>
+      <h1>Ford Specs API · Security Monitoring</h1>
+    </div>
+    <div class="meta">
+      <span id="status" class="pill">conectando…</span>
+      <span class="muted">janela 5 min · atualiza a cada 3 s</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="tiles" aria-label="Visão geral">
+      <article class="tile"><p class="label">Requisições/min</p><p class="value" id="t-rpm">–</p></article>
+      <article class="tile"><p class="label">Taxa de erro 5xx</p><p class="value" id="t-5xx">–</p></article>
+      <article class="tile"><p class="label">Logins falhos (5 min)</p><p class="value" id="t-fail">–</p></article>
+      <article class="tile"><p class="label">Latência p95</p><p class="value" id="t-p95">–</p></article>
+      <article class="tile"><p class="label">CPU da API</p><p class="value" id="t-cpu">–</p></article>
+      <article class="tile"><p class="label">Memória (RSS)</p><p class="value" id="t-mem">–</p></article>
+    </section>
+
+    <section class="grid">
+      <article class="panel wide">
+        <h2>Alertas (mesmas regras de infra/prometheus/alerts.yml)</h2>
+        <ul id="alerts" class="alerts"></ul>
+      </article>
+      <article class="panel">
+        <h2>Logins por resultado</h2>
+        <div class="chart" id="c-logins"></div>
+      </article>
+      <article class="panel">
+        <h2>Bloqueios: 401/403, rate limit e payload inválido</h2>
+        <div class="chart" id="c-denied"></div>
+      </article>
+      <article class="panel">
+        <h2>Requisições por classe de status</h2>
+        <div class="chart" id="c-status"></div>
+      </article>
+      <article class="panel">
+        <h2>Eventos do app mobile e pesquisas (total desde o início)</h2>
+        <div id="c-mobile" class="bars"></div>
+      </article>
+      <article class="panel wide">
+        <h2>Eventos de segurança (logs estruturados)</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Horário</th><th>Nível</th><th>Evento</th><th>Perfil</th><th>Rota / detalhe</th><th>IP</th><th>Request ID</th></tr></thead>
+            <tbody id="events"></tbody>
+          </table>
+        </div>
+      </article>
+    </section>
+  </main>
+  <div id="tip" class="tip" hidden></div>
+  <script src="dashboard.js"></script>
+</body>
+</html>

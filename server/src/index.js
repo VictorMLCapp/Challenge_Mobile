@@ -20,7 +20,9 @@ const app = createApp({
 const server = app.listen(config.PORT, () => {
   logger.info({ event: 'SERVER_START', port: config.PORT, env: config.NODE_ENV }, 'API no ar')
 })
-const metricsServer = createMetricsApp(metrics).listen(config.METRICS_PORT)
+const metricsServer = createMetricsApp(metrics, logger).listen(config.METRICS_PORT, config.METRICS_HOST, () => {
+  logger.info({ event: 'METRICS_START', host: config.METRICS_HOST, port: config.METRICS_PORT }, `métricas e painel em http://${config.METRICS_HOST}:${config.METRICS_PORT}/dashboard/`)
+})
 
 function shutdown(signal) {
   logger.info({ event: 'SERVER_STOP', signal }, 'encerrando')

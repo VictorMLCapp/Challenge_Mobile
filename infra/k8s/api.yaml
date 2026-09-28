@@ -51,6 +51,7 @@ spec:
           env:
             - { name: NODE_ENV, value: production }
             - { name: TRUST_PROXY, value: "1" }
+            - { name: METRICS_HOST, value: 0.0.0.0 }
             - { name: USERS_FILE, value: /run/secrets/ford/users.json }
             - { name: CORS_ORIGINS, value: "https://localhost,capacitor://localhost" }
             - { name: JWT_SECRET_FILE, value: /run/secrets/ford/jwt_secret }

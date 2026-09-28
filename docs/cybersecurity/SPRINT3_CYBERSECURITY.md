@@ -4,7 +4,7 @@
 **Repositório:** https://github.com/VictorMLCapp/Challenge_Mobile
 **Integrantes:** Victor Mattenhauer Lopes Capp (RM 555753) · Artur Alves Tenca (RM 555171) · Igor Brunelli Ralo (RM 555035) · João Pedro Signor Avelar (RM 558375) · Roger Cardoso Ferreira (RM 557230)
 
-> Todos os trechos de código citados existem no repositório. O pipeline DevSecOps rodou no GitHub Actions com **os 9 jobs aprovados**: [execução 36359884511](https://github.com/VictorMLCapp/Challenge_Mobile/actions/runs/36359884511). O item 5 (checklist) separa o que foi executado do que depende de Docker local.
+> Todos os trechos de código citados existem no repositório. O pipeline DevSecOps rodou no GitHub Actions com **os 9 jobs aprovados**: [execução 36359884511](https://github.com/VictorMLCapp/Challenge_Mobile/actions/runs/36359884511). O item 5 traz o checklist de conformidade com a evidência de cada controle.
 
 ---
 
@@ -342,16 +342,21 @@ A API expõe métricas Prometheus em `:9464/metrics`. As regras ficam em `infra/
 
 **ML:** o projeto não tem modelo de ML em produção. O equivalente monitorado é a qualidade da resposta do Desafio 01: `spec_search_total{found}` e `spec_attributes_missing_total` (taxa de “não disponível”). Uma alta nesses números indica catálogo desatualizado.
 
-### 3.3 Dashboard (Grafana)
+### 3.3 Dashboards
 
-O dashboard **“Ford Specs API - Security Monitoring”** é provisionado automaticamente (`infra/grafana/dashboards/ford-security.json`, 18 painéis):
+A rubrica aceita "Grafana, Kibana, Azure Monitor ou equivalente". O projeto tem os dois:
+
+**a) Painel de segurança embutido na API (usado nos prints):** `http://127.0.0.1:9464/dashboard/`. Roda junto com a API, sem Docker, e lê ao vivo as mesmas métricas Prometheus (`/metrics`) e os eventos de segurança dos logs estruturados. Ele avalia **as mesmas 9 regras** de `infra/prometheus/alerts.yml` numa janela deslizante (equivalente ao `increase()` do PromQL). Fica numa porta **interna**, que por padrão só escuta em `127.0.0.1`. Código em `server/src/dashboard/`.
 
 - **Visão geral:** requisições/min, taxa de erro 5xx, logins falhos (5 min), latência p95, CPU e memória;
-- **Eventos de segurança:** logins por resultado; 401/403, rate limit e payload inválido; requisições por status; alterações administrativas;
-- **Mobile e Desafio 01:** eventos do app; pesquisas e atributos não disponíveis;
-- **Logs (Loki):** stream filtrado de `LOGIN_FAILURE|AUTHZ_DENIED|RATE_LIMITED|AUDIT|…` e erros `level=ERROR`.
+- **Alertas:** estado de cada regra (OK / disparado), com ícone e rótulo de severidade;
+- **Eventos de segurança:** logins por resultado; 401/403, rate limit e payload inválido; requisições por classe de status;
+- **Mobile e Desafio 01:** eventos do app, pesquisas e atributos não disponíveis;
+- **Logs:** tabela dos últimos eventos (`LOGIN_FAILURE`, `AUTHZ_DENIED`, `RATE_LIMITED`, `AUDIT`, …), com IP mascarado e request ID.
 
-Para subir: `cd infra && cp .env.example .env && docker compose up -d --build`. Para gerar tráfego: `npm --prefix server run simulate`. Grafana em `http://127.0.0.1:3001`.
+**b) Grafana (produção):** o dashboard **"Ford Specs API - Security Monitoring"** é provisionado automaticamente (`infra/grafana/dashboards/ford-security.json`, 18 painéis), com Prometheus (métricas e alertas) e Loki/Alloy (logs). Para subir: `cd infra && cp .env.example .env && docker compose up -d --build`.
+
+Para gerar tráfego nos dois: `npm --prefix server run simulate`.
 
 ### 3.4 Plano de resposta a incidentes
 
@@ -487,7 +492,7 @@ Princípios aplicados: **necessidade** (o mínimo para o serviço), **segurança
 
 ## 5. Checklist de conformidade
 
-Legenda: ✅ implementado **e executado/verificado** · 🟡 implementado/configurado, **falta executar** no GitHub ou com Docker · ➖ não aplicável (justificado)
+Legenda: ✅ implementado **e executado/verificado** · ➖ não aplicável (justificado)
 
 | # | Controle | Status | Evidência |
 |---|---|---|---|
@@ -510,8 +515,8 @@ Legenda: ✅ implementado **e executado/verificado** · 🟡 implementado/config
 | 17 | MQTT/TLS | ➖ | Sem IoT no escopo (2.4) |
 | 18 | Dockerfile / compose / K8s seguros | ✅ | Checkov 0 falhas |
 | 19 | Logs estruturados | ✅ | `evidencias/exemplo-logs.jsonl` (logs reais) |
-| 20 | Métricas e alertas | ✅ / 🟡 | `/metrics` verificado com tráfego real; regras de alerta avaliadas ao subir o Prometheus |
-| 21 | Dashboard Grafana | 🟡 | Provisionado em `infra/grafana/`; print depende de `docker compose up` |
+| 20 | Métricas e alertas | ✅ | `/metrics` com tráfego real; as 9 regras avaliadas ao vivo no painel (`RateLimitDisparando` disparou no brute force simulado) |
+| 21 | Dashboard de monitoramento | ✅ | Painel embutido em `:9464/dashboard/` (print na entrega); Grafana provisionado em `infra/grafana/` para produção (requer Docker) |
 | 22 | Plano de resposta a incidentes | ✅ | `RESPOSTA_A_INCIDENTES.md` |
 | 23 | STRIDE + DevSecOps | ✅ | Seção 4.1 |
 | 24 | OWASP ASVS / API / Mobile | ✅ | Seção 4.2 |
@@ -547,4 +552,4 @@ semgrep scan --config p/owasp-top-ten --config p/javascript --config p/nodejssca
 checkov -d . --framework dockerfile,kubernetes,github_actions --skip-path workshop
 ```
 
-**Prints a anexar na entrega:** execução do workflow **DevSecOps** no GitHub Actions (todos os jobs), dashboard do Grafana após `npm run simulate`, página *Alerts* do Prometheus com `BruteForceSuspeito` disparado, tela **Pesquisa de especificações** com a ficha da Raptor (18/18) e aba Security do GitHub (Dependabot).
+Os prints da entrega estão em `docs/cybersecurity/prints/` e foram gerados automaticamente contra o app e a API rodando. O PDF consolidado é `docs/cybersecurity/Sprint3_Cybersecurity_Ford.pdf`.

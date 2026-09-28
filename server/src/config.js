@@ -13,6 +13,8 @@ const schema = z.object({
   NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
   PORT: z.coerce.number().int().min(1).max(65535).default(3000),
   METRICS_PORT: z.coerce.number().int().min(1).max(65535).default(9464),
+  // Só loopback por padrão; em container o compose/k8s define 0.0.0.0 (rede interna).
+  METRICS_HOST: z.string().default('127.0.0.1'),
   JWT_SECRET: z.string().min(32, 'JWT_SECRET precisa de pelo menos 32 caracteres'),
   JWT_ISSUER: z.string().default('ford-specs-api'),
   JWT_AUDIENCE: z.string().default('ford-ranger-app'),
