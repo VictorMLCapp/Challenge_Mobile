@@ -12,9 +12,9 @@
     "android:apk": "npm run android:sync && cd android && ./gradlew assembleDebug"
   },
   "dependencies": {
-    "@capacitor/android": "^8.5.2",
-    "@capacitor/app": "^8.1.1",
-    "@capacitor/core": "^8.5.2",
+    "@capacitor/android": "^8.5.3",
+    "@capacitor/app": "^8.1.2",
+    "@capacitor/core": "^8.5.3",
     "@fontsource/bebas-neue": "^5.3.0",
     "@fontsource/inter": "^5.3.0",
     "@react-three/drei": "^10.7.7",
@@ -25,7 +25,7 @@
     "three": "^0.184.0"
   },
   "devDependencies": {
-    "@capacitor/cli": "^8.5.2",
+    "@capacitor/cli": "^8.5.3",
     "@eslint/js": "^10.0.1",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
